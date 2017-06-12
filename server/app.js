@@ -1,12 +1,12 @@
-import express from 'express';
-import path from 'path';
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
+import * as express from "express";
+import * as path from 'path';
+import * as cookieParser from 'cookie-parser';
+import * as bodyParser from 'body-parser';
 import apiRouter from './api/apiRouter';
-import logger from 'morgan'
+import * as logger from 'morgan'
 import handleRender from './render';
 
-const app = new express();
+const app = express();
 const port = 3000;
 
 if (process.env.NODE_ENV === 'development') {

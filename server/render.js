@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 
-import React from 'react';
+import * as React from 'react';
 import { render } from 'react-dom'
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';

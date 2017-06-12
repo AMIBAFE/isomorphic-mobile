@@ -3,13 +3,14 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import { object } from 'prop-types';
 
-class HomePage extends React.Component<any, any> {
+class Home extends React.Component<any, any> {
     render() {
         return (
             <div id="homepage">
-                it is home page.
+                hi {this.props.user.name}, it is home page.
             </div>
         )
     }
@@ -23,6 +24,8 @@ function mapStateToProps(state: any) {
     }
 }
 
+(Home as any).propTypes = {
+    user: object.isRequired,
+};
 
-
-export default withRouter(connect(mapStateToProps)(HomePage));
+export default withRouter(connect(mapStateToProps)(Home));
