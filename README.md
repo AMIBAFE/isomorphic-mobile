@@ -1,0 +1,1 @@
+该项目针对原先qmjy-mobile项目，做客户端和服务端同构和SSR（server side render）

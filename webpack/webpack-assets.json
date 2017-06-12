@@ -1,0 +1,20 @@
+{
+  "javascript": {
+    "app": "http://localhost:3001/app.619ef43e.js",
+    "commons": "http://localhost:3001/commons.bundle_619ef43e.js"
+  },
+  "styles": {
+    "app": "http://localhost:3001/app_619ef43e.css"
+  },
+  "assets": {
+    "./common/pages/home/index.less": {
+      "_style": "#homepage {\n  background-color: #ddd;\n}\n"
+    },
+    "./common/pages/play/index.less": {
+      "_style": "#playpage {\n  background-color: #0f0;\n  color: #fff;\n}\n"
+    },
+    "./common/pages/test/index.less": {
+      "_style": "#testpage {\n  background-color: #00f;\n  color: #fff;\n}\n"
+    }
+  }
+}

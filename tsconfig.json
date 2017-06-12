@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "noEmitOnError": false,
+        "noLib": false,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "allowJs": true
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "files": [
+        "./client/index.tsx",
+        "./common/pages/home/index.tsx",
+        "./common/pages/test/index.tsx",
+        "./common/components/header/index.tsx",
+        "./common/components/footer/index.tsx"
+    ]
+}
