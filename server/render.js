@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { Promise } from 'thenfail';
 
 import * as React from 'react';
 import { render } from 'react-dom'
@@ -10,11 +11,11 @@ import { Route, Link, Switch } from 'react-router-dom';
 
 import storeApp from '../common/configStore';
 import routesApp from '../common/routes';
-import reducerApp from '../common/reducers/index';
+import { fetchUser } from '../common/actions/common';
 
 function renderFullPage(html, initState) {
     const assets = JSON.parse(fs.readFileSync(path.join(__dirname, '../webpack/webpack-assets.json')));
-    const commonsJs = assets.javascript.commons;
+    const vendorJs = assets.javascript.vendor;
     const appJs = assets.javascript.app;
     const appCss = assets.styles.app;
 
@@ -33,7 +34,7 @@ function renderFullPage(html, initState) {
             <script>
                 window.__INITIAL_STATE__ = ${JSON.stringify(initState)}
             </script>
-            <script src=${commonsJs}></script>
+            <script src=${vendorJs}></script>
             <script src=${appJs}></script>
         </body>
         </html>
@@ -42,23 +43,28 @@ function renderFullPage(html, initState) {
 
 export default function handleRender(req, res) {
     const context = {};
-    const store = storeApp({
-        user: {
-            name: 'yota_init',
-            age: 1
-        }
-    });
-    const html = renderToString(
-        <Provider store={store}>
-            <StaticRouter
-                location={req.originalUrl}
-                context={context}
-            >
-                {routesApp}
-            </StaticRouter>
-        </Provider>
-    );
-    const finalState = store.getState();
+    const store = storeApp({});
 
-    res.end(renderFullPage(html, finalState));
+    Promise
+        .resolve(store.dispatch(fetchUser()))
+        .then(() => {
+            const html = renderToString(
+                <Provider store={store}>
+                    <StaticRouter
+                        location={req.originalUrl}
+                        context={context}
+                    >
+                        {routesApp}
+                    </StaticRouter>
+                </Provider>
+            );
+            const finalState = store.getState();
+
+            res.end(renderFullPage(html, finalState));
+        })
+        .fail(err => {
+            res.end(`500 ${err}`);
+        })
+
+
 }

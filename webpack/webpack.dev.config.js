@@ -13,7 +13,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: path.join(__dirname, '../client/index.html'),
     filename: 'index.html',
     inject: true,
-    chunks: ['commons', 'app'],
+    chunks: ['vendor', 'app'],
     minify: __DEVELOPMENT__ ? false : {
         collapseWhitespace: true,
         collapseInlineTagWhitespace: true,
@@ -31,6 +31,13 @@ console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
 module.exports = {
     context: path.join(__dirname, '..'),
     entry: {
+        vendor: [
+            'react',
+            'react-dom',
+            'react-router-dom',
+            'react-redux',
+            'prop-types'
+        ],
         app: [
             `webpack-dev-server/client?http://localhost:${port}/`,
             './client/index.tsx'
@@ -84,11 +91,9 @@ module.exports = {
         webpack_isomorphic_tools_plugin,
         new ExtractTextPlugin('[name]_[hash:8].css'),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'commons',
-            filename: 'commons.bundle_[hash:8].js',
-            minChunks: 2
-            // name: 'lib',
-            // filename: 'lib.bundle_[hash:8].js'
+            name: 'vendor',
+            filename: 'vendor.bundle_[hash:8].js',
+            minChunks: Infinity
         }),
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.DefinePlugin({
@@ -98,4 +103,7 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.BannerPlugin('This file is created by Yota')
     ],
+    node: {
+        'child_process': 'empty'
+    }
 }

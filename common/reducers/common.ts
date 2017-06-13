@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 import {
+    RECEIVE_USER,
     LOG_IN,
     LOG_OUT
-} from '../actions/index';
+} from '../actions/common';
 
-function user(state = {}, action) {
+function user(state = {}, action: any) {
     switch (action.type) {
+        case RECEIVE_USER:
+            return action.user;
         case LOG_IN:
             return action.user;
         case LOG_OUT:

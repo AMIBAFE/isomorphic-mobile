@@ -1,10 +1,10 @@
 {
   "javascript": {
-    "app": "http://localhost:3001/app.a1e18442.js",
-    "commons": "http://localhost:3001/commons.bundle_a1e18442.js"
+    "app": "http://localhost:3001/app.2a477164.js",
+    "vendor": "http://localhost:3001/vendor.bundle_2a477164.js"
   },
   "styles": {
-    "app": "http://localhost:3001/app_a1e18442.css"
+    "app": "http://localhost:3001/app_2a477164.css"
   },
   "assets": {}
 }
