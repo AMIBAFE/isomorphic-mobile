@@ -10,6 +10,10 @@ import { fetchUser } from '../../actions/common';
 import fetch from '../../../client/fetch';
 
 class Home extends React.Component<any, any> {
+    componentDidMount() {
+        console.log('fuck client');
+    }
+
     render() {
         return (
             <div id="homepage">

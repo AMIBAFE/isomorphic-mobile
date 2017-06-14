@@ -17,7 +17,6 @@ render(
     </Provider>),
     document.getElementById('container'),
     () => {
-        console.log('fuck client');
         delete (window as any).__INITIAL_STATE__;
     }
 );
