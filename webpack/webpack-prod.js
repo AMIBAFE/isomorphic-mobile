@@ -15,7 +15,7 @@ spinner.start();
 
 const prodWebpackConfig = merge(webpackConfig, {
     output: {
-        publicPath: `http://localhost:${port}/assets/dist/`,
+        publicPath: `http://localhost:${port}/`,
     },
     plugins: [
         new webpack.DefinePlugin({
