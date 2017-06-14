@@ -1,6 +1,6 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin');
@@ -14,20 +14,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     filename: 'index.html',
     inject: true,
     chunks: ['vendor', 'app'],
-    minify: __DEVELOPMENT__ ? false : {
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
-        removeRedundantAttributes: true,
-        removeEmptyAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        removeComments: true
-    }
 });
 
-const port = 3001;
-
-console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
 module.exports = {
     context: path.join(__dirname, '..'),
     entry: {
@@ -38,14 +26,10 @@ module.exports = {
             'react-redux',
             'prop-types'
         ],
-        app: [
-            `webpack-dev-server/client?http://localhost:${port}/`,
-            './client/index.tsx'
-        ],
+        app: ['./client/index.tsx']
     },
     output: {
         path: path.join(__dirname, '../assets/dist'),
-        publicPath: `http://localhost:${port}/`,
         filename: '[name].[hash:8].js'
     },
     resolve: {
@@ -58,7 +42,7 @@ module.exports = {
                 exclude: [
                     path.join(__dirname, '../node_modules')
                 ],
-                use: 'ts-loader'
+                loader: 'ts-loader'
             }, {
                 test: /\.less$/,
                 exclude: [
@@ -83,6 +67,7 @@ module.exports = {
                         limit: 10240
                     }
                 }],
+
             }
         ],
     },
@@ -96,10 +81,6 @@ module.exports = {
             minChunks: Infinity
         }),
         new webpack.optimize.UglifyJsPlugin(),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-            // 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
-        }),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.BannerPlugin('This file is created by Yota')
     ],

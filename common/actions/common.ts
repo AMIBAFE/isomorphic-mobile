@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { api } from '../../common/utils';
+import { api, correctApiUrl } from '../../common/utils';
 import apis from '../../common/apisUrl';
 
 export const LOG_IN = 'LOG_IN';
@@ -15,7 +15,7 @@ interface User {
 export function fetchUser() {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(`http://127.0.0.1:3000/api${apis.fetchUser}`)
+            .post(correctApiUrl(apis.fetchUser))
             .then(res => {
                 dispatch(receiveUser(<User>res.data));
             })

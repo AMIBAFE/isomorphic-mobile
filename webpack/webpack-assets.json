@@ -1,10 +1,20 @@
 {
   "javascript": {
-    "app": "http://localhost:3001/app.2a477164.js",
-    "vendor": "http://localhost:3001/vendor.bundle_2a477164.js"
+    "app": "http://localhost:3003/app.35db479a.js",
+    "vendor": "http://localhost:3003/vendor.bundle_35db479a.js"
   },
   "styles": {
-    "app": "http://localhost:3001/app_2a477164.css"
+    "app": "http://localhost:3003/app_35db479a.css"
   },
-  "assets": {}
+  "assets": {
+    "./common/pages/home/index.less": {
+      "_style": "#homepage {\n  background-color: #ddd;\n}\n"
+    },
+    "./common/pages/play/index.less": {
+      "_style": "#playpage {\n  background-color: #0f0;\n  color: #fff;\n}\n"
+    },
+    "./common/pages/test/index.less": {
+      "_style": "#testpage {\n  background-color: #00f;\n  color: #fff;\n}\n"
+    }
+  }
 }

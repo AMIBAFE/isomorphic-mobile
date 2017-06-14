@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
-import HomePage from './pages/home/index';
+import HomePage from './pages/home/async';
 import TestPage from './pages/test/index';
 import PlayPage from './pages/play/index';
 

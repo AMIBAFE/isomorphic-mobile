@@ -21,7 +21,6 @@
         "./common/pages/test/index.tsx",
         "./common/components/header/index.tsx",
         "./common/components/footer/index.tsx",
-        "./common/apisUrl.ts",
         "./common/configStore.ts",
         "./common/routes.tsx",
         "./common/utils.ts",

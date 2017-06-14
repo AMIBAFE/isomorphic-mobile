@@ -2,6 +2,8 @@ import * as fetch from 'isomorphic-fetch';
 import * as qs from 'query-string';
 import { Promise } from 'thenfail';
 
+import env from '../server/env';
+
 interface Dictionary<T> {
     [key: string]: T
 }
@@ -83,5 +85,13 @@ export const api = {
             url,
             data
         })
+    }
+}
+
+export function correctApiUrl(url: string) {
+    if (process.env.NODE_ENV === 'production') {
+        return `http://qmin91.com/apis/mobile${url}`;
+    } else {
+        return `http://localhost:${env.webpack.port}/apis/mobile${url}`;
     }
 }

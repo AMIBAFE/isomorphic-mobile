@@ -1,5 +1,5 @@
-export default function (req, res) {
-    const err = false;//后续通过数据库验证
+export default function(req, res) {
+    const err = false; // 模拟请求失败
 
     if (err) {
         return res.status(500).end('服务器错误');

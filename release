@@ -1,0 +1,3 @@
+#!/bin/bash
+
+node webpack/run-webpack-prod.js

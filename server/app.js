@@ -5,9 +5,10 @@ import * as bodyParser from 'body-parser';
 import apiRouter from './api/apiRouter';
 import * as logger from 'morgan'
 import handleRender from './render';
+import env from './env';
 
 const app = express();
-const port = 3000;
+const port = env.server.port;
 
 if (process.env.NODE_ENV === 'development') {
     app.use(logger('dev'));
@@ -25,7 +26,9 @@ app.all('*', (req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
     next();
 });
-app.use('/api', apiRouter);
+if (process.env.NODE_ENV === 'development') {
+    app.use('/apis/mobile', apiRouter);
+}
 app.use('*', handleRender);
 
 app.listen(port, err => {

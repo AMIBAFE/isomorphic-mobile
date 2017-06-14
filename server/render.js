@@ -8,10 +8,14 @@ import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { RouterContext, match, StaticRouter } from 'react-router';
 import { Route, Link, Switch } from 'react-router-dom';
+import { flushServerSideRequirePaths } from 'react-loadable/lib';
 
 import storeApp from '../common/configStore';
 import routesApp from '../common/routes';
-import { fetchUser } from '../common/actions/common';
+
+const babelInterop = obj => (
+    obj && obj.__esModule ? obj.default : obj
+);
 
 function renderFullPage(html, initState) {
     const assets = JSON.parse(fs.readFileSync(path.join(__dirname, '../webpack/webpack-assets.json')));
@@ -41,30 +45,41 @@ function renderFullPage(html, initState) {
     `;
 }
 
+function renderApp(store, context, req) {
+    return renderToString(
+        <Provider store={store}>
+            <StaticRouter
+                location={req.originalUrl}
+                context={context}
+            >
+                {routesApp}
+            </StaticRouter>
+        </Provider>
+    );
+}
+
 export default function handleRender(req, res) {
     const context = {};
     const store = storeApp({});
 
-    Promise
-        .resolve(store.dispatch(fetchUser()))
-        .then(() => {
-            const html = renderToString(
-                <Provider store={store}>
-                    <StaticRouter
-                        location={req.originalUrl}
-                        context={context}
-                    >
-                        {routesApp}
-                    </StaticRouter>
-                </Provider>
-            );
-            const finalState = store.getState();
+    // First render to get modules paths
+    renderApp(store, context, req);
 
-            res.end(renderFullPage(html, finalState));
-        })
-        .fail(err => {
-            res.end(`500 ${err}`);
-        })
+    const requires = flushServerSideRequirePaths();
+
+    Promise.all(
+        requires
+            .map(file => babelInterop(require(file)))
+            .filter(component => Boolean(component && component.fetch))
+            .map(component => component.fetch(store))
+    ).then(() => {
+        const html = renderApp(store, context, req);
+        const finalState = store.getState();
+
+        res.end(renderFullPage(html, finalState));
+    }).fail(err => {
+        res.end(`500 ${err}`);
+    })
 
 
 }

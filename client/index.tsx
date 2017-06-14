@@ -9,8 +9,8 @@ import routesApp from '../common/routes';
 const initState = (window as any).__INITIAL_STATE__;
 const store = storeApp(initState);
 
-render((
-    <Provider store={store}>
+render(
+    (<Provider store={store}>
         <BrowserRouter>
             <div>
                 <p><Link to="/">home page</Link></p>
@@ -19,5 +19,9 @@ render((
                 {routesApp}
             </div>
         </BrowserRouter>
-    </Provider>
-), document.getElementById('container'));
+    </Provider>),
+    document.getElementById('container'),
+    () => {
+        delete (window as any).__INITIAL_STATE__;
+    }
+);
