@@ -34,7 +34,7 @@ function renderFullPage(html, initState) {
             <link href=${appCss} rel="stylesheet">
         </head>
         <body>
-            <div id="container"><div>${html}</div></div>
+            <div id="container">${html}</div>
             <script>
                 window.__INITIAL_STATE__ = ${JSON.stringify(initState)}
             </script>
