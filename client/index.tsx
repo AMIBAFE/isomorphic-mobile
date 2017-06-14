@@ -12,9 +12,7 @@ const store = storeApp(initState);
 render(
     (<Provider store={store}>
         <BrowserRouter>
-            <div>
-                {routesApp}
-            </div>
+            {routesApp}
         </BrowserRouter>
     </Provider>),
     document.getElementById('container'),
