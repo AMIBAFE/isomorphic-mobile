@@ -13,9 +13,6 @@ render(
     (<Provider store={store}>
         <BrowserRouter>
             <div>
-                <p><Link to="/">home page</Link></p>
-                <p><Link to="/play">play page</Link></p>
-                <p><Link to="/test">test page</Link></p>
                 {routesApp}
             </div>
         </BrowserRouter>
