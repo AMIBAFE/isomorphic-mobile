@@ -49,6 +49,6 @@ function mapStateToProps(state: any) {
     recommends: array.isRequired,
 };
 
-const ConnectedComponent = connect(mapStateToProps)(Home);
+const ConnectedComponent = connect(mapStateToProps)(Home as any);
 
 export default fetch(fetchData)(ConnectedComponent);
