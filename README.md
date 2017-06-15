@@ -16,7 +16,7 @@
 * node/express 提供服务
 * webpack 构建
 * webpack-isomorphic-tools 处理ssr静态资源
-* typescript 使用一些es6的语法和类型判断
+* typescript 使用一些es6的语法和类型判断，由于客户端和服务端都是同一套ui代码（ts或tsx文件），需要用到ts-node来为服务端搭建编译ts或tsx文件环境
 
 ## 线下前端人员运行
 
