@@ -22,4 +22,9 @@ export interface RecommendsResponseBasic {
     totalPages: number;
     pageSize: number;
     recommends: RecommendBasic[];
+    // 以下返回的数据格式是为了兼容之前老的接口
+    page?: number;
+    total?: number;
+    perPage?: number;
+    list?: RecommendBasic[];
 }

@@ -50,13 +50,19 @@ export function logout() {
 export function fetchRecommend({
     currentPage = 1,
     pageSize = 10,
+    isRecommend = true,
 }: {
         currentPage?: number,
         pageSize?: number,
+        isRecommend?: boolean,
     }) {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(correctApiUrl(apis.fetchRecommend), { currentPage, pageSize })
+            .post(correctApiUrl(apis.fetchRecommend), {
+                page: currentPage,
+                pageSize,
+                isRecommend,
+            })
             .then(res => {
                 dispatch(addRecommends(<RecommendsResponseBasic>res.data));
             })

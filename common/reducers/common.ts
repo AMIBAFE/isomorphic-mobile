@@ -36,12 +36,12 @@ function recommends(state: RecommendsResponseBasic = {
     switch (action.type) {
         case ADD_RECOMMEND:
             const res: RecommendsResponseBasic = action.recommendsResponse;
-
+            // 或后面的数据是为了兼容之前老的数据接口
             return Lodash.assign({}, state, {
-                currentPage: res.currentPage,
-                totalPages: res.totalPages,
-                pageSize: res.pageSize,
-                recommends: state.recommends.concat(res.recommends),
+                currentPage: res.currentPage || res.page,
+                totalPages: res.totalPages || res.page,
+                pageSize: res.pageSize || res.perPage,
+                recommends: state.recommends.concat(res.recommends || res.list),
             });
         default:
             return state;
