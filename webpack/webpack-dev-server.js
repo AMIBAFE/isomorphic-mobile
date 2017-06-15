@@ -1,8 +1,8 @@
-import webpack from 'webpack';
-import merge from 'webpack-merge';
-import WebpackDevServer from 'webpack-dev-server'
-import bodyParser from 'body-parser';;
-import webpackConfig from './webpack.config';
+import * as webpack from 'webpack';
+import * as merge from 'webpack-merge';
+import * as WebpackDevServer from 'webpack-dev-server'
+import * as bodyParser from 'body-parser';;
+import * as webpackConfig from './webpack.config';
 import env from '../server/env';
 import apiRouter from '../server/api/apiRouter';
 

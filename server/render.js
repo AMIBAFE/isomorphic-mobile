@@ -27,14 +27,21 @@ function renderFullPage(html, initState) {
         <!DOCTYPE html>
         <html lang="en">
         <head>
-            <meta charset="UTF-8">
-            
-            <title>react-ssr</title>
-            <link rel="icon" href="//o4j806krb.qnssl.com/public/images/cnode_icon_32.png" type="image/x-icon">
+            <meta charset="utf-8">
+            <meta name="applicable-device" content="mobile" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+            />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <meta name="msapplication-tap-highlight" content="no" />
+
+            <meta name="keywords" content="全民教育">
+            <meta name="description" content="全民教育">
+            <title>全民教育网移动端官网</title>
             <link href=${appCss} rel="stylesheet">
         </head>
         <body>
-            <div id="container">${html}</div>
+            <div id="container" class="layout">${html}</div>
             <script>
                 window.__INITIAL_STATE__ = ${JSON.stringify(initState)}
             </script>

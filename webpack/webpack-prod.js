@@ -1,11 +1,11 @@
-import ora from 'ora';
-import chalk from 'chalk';
-import rm from 'rimraf';
+import * as ora from 'ora';
+import * as chalk from 'chalk';
+import * as rm from 'rimraf';
 import * as path from 'path';
 
-import webpack from 'webpack';
-import merge from 'webpack-merge';
-import webpackConfig from './webpack.config';
+import * as webpack from 'webpack';
+import * as merge from 'webpack-merge';
+import * as webpackConfig from './webpack.config';
 import env from '../server/env';
 
 const port = env.server.port;
