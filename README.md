@@ -37,5 +37,13 @@ $ ./release
 $ ./run-prod-server
 ```
 
+## 注意点
+* 需要在npm下载的redux包中的index.d.ts文件的98行补上以下代码
+```javascript
+export interface Dispatch<S> {
+  <R>(asyncAction: (dispatch: Dispatch<S>, getState: () => S) => R): R;
+}
+```
+
 ## TODO
 * 首屏加载速度问题
