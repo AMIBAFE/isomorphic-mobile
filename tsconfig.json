@@ -24,6 +24,8 @@
         "./common/configStore.ts",
         "./common/routes.tsx",
         "./common/utils.ts",
+        "./common/configs/vars.ts",
+        "./common/interfaces/common.ts",
         "./common/actions/common.ts",
         "./common/reducers/common.ts"
     ]

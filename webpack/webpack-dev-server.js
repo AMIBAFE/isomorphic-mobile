@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import merge from 'webpack-merge';
-import WebpackDevServer from 'webpack-dev-server';
+import WebpackDevServer from 'webpack-dev-server'
+import bodyParser from 'body-parser';;
 import webpackConfig from './webpack.config';
 import env from '../server/env';
 import apiRouter from '../server/api/apiRouter';
@@ -33,6 +34,8 @@ const app = new WebpackDevServer(webpack(devWebpackConfig), {
     historyApiFallback: true,
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/apis/mobile', apiRouter);
 
 app.listen(port, err => {

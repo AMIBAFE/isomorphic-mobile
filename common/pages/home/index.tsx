@@ -5,42 +5,50 @@ import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { object } from 'prop-types';
-import { fetchUser } from '../../actions/common';
+import { array } from 'prop-types';
+
+import { RecommendBasic } from '../../interfaces/common';
+import { fetchRecommend } from '../../actions/common';
+
 import fetch from '../../../client/fetch';
+import ProfileCard from '../../components/profile-card';
 
-class Home extends React.Component<any, any> {
-    componentDidMount() {
-        console.log('fuck client');
-    }
+interface PropsBasic {
+    recommends: RecommendBasic[],
+}
 
+class Home extends React.Component<PropsBasic, any> {
     render() {
         return (
-            <div id="homepage">
-                hi {this.props.user.name}, it is home page. hahaha, you got be kidding me?
+            <div id="recommend-list">
+                {this.props.recommends.map((recommend, i) => {
+                    return (
+                        <ProfileCard { ...recommend } key={i} />
+                    )
+                })}
             </div>
         )
     }
 }
 
-// const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
-//     dispatch(fetchUser());
+const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
+    dispatch(fetchRecommend({
+        pageSize: 10,
+    }));
 
 
 function mapStateToProps(state: any) {
-    const { user } = state;
+    const recommendsResponse = state.recommends;
 
     return {
-        user,
+        recommends: recommendsResponse.recommends,
     }
 }
 
 (Home as any).propTypes = {
-    user: object.isRequired,
+    recommends: array.isRequired,
 };
 
-export default connect(mapStateToProps)(Home);
+const ConnectedComponent = connect(mapStateToProps)(Home);
 
-// const ConnectedComponent = connect(mapStateToProps)(Home);
-
-// export default fetch(fetchData)(ConnectedComponent);
+export default fetch(fetchData)(ConnectedComponent);

@@ -4,29 +4,29 @@ export default function (req, res) {
     if (err) {
         return res.status(500).end('服务器错误');
     } else {
-        const postPage = req.body.page || 1;// 请求页码
-        const pageCount = 6;// 每页条数
-        const totalPage = 3;// 分页总数
+        const currentPage = req.body.currentPage || 1;// 请求页码
+        const pageSize = req.body.pageSize || 6;// 每页条数
+        const totalPages = 3;// 分页总数
 
-        if (postPage > totalPage) {
+        if (currentPage > totalPages) {
             return res.status(200).json({
                 meta: {
                     code: 0,
                     msg: ""
                 },
                 data: {
-                    page: totalPage,
-                    total: totalPage * pageCount,
-                    perPage: pageCount,
+                    currentPage,
+                    totalPages,
+                    pageSize,
                 }
             })
         } else {
-            let list = [];
+            let recommends = [];
 
-            for (let i = 1; i <= pageCount; i++) {
-                const id = (postPage - 1) * pageCount + i;
+            for (let i = 1; i <= pageSize; i++) {
+                const id = (currentPage - 1) * pageSize + i;
 
-                list.push({
+                recommends.push({
                     id: id,
                     role: i % 3 === 0 ? 3 : 4,
                     name: 'yota' + id,
@@ -57,10 +57,10 @@ export default function (req, res) {
                     msg: ""
                 },
                 data: {
-                    page: postPage,
-                    total: totalPage * pageCount,
-                    perPage: pageCount,
-                    list: list
+                    currentPage,
+                    totalPages,
+                    pageSize,
+                    recommends
                 }
             })
         }

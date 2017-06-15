@@ -1,3 +1,5 @@
+import '../assets/js/base.js';
+
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';

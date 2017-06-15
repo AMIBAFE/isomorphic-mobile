@@ -36,3 +36,6 @@ $ npm install
 $ ./release 
 $ ./run-prod-server
 ```
+
+## TODO
+* 首屏加载速度问题

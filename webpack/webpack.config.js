@@ -33,7 +33,7 @@ module.exports = {
         filename: '[name].[hash:8].js'
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.less', '.css'],
+        extensions: ['.ts', '.tsx', '.js'],
     },
     module: {
         rules: [
@@ -50,14 +50,18 @@ module.exports = {
                 ],
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: (loader) => {
-                                require('autoprefixer')()
+                    use: [
+                        'css-loader',
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: (loader) => {
+                                    require('autoprefixer')()
+                                }
                             }
-                        }
-                    }, 'less-loader']
+                        },
+                        'less-loader'
+                    ]
                 }),
             }, {
                 test: webpack_isomorphic_tools_plugin.regular_expression('images'),

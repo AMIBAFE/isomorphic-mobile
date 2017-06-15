@@ -36,7 +36,6 @@ function renderFullPage(html, initState) {
         <body>
             <div id="container">${html}</div>
             <script>
-                console.log('fuck server');
                 window.__INITIAL_STATE__ = ${JSON.stringify(initState)}
             </script>
             <script src=${vendorJs}></script>

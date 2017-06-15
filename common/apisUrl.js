@@ -1,3 +1,4 @@
 export default {
-    fetchUser: '/fetch/user'
+    fetchUser: '/fetch/user',
+    fetchRecommend: '/getIndexRoleList',
 }
