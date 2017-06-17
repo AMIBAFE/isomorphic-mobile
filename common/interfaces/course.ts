@@ -1,3 +1,7 @@
+export interface CourseDictionary<T> {
+    [key: number] : T
+}
+
 export interface CourseBasic {
     id: number;
     name: string;
@@ -8,4 +12,10 @@ export interface CourseBasic {
     priceUnitNum: number;
     priceUnit: string;
     cats: string[];
+}
+export interface RecommendsResponseBasic {
+    currentPage: number;
+    totalPages: number;
+    pageSize: number;
+    recommends: CourseBasic[];
 }
