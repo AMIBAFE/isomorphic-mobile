@@ -2,7 +2,6 @@ import { Dispatch } from 'redux';
 
 import { api, correctApiUrl } from '../../common/utils';
 import apis from '../../common/apisUrl';
-import { Role } from '../configs/vars';
 
 import { TeacherBasic, RecommendsResponseBasic } from '../interfaces/teacher';
 import { updateSEO } from '../actions/common';
@@ -19,10 +18,7 @@ export function fetchTeacherDetail({
     }) {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(correctApiUrl(apis.fetchTeacherDetail), {
-                id: Number(tid),
-                role: Role.teacher,
-            })
+            .post(correctApiUrl(apis.fetchTeacherDetail), { id: Number(tid) })
             .then(res => {
                 const teacher: TeacherBasic = res.data;
 
