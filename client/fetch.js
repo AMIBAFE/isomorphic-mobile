@@ -11,7 +11,7 @@ export default function fetch(fn) {
         class FetchOnLoad extends React.Component {
             componentDidMount() {
                 if (!window.__INITIAL_STATE__) {
-                    fn(this.context.store);
+                    fn(this.context.store, this.props.params);
                 }
             }
 

@@ -46,6 +46,7 @@ export interface Dispatch<S> {
 }
 ```
 
+* 开发过程中，如有修改或添加server/api下的文件，请重新执行./debug
 * 由于正式服务器有多个版本的node，切换频繁。为了解决切换过程中，跑该项目的node进程突然死掉，再次跑起来的node版本不合适，故使用了docker来搭建虚拟环境。（可用过docker images查看已搭建好的镜像。本项目用的是wap这个镜像，跑该项目的容器名为run_wap，可通过docker ps查看）。
 
 ## 相关文档

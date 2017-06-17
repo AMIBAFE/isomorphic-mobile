@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import apiRouter from './api/apiRouter';
+import routesUrl from '../common/routesUrl';
 import * as logger from 'morgan'
 import handleRender from './render';
 import env from './env';
@@ -28,7 +29,9 @@ app.all('*', (req, res, next) => {
 if (process.env.NODE_ENV === 'development') {
     app.use('/apis/mobile', apiRouter);
 }
-app.use('*', handleRender);
+
+app.get(routesUrl.teacherHome, handleRender);
+app.get(routesUrl.index, handleRender);
 
 app.listen(port, err => {
     if (err) {
