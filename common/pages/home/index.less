@@ -1,3 +1,57 @@
-#recommend-list {
-    background-color: #ddd;
+@import '../../../assets/css/variable.less'; 
+
+#entrances {
+    margin-top: -80/@REM;
+    padding-top: 80/@REM;
+    background-color: #fff;
+    a {
+        display: inline-block;
+        margin-bottom: 40/@REM;
+        width: 20%;
+        text-align: center;
+        font-size: 24/@REM;
+        color: @MAIN_COLOR;
+        i {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10/@REM;
+            width: 60/@REM;
+            height: 60/@REM;
+            &.icon {
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat; 
+            }
+            &.icon-art {
+                background-image: url("../../../assets/images/icon-art.png");
+            }
+            &.icon-sport {
+                background-image: url("../../../assets/images/icon-sport.png");
+            }
+            &.icon-life {
+                background-image: url("../../../assets/images/icon-life.png");
+            }
+            &.icon-abroad {
+                background-image: url("../../../assets/images/icon-abroad.png");
+            }
+            &.icon-child {
+                background-image: url("../../../assets/images/icon-child.png");
+            }
+            &.icon-middle-school {
+                background-image: url("../../../assets/images/icon-middle-school.png");
+            }
+            &.icon-hight-school {
+                background-image: url("../../../assets/images/icon-hight-school.png");
+            }
+            &.icon-college {
+                background-image: url("../../../assets/images/icon-college.png");
+            }
+            &.icon-language {
+                background-image: url("../../../assets/images/icon-language.png");
+            }
+            &.icon-other {
+                background-image: url("../../../assets/images/icon-other.png");
+            }
+        }
+    }
 }

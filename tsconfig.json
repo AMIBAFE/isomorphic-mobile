@@ -17,16 +17,20 @@
     ],
     "files": [
         "./client/index.tsx",
+        "./common/components/course-card/index.tsx",
+        "./common/components/teacher-card/index.tsx",
+        "./common/components/user-label/index.tsx",
         "./common/pages/home/index.tsx",
-        "./common/pages/test/index.tsx",
-        "./common/components/header/index.tsx",
-        "./common/components/footer/index.tsx",
+        "./common/pages/teacher/index.tsx",
         "./common/configStore.ts",
         "./common/routes.tsx",
         "./common/utils.ts",
         "./common/configs/vars.ts",
         "./common/interfaces/common.ts",
+        "./common/interfaces/teacher.ts",
+        "./common/interfaces/course.ts",
         "./common/actions/common.ts",
+        "./common/reducers/all.ts",
         "./common/reducers/common.ts"
     ]
 }

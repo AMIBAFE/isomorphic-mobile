@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { api, correctApiUrl } from '../../common/utils';
 import apis from '../../common/apisUrl';
 
+export const UPDATE_SEO = 'UPDATE_SEO';
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const RECEIVE_USER = 'RECEIVE_USER';
@@ -47,31 +48,19 @@ export function logout() {
     }
 }
 
-export function fetchRecommend({
-    currentPage = 1,
-    pageSize = 10,
-    isRecommend = true,
+export function updateSEO({
+    title,
+    keywords,
+    desc
 }: {
-        currentPage?: number,
-        pageSize?: number,
-        isRecommend?: boolean,
+        title: string;
+        keywords: string[];
+        desc: string;
     }) {
-    return (dispatch: Dispatch<any>) => {
-        return api
-            .post(correctApiUrl(apis.fetchRecommend), {
-                page: currentPage,
-                pageSize,
-                isRecommend,
-            })
-            .then(res => {
-                dispatch(addRecommends(<RecommendsResponseBasic>res.data));
-            })
+    return {
+        type: UPDATE_SEO,
+        seoInfo: { title, keywords, desc },
     }
 }
 
-function addRecommends(response: RecommendsResponseBasic) {
-    return {
-        type: ADD_RECOMMEND,
-        recommendsResponse: response
-    }
-}
+

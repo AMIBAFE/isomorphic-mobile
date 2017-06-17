@@ -8,22 +8,28 @@ import { Dispatch } from 'redux';
 import { array } from 'prop-types';
 
 import { RecommendBasic } from '../../interfaces/common';
-import { fetchRecommend } from '../../actions/common';
+import { TeacherBasic } from '../../interfaces/teacher';
+import { fetchRecommendTeachers } from '../../actions/teacher';
 
 import fetch from '../../../client/fetch';
-import ProfileCard from '../../components/profile-card';
+import TeacherCard from '../../components/teacher-card';
+import { catEntrances } from '../../configs/vars';
 
-interface PropsBasic {
-    recommends: RecommendBasic[],
+interface CatEntrancesProps {
+    catEntrances: {
+        name: string;
+        className: string;
+        cid: number;
+    }[];
 }
 
-class Home extends React.Component<PropsBasic, any> {
+class CatEntrances extends React.Component<CatEntrancesProps, any> {
     render() {
         return (
-            <div id="recommend-list">
-                {this.props.recommends.map((recommend, i) => {
+            <div id="entrances">
+                {this.props.catEntrances.map((entrance, index) => {
                     return (
-                        <ProfileCard { ...recommend } key={i} />
+                        <Link key={index} to={`/search/${entrance.cid}`}><i className={`icon icon-${entrance.className}`}></i> {entrance.name}</Link>
                     )
                 })}
             </div>
@@ -31,17 +37,43 @@ class Home extends React.Component<PropsBasic, any> {
     }
 }
 
+(CatEntrances as any).propTypes = {
+    catEntrances: array.isRequired,
+}
+
+interface PropsBasic {
+    recommends: TeacherBasic[],
+}
+
+class Home extends React.Component<PropsBasic, any> {
+    render() {
+        return (
+            <div id="app-home">
+                <CatEntrances catEntrances={catEntrances} />
+
+                <div id="recommend-list">
+                    {this.props.recommends.map((recommend, i) => {
+                        return (
+                            <TeacherCard { ...recommend } key={i} />
+                        )
+                    })}
+                </div>
+            </div>
+        )
+    }
+}
+
 const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
-    dispatch(fetchRecommend({
+    dispatch(fetchRecommendTeachers({
         pageSize: 10,
     }));
 
 
 function mapStateToProps(state: any) {
-    const recommendsResponse = state.recommends;
+    const recommends = state.recommendTeachers;
 
     return {
-        recommends: recommendsResponse.recommends,
+        recommends,
     }
 }
 

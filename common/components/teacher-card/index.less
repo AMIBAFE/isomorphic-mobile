@@ -1,0 +1,86 @@
+@import '../../../assets/css/variable.less';
+
+@AVATAR_SIZE : 150/@REM; 
+@CARD_PADDING_SIZE : 30/@REM;
+
+.profile-card {
+    display: block;
+    margin-bottom: @CARD_PADDING_SIZE/2;
+    padding: @CARD_PADDING_SIZE;
+    border-bottom: 1px solid @BORDER_COLOR;
+    .profile {
+        display: block;
+        overflow: hidden;
+    }
+    .label-teaching-age {
+        float: right;
+        padding: 0 10/@REM;
+        margin-top: 25/2/@REM;
+        border: 1px solid @WARN_COLOR;
+        color: @WARN_COLOR;
+        line-height: 35/@REM;
+    }
+    img.avatar {
+        float: left;
+        width: @AVATAR_SIZE;
+        height: @AVATAR_SIZE;
+        border-radius: @AVATAR_SIZE/2;
+        background-color: #eee;
+    }
+    div.detail {
+        margin-left: @AVATAR_SIZE + @CARD_PADDING_SIZE;
+        font-size: 22/@REM;  
+        line-height: @CARD_PADDING_SIZE*2;       
+        strong {
+            display: block;
+            color: #3a3a3a;
+            font-size: 30/@REM;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-family: YH;
+        }
+    }
+    div.intro {
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-height: 35/@REM;
+    }
+    .course-list {
+        margin-top: 20/@REM;
+        font-size: 24/@REM;
+        line-height: 45/@REM;
+        border-top: 1px solid #e0e0e0;
+    }
+    .course {
+        display: block;
+        margin-top: 20/@REM;
+        min-height: 45/@REM;
+        span.type {
+            float: left;
+            padding: 0 10/@REM;
+            background-color: @WARN_COLOR;
+            color: #fff;
+            font-size: 20/@REM;
+            border-radius: 2px;
+        }
+        span.name {
+            display: block;
+            padding: 0 10/@REM;
+            // margin: 0 225/@REM 0 180/@REM;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: left; 
+        }
+        span.price {
+            float: right;
+            strong {
+                color: @WARN_COLOR;    
+            }
+        }
+    }
+}

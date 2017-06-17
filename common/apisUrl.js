@@ -1,4 +1,5 @@
 export default {
     fetchUser: '/fetch/user',
-    fetchRecommend: '/getIndexRoleList',
+    fetchRecommendTeachers: '/getRecommendTeachers',
+    fetchTeacherDetail: '/getTeacherDetail',
 }
