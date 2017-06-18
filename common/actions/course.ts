@@ -11,7 +11,7 @@ export const CHAGNE_COURSE = 'CHANGE_COURSE';
 
 export function fetchCourseDetail({cid, }: {cid: number}) {
     return (dispatch: Dispatch <any>) => {
-        return api
+        return api                  
             .post(correctApiUrl(apis.fetchCourseDetail), {
                 id: Number(cid)
             })
