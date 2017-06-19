@@ -13,6 +13,7 @@ import { fetchRecommendTeachers } from '../../actions/teacher';
 
 import fetch from '../../../client/fetch';
 import TeacherCard from '../../components/teacher-card';
+import NavBar from '../../components/nav-bar';
 import { catEntrances } from '../../configs/vars';
 
 interface CatEntrancesProps {
@@ -49,6 +50,7 @@ class Home extends React.Component<PropsBasic, any> {
     render() {
         return (
             <div id="app-home">
+
                 <CatEntrances catEntrances={catEntrances} />
 
                 <div id="recommend-list">
@@ -58,6 +60,9 @@ class Home extends React.Component<PropsBasic, any> {
                         )
                     })}
                 </div>
+
+                <NavBar/>
+
             </div>
         )
     }
