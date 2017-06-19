@@ -14,7 +14,7 @@ export default class SideBar extends React.Component<any, any>{
                 <div className="side-pic">
                     <i className="side-hi"></i>
                 </div>
-                <span className="side-label">免费找老师</span>
+                <div className="side-label">免费找老师</div>
                 <div className="side-back-top">
                     <i className="icon-arrow"></i>
                 </div>
