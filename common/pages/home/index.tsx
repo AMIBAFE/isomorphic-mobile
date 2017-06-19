@@ -14,6 +14,7 @@ import { fetchRecommendTeachers } from '../../actions/teacher';
 import fetch from '../../../client/fetch';
 import TeacherCard from '../../components/teacher-card';
 import NavBar from '../../components/nav-bar';
+import SideBar from '../../components/side-bar';
 import { catEntrances } from '../../configs/vars';
 
 interface CatEntrancesProps {
@@ -62,7 +63,7 @@ class Home extends React.Component<PropsBasic, any> {
                 </div>
 
                 <NavBar/>
-
+                <SideBar/>
             </div>
         )
     }
