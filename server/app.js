@@ -34,6 +34,8 @@ app.get(routesUrl.teacherHome, handleRender);
 app.get(routesUrl.index, handleRender);
 app.get(routesUrl.courseDetail, handleRender);
 app.get(routesUrl.find, handleRender);
+app.get(routesUrl.cats, handleRender);
+app.get(routesUrl.user, handleRender);
 
 app.listen(port, err => {
     if (err) {

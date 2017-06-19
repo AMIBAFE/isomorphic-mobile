@@ -9,8 +9,8 @@ export default class Find extends React.Component<any, any> {
     }
     render() {
         return (
-           <div id="find">
-            <p>发现页测试 这里会引入搜索条</p>
+           <div id="cats">
+            <p>cats页 科目页</p>
            </div>
         );
     }

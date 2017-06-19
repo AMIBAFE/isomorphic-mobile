@@ -14,7 +14,19 @@ import { fetchRecommendTeachers } from '../../actions/teacher';
 import fetch from '../../../client/fetch';
 import TeacherCard from '../../components/teacher-card';
 import NavBar from '../../components/nav-bar';
+import SideBar from '../../components/side-bar';
 import { catEntrances } from '../../configs/vars';
+
+
+class Banner extends React.Component<any, any> {
+    render() {
+        return (
+            <div id="banner" style={{ backgroundImage: 'url("http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/LRpqY6Lc58f9bb876ec48")' }}>
+            </div>
+        )
+    }
+}
+
 
 interface CatEntrancesProps {
     catEntrances: {
@@ -37,6 +49,7 @@ class CatEntrances extends React.Component<CatEntrancesProps, any> {
         )
     }
 }
+
 (CatEntrances as any).propTypes = {
     catEntrances: array.isRequired,
 }
@@ -58,7 +71,7 @@ class Home extends React.Component<PropsBasic, any> {
     render() {
         return (
             <div id="app-home">
-
+                <Banner />
                 <CatEntrances catEntrances={catEntrances} />
 
                 <div id="recommend-list">
@@ -70,12 +83,11 @@ class Home extends React.Component<PropsBasic, any> {
                 </div>
 
                 <NavBar />
-
+                <SideBar />
             </div>
         )
     }
 }
-
 (Home as any).propTypes = {
     recommends: array.isRequired,
 };
