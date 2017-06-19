@@ -51,15 +51,15 @@ export function logout() {
 export function updateSEO({
     title,
     keywords,
-    desc
+    description
 }: {
         title: string;
         keywords: string[];
-        desc: string;
+        description: string;
     }) {
     return {
         type: UPDATE_SEO,
-        seoInfo: { title, keywords, desc },
+        seoInfo: { title, keywords, description },
     }
 }
 
