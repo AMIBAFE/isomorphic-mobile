@@ -11,16 +11,16 @@ export default function (req, res) {
                 msg: '获取成功'
             },
             data: {
-                name: '课程名称钢琴',
-                intro: '本课程课程介绍',
+                name: '课程名称钢琴' || '',
+                intro: '本课程课程介绍' || '',
                 fitAgeTag: [
                     {
-                        id:1,
-                        label: '适学对象标签'
+                        id: 1,
+                        label: '适学对象标签' || ''
                     },
                     {
-                        id:1,
-                        label: '学习目标标签'
+                        id: 1,
+                        label: '学习目标标签' || ''
                     }
                 ]
             }

@@ -12,7 +12,7 @@ export const ADD_TEACHER = 'ADD_TEACHER';
 export const CHANGE_TEACHER = 'CHANGE_TEACHER';
 export const ADD_RECOMMEND_TEACHER = 'ADD_RECOMMEND_TEACHER';
 
-export function fetchTeacherDetail({tid,}: {tid: number,}) {
+export function fetchTeacherDetail({ tid, }: { tid: number, }) {
     return (dispatch: Dispatch<any>) => {
         return api
             .post(correctApiUrl(apis.fetchTeacherDetail), {
@@ -27,7 +27,7 @@ export function fetchTeacherDetail({tid,}: {tid: number,}) {
                 dispatch(updateSEO({
                     title: teacher.name,
                     keywords: [teacher.name],
-                    desc: teacher.intro
+                    description: teacher.intro
                 }));
             })
     }

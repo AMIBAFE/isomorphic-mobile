@@ -9,15 +9,20 @@ import { updateSEO } from '../actions/common';
 
 export const CHAGNE_COURSE = 'CHANGE_COURSE';
 
-export function fetchCourseDetail({cid, }: {cid: number}) {
-    return (dispatch: Dispatch <any>) => {
-        return api                  
+export function fetchCourseDetail({ cid }: { cid: number }) {
+    return (dispatch: Dispatch<any>) => {
+        return api
             .post(correctApiUrl(apis.fetchCourseDetail), {
                 id: Number(cid)
             })
             .then(res => {
                 const course: CourseBasic = res.data;
                 dispatch(changeCourse(course));
+                dispatch(updateSEO({
+                    title: course.name,
+                    keywords: [course.name].concat(course.cats.reverse().filter(cat => !!cat)),
+                    description: course.intro,
+                }));
             })
     }
 }

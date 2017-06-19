@@ -1,5 +1,5 @@
 export interface CourseDictionary<T> {
-    [key: number] : T
+    [key: number]: T
 }
 
 export interface CourseBasic {
@@ -12,6 +12,7 @@ export interface CourseBasic {
     priceUnitNum: number;
     priceUnit: string;
     cats: string[];
+    intro?: string;
 }
 export interface RecommendsResponseBasic {
     currentPage: number;
