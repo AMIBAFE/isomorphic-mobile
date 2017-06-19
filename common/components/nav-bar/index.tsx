@@ -14,10 +14,10 @@ export default class NavBar extends React.Component<any, any> {
             <div id="nav-bar" className="nav-bar">
                 <div className="nav-item">
                     <Link to="/">
-                    <i className="nav-icon icon-main">
-                    </i>
-                    <span className="nav-label">
-                        主页
+                        <i className="nav-icon icon-main">
+                        </i>
+                        <span className="nav-label">
+                            主页
                     </span>
                     </Link>
                 </div>

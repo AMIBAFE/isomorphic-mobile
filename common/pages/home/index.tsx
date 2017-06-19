@@ -62,7 +62,7 @@ class Home extends React.Component<PropsBasic, any> {
     render() {
         return (
             <div id="app-home">
-                <Banner/>
+                <Banner />
                 <CatEntrances catEntrances={catEntrances} />
 
                 <div id="recommend-list">
@@ -73,8 +73,8 @@ class Home extends React.Component<PropsBasic, any> {
                     })}
                 </div>
 
-                <NavBar/>
-                <SideBar/>
+                <NavBar />
+                <SideBar />
             </div>
         )
     }
