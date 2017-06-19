@@ -1,5 +1,6 @@
 export default {
     index: '/',
     teacherHome: '/teacher/:tid',
-    courseDetail: '/course/:cid'
+    courseDetail: '/course/:cid',
+    find: '/find'
 }
