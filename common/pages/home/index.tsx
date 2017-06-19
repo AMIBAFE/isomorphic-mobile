@@ -37,15 +37,23 @@ class CatEntrances extends React.Component<CatEntrancesProps, any> {
         )
     }
 }
-
 (CatEntrances as any).propTypes = {
     catEntrances: array.isRequired,
+}
+
+function mapStateToProps(state: any) {
+    const recommends = state.recommendTeachers;
+
+    return {
+        recommends,
+    }
 }
 
 interface PropsBasic {
     recommends: TeacherBasic[],
 }
 
+@connect(mapStateToProps)
 class Home extends React.Component<PropsBasic, any> {
     render() {
         return (
@@ -61,24 +69,10 @@ class Home extends React.Component<PropsBasic, any> {
                     })}
                 </div>
 
-                <NavBar/>
+                <NavBar />
 
             </div>
         )
-    }
-}
-
-const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
-    dispatch(fetchRecommendTeachers({
-        pageSize: 10,
-    }));
-
-
-function mapStateToProps(state: any) {
-    const recommends = state.recommendTeachers;
-
-    return {
-        recommends,
     }
 }
 
@@ -86,6 +80,9 @@ function mapStateToProps(state: any) {
     recommends: array.isRequired,
 };
 
-const ConnectedComponent = connect(mapStateToProps)(Home as any);
+const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
+    dispatch(fetchRecommendTeachers({
+        pageSize: 10,
+    }));
 
-export default fetch(fetchData)(ConnectedComponent);
+export default fetch(fetchData)(Home);
