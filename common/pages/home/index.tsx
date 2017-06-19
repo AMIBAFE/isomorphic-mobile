@@ -17,6 +17,17 @@ import NavBar from '../../components/nav-bar';
 import SideBar from '../../components/side-bar';
 import { catEntrances } from '../../configs/vars';
 
+
+class Banner extends React.Component<any, any> {
+    render() {
+        return (
+            <div id="banner" style={{ backgroundImage: 'url("http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/LRpqY6Lc58f9bb876ec48")' }}>
+            </div>
+        )
+    }
+}
+
+
 interface CatEntrancesProps {
     catEntrances: {
         name: string;
@@ -51,7 +62,7 @@ class Home extends React.Component<PropsBasic, any> {
     render() {
         return (
             <div id="app-home">
-
+                <Banner/>
                 <CatEntrances catEntrances={catEntrances} />
 
                 <div id="recommend-list">
