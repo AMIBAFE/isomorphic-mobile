@@ -10,6 +10,7 @@ export default class NavBar extends React.Component<any, any> {
 
     render() {
         return (
+
             <div id="nav-bar" className="nav-bar">
                 <a className="nav-item">
                     <i className="nav-icon icon-main">
