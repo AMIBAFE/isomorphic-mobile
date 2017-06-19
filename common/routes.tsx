@@ -14,9 +14,9 @@ const routes = (
 		<Route exact path={routesUrl.index} component={HomePage} />
 		<Route path={routesUrl.teacherHome} component={TeacherPage} />
 		<Route path={routesUrl.courseDetail} component={CoursePage} />
-		<Route path={routesUrl.find} component={Find}/>
-		<Route path={routesUrl.cats} component={Cats}/>
-		<Route path={routesUrl.user} component={User}/>
+		<Route path={routesUrl.find} component={Find} />
+		<Route path={routesUrl.cats} component={Cats} />
+		<Route path={routesUrl.user} component={User} />
 	</Switch>
 );
 
