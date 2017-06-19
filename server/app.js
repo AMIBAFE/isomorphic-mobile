@@ -32,6 +32,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.get(routesUrl.teacherHome, handleRender);
 app.get(routesUrl.index, handleRender);
+app.get(routesUrl.courseDetail, handleRender);
 
 app.listen(port, err => {
     if (err) {
