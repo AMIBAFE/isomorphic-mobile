@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { array, func } from 'prop-types';
+import { string, array, func } from 'prop-types';
 
 import { RecommendBasic } from '../../interfaces/common';
 import { TeacherBasic } from '../../interfaces/teacher';
@@ -21,7 +21,6 @@ import { catEntrances } from '../../configs/vars';
 interface SearchBarProps {
     keyword?: string,
     onInput(keyword: string): void;
-    // onInput?: (keyword: string) => void;
 }
 
 class SearchBar extends React.Component<SearchBarProps, any> {
@@ -31,7 +30,7 @@ class SearchBar extends React.Component<SearchBarProps, any> {
 
     render() {
         return (
-            <div id="search-bar">
+            <div className="search-bar" id="search-bar">
                 <Link to={`/search?keyword=${this.props.keyword}`} className="iconfont icon-arrow-left-b  search-back-btn">
                 </Link>
                 <div className="iconfont icon-dot-three  search-toggle">
@@ -57,6 +56,10 @@ class SearchBar extends React.Component<SearchBarProps, any> {
             </div>
         )
     }
+}
+(SearchBar as any).propTypes = {
+    keyword: string,
+    onInput: func.isRequired,
 }
 
 class Banner extends React.Component<any, any> {
@@ -113,9 +116,10 @@ interface PropsBasic {
 */
 
 class Home extends React.Component<PropsBasic, any> {
-    getInitialState() {
-        return {
-            keyword: ""
+    constructor(props: any, context: any) {
+        super(props, context);
+        this.state = {
+            keyword: "",
         }
     }
 
@@ -130,7 +134,10 @@ class Home extends React.Component<PropsBasic, any> {
 
         return (
             <div id="app-home">
-                <SearchBar {...searchBarProps} />
+                <div className="home-search-wrapper">
+                    <SearchBar {...searchBarProps} />
+                </div>
+
                 <Banner />
                 <CatEntrances catEntrances={catEntrances} />
 
@@ -165,7 +172,6 @@ function mapStateToProps(state: any) {
 
 (Home as any).propTypes = {
     recommends: array.isRequired,
-    onInput: func.isRequired
 };
 
 /**/
