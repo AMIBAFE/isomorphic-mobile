@@ -46,7 +46,7 @@ class Course extends React.Component<CourseBasic, any> {
                         <span><i></i></span>
                         <ul>{
                            this.props.fitAgeTags && this.props.fitAgeTags.map((course, index) => {
-                                return <li key={index}>{fitAgeItem.label[fitAgeItem.label.length - 1]}</li>
+                                return <li key={index}>{fitAgeItem.label}</li>
                             })
                             }
                         </ul>
