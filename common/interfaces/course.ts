@@ -6,16 +6,22 @@ export interface CourseBasic {
     id: number;
     name: string;
     cover: string;
+    cats: string[];
     type: string;
+    ways: string[];
     fitAge: string;
     fitAgeTags: {
+        id: number;
+        label: string;
+    }[];
+    targetTags: {
         id: number;
         label: string;
     }[];
     price: number;
     priceUnitNum: number;
     priceUnit: string;
-    cats: string[];
+
     intro?: string;
 }
 export interface RecommendsResponseBasic {

@@ -8,6 +8,7 @@ import { number, string, array, object } from 'prop-types';
 
 import { fetchCourseDetail } from '../../actions/course';
 import { CourseBasic } from '../../interfaces/course';
+import { TeacherProfile } from '../../components/teacher-profile';
 
 import fetch from '../../../client/fetch';
 
@@ -25,8 +26,13 @@ class Course extends React.Component<CourseBasic, any> {
                         </p>
                         <p>
                             <span>课程班制：<strong>{this.props.type}</strong></span>
-                            <span>授课方式：<strong>学生上门</strong>
-                                {/*    {
+                            <span>授课方式：
+                                {
+                            this.props.ways && this.props.ways.map((way, index) => {
+                                return <strong key={index}>{way}</strong>
+                            })
+                        }
+                                {/*  {
                                     this.props.way.map(function (wayItem, index) {
                                         return <strong key={index}>{wayItem}</strong>
                                     })
@@ -55,10 +61,11 @@ class Course extends React.Component<CourseBasic, any> {
                     <div className="targets">
                         <span><i></i></span>
                         <ul>
-
-                            <li>学习复合型应用语言学</li>
-
-                            <li>熟练广播电台，电视台传媒</li>
+                            {
+                                this.props.targetTags && this.props.targetTags.map((targetItem, index) => {
+                                    return <li key={index}>{targetItem.label}</li>
+                                })
+                            }
 
                         </ul>
                     </div>
