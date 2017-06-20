@@ -2,7 +2,7 @@ import './index.less';
 
 import * as React from 'react';
 import { render } from 'react-dom';
-import { connect } from 'react-redux' ;
+import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { number, string, array, object } from 'prop-types';
 
@@ -14,9 +14,56 @@ import fetch from '../../../client/fetch';
 class Course extends React.Component<CourseBasic, any> {
     render() {
         return (
-            <div id="course">
-                <h3>课程名称：{ this.props.name } .... </h3>
+            <div id="course-home">
+                <section id="info-part-course">
+                    <img src={ this.props.cover } alt={this.props.name} />
+                    <div className="info-text">
+                        <h2>课程名称：{this.props.name}</h2>
+                        <p>
+                            <span>课程分类：<strong>{this.props.cats}</strong></span>
+                            <span>适学年龄：<strong>{this.props.fitAge}</strong></span>
+                        </p>
+                        <p>
+                            <span>课程班制：<strong>{this.props.type}</strong></span>
+                            <span>授课方式：<strong>学生上门</strong>
+                            {/*    {
+                                    this.props.way.map(function (wayItem, index) {
+                                        return <strong key={index}>{wayItem}</strong>
+                                    })
+                                }*/}
+                            </span>
+                        </p>
+                        <div className="info-price"><em><i>￥</i>{this.props.price}</em>起/{this.props.priceUnitNum}{this.props.priceUnit}</div>
+                    </div>
+                </section>
+                <section id="intro-part-course" className="main-part">
+                    <h2 className="main-title"><strong>课程简介</strong>COURSE INTRODUCTION</h2>
+                    <div>{ this.props.intro }</div>
+                </section>
+                <section id="students-part-course" className="main-part">
+                    <h2 className="main-title"><strong>对象和目标</strong>STUDENT AND TARGET</h2>
+                    <div className="students">
+                        <span><i></i></span>
+                        <ul>{
+                           this.props.fitAgeTags && this.props.fitAgeTags.map((course, index) => {
+                                return <li key={index}>{fitAgeItem.label[fitAgeItem.label.length - 1]}</li>
+                            })
+                            }
+                        </ul>
+                    </div>
 
+                    <div className="targets">
+                        <span><i></i></span>
+                        <ul>
+
+                            <li>学习复合型应用语言学</li>
+
+                            <li>熟练广播电台，电视台传媒</li>
+
+                        </ul>
+                    </div>
+
+                </section>
             </div>
         )
     }

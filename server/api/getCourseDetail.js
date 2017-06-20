@@ -12,17 +12,39 @@ export default function (req, res) {
             },
             data: {
                 name: '课程名称钢琴' || '',
-                intro: '本课程课程介绍' || '',
-                fitAgeTag: [
+                cover: 'http://st.qmin91.com/page/desktop/main/images/0-6%20(3)-528_dc9b8ba.jpg',
+                cats: ['一级类目', '二级类目', '钢琴'],
+                fitAge: '15-18周岁',
+                type: '大班15人以上',
+                way: [
+                    '授课方式',
+                    '老师上门',
+                    '学生上门'
+                ],
+                price: 1200 || 0,
+                priceUnitNum: 12 || 0,
+                priceUnit: '课程' || '',
+                fitAgeTags: [
                     {
                         id: 1,
-                        label: '适学对象标签' || ''
+                        label: '适学对象标签1' || ''
                     },
                     {
-                        id: 1,
-                        label: '学习目标标签' || ''
+                        id: 2,
+                        label: '适学对象标签2' || ''
                     }
-                ]
+                ],
+                targetTags: [
+                    {
+                        id: 1,
+                        label: '学习目标标签1' || ''
+                    },
+                    {
+                        id: 2,
+                        label: '学习目标标签2' || ''
+                    }
+                ],
+                intro: '本课程课程介绍' || '',
             }
         })
 
