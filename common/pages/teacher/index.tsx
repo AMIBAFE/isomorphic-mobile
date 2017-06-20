@@ -19,8 +19,10 @@ function mapStateToProps(state: any) {
     return { ...teacherResponse };
 }
 
+
 @connect(mapStateToProps)
 */
+
 class Teacher extends React.Component<TeacherBasic, any> {
     render() {
         return (
@@ -60,6 +62,7 @@ class Teacher extends React.Component<TeacherBasic, any> {
 }
 
 
+
 const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }, params: { tid: number }) =>
     dispatch(fetchTeacherDetail({ ...params }));
 
@@ -81,6 +84,7 @@ function mapStateToProps(state: any) {
     intro: string,
 }
 
+
  const ConnectedComponent = connect(mapStateToProps)(Teacher as any);
 
 /*
@@ -90,3 +94,4 @@ const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }, params: { tid: num
 export default fetch(fetchData)(ConnectedComponent);
 
  //  export default fetch(fetchData)(Teacher);
+

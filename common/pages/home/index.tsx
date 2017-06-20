@@ -21,7 +21,7 @@ import { catEntrances } from '../../configs/vars';
 interface SearchBarProps {
     keyword?: string,
     onInput(keyword: string): void;
-   // onInput?: (keyword: string) => void;
+    // onInput?: (keyword: string) => void;
 }
 
 class SearchBar extends React.Component<SearchBarProps, any> {
@@ -32,7 +32,7 @@ class SearchBar extends React.Component<SearchBarProps, any> {
     render() {
         return (
             <div id="search-bar">
-                <Link to={ `/search?keyword=${this.props.keyword}` } className="iconfont icon-arrow-left-b  search-back-btn">
+                <Link to={`/search?keyword=${this.props.keyword}`} className="iconfont icon-arrow-left-b  search-back-btn">
                 </Link>
                 <div className="iconfont icon-dot-three  search-toggle">
                     <div className="dropdown-panel">
@@ -52,7 +52,7 @@ class SearchBar extends React.Component<SearchBarProps, any> {
                 </div>
                 <div className="search-input">
                     <i className="iconfont icon-search-thin "></i>
-                    <input ref="input" onInput={ this.onInput.bind(this) } type="text" placeholder="搜索课程 / 机构 / 老师 " />
+                    <input ref="input" onInput={this.onInput.bind(this)} type="text" placeholder="搜索课程 / 机构 / 老师 " />
                 </div>
             </div>
         )
@@ -103,12 +103,15 @@ function mapStateToProps(state: any) {
 }
 */
 
+
 interface PropsBasic {
     recommends: TeacherBasic[],
 }
+
 /*
 @connect(mapStateToProps)
 */
+
 class Home extends React.Component<PropsBasic, any> {
     getInitialState() {
         return {
@@ -127,7 +130,7 @@ class Home extends React.Component<PropsBasic, any> {
 
         return (
             <div id="app-home">
-                <SearchBar {...searchBarProps}/>
+                <SearchBar {...searchBarProps} />
                 <Banner />
                 <CatEntrances catEntrances={catEntrances} />
 
@@ -151,7 +154,6 @@ const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
     dispatch(fetchRecommendTeachers({
         pageSize: 10,
     }));
-
 
 function mapStateToProps(state: any) {
     const recommends = state.recommendTeachers;
@@ -179,3 +181,4 @@ const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
     }));
 export default fetch(fetchData)(Home);
 */
+
