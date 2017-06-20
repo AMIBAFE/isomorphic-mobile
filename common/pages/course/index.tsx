@@ -16,7 +16,7 @@ class Course extends React.Component<CourseBasic, any> {
         return (
             <div id="course-home">
                 <section id="info-part-course">
-                    <img src={ this.props.cover } alt={this.props.name} />
+                    <img src={this.props.cover} alt={this.props.name} />
                     <div className="info-text">
                         <h2>课程名称：{this.props.name}</h2>
                         <p>
@@ -26,7 +26,7 @@ class Course extends React.Component<CourseBasic, any> {
                         <p>
                             <span>课程班制：<strong>{this.props.type}</strong></span>
                             <span>授课方式：<strong>学生上门</strong>
-                            {/*    {
+                                {/*    {
                                     this.props.way.map(function (wayItem, index) {
                                         return <strong key={index}>{wayItem}</strong>
                                     })
@@ -38,17 +38,17 @@ class Course extends React.Component<CourseBasic, any> {
                 </section>
                 <section id="intro-part-course" className="main-part">
                     <h2 className="main-title"><strong>课程简介</strong>COURSE INTRODUCTION</h2>
-                    <div>{ this.props.intro }</div>
+                    <div>{this.props.intro}</div>
                 </section>
                 <section id="students-part-course" className="main-part">
                     <h2 className="main-title"><strong>对象和目标</strong>STUDENT AND TARGET</h2>
                     <div className="students">
                         <span><i></i></span>
                         <ul>{
-                           this.props.fitAgeTags && this.props.fitAgeTags.map((course, index) => {
+                            this.props.fitAgeTags && this.props.fitAgeTags.map((fitAgeItem, index) => {
                                 return <li key={index}>{fitAgeItem.label}</li>
                             })
-                            }
+                        }
                         </ul>
                     </div>
 

@@ -8,6 +8,10 @@ export interface CourseBasic {
     cover: string;
     type: string;
     fitAge: string;
+    fitAgeTags: {
+        id: number;
+        label: string;
+    }[];
     price: number;
     priceUnitNum: number;
     priceUnit: string;
