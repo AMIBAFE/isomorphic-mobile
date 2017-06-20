@@ -37,17 +37,7 @@ class Course extends React.Component<CourseBasic, any> {
     cats: array,
 }
 
-export default class TeacherProfile extends React.Component<any, any> {
-    render() {
-        return (
-            <div><h3>我来自TeacherProfile</h3></div>
-        )
-    }
-}
-
-
-
-/*export default class TeacherProfile extends React.Component<TeacherBasic, any> {
+export default class TeacherProfile extends React.Component<TeacherBasic, any> {
     render() {
         const teacher = this.props;
         return (
@@ -90,4 +80,4 @@ export default class TeacherProfile extends React.Component<any, any> {
     avatar: string,
     courses: array,
     intro: string,
-}*/
+}

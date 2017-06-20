@@ -43,8 +43,23 @@ export default function (req, res) {
                 intro: '本课程课程介绍' || '',
                 teachers: [
                     {
+                        id: 12,
+                        name: '张老师',
+                        avatar: '',
+                        teachingAge: 4,
+                        intro: '介绍',
+                        courses:[
+                            {
+                                id: 1,
+                                name: '课程1名字',
+                                type: '大班（15人以上）' || '',
+                                price: 1200 || 0,
+                                priceUnitNum: 12 || 0,
+                                priceUnit: '课程' || '',
+                            }
+                        ]
+                    },
 
-                    }
                 ]
             }
         })

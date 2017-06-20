@@ -1,3 +1,4 @@
+import { TeacherBasic } from './teacher';
 export interface CourseDictionary<T> {
     [key: number]: T
 }
@@ -21,8 +22,8 @@ export interface CourseBasic {
     price: number;
     priceUnitNum: number;
     priceUnit: string;
-
     intro?: string;
+    teachers: TeacherBasic[];
 }
 export interface RecommendsResponseBasic {
     currentPage: number;

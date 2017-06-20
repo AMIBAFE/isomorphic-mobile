@@ -8,12 +8,15 @@ import { number, string, array, object } from 'prop-types';
 
 import { fetchCourseDetail } from '../../actions/course';
 import { CourseBasic } from '../../interfaces/course';
-import { TeacherProfile } from '../../components/teacher-profile';
+import TeacherProfile from '../../components/teacher-profile';
 
 import fetch from '../../../client/fetch';
 
 class Course extends React.Component<CourseBasic, any> {
+
     render() {
+        console.log('this props: ', this.props)
+        // const teachers: any = this.props.teachers || [];
         return (
             <div id="course-home">
                 <section id="info-part-course">
@@ -28,15 +31,10 @@ class Course extends React.Component<CourseBasic, any> {
                             <span>课程班制：<strong>{this.props.type}</strong></span>
                             <span>授课方式：
                                 {
-                            this.props.ways && this.props.ways.map((way, index) => {
-                                return <strong key={index}>{way}</strong>
-                            })
-                        }
-                                {/*  {
-                                    this.props.way.map(function (wayItem, index) {
-                                        return <strong key={index}>{wayItem}</strong>
+                                    this.props.ways && this.props.ways.map((way, index) => {
+                                        return <strong key={index}>{way}</strong>
                                     })
-                                }*/}
+                                }
                             </span>
                         </p>
                         <div className="info-price"><em><i>￥</i>{this.props.price}</em>起/{this.props.priceUnitNum}{this.props.priceUnit}</div>
@@ -50,11 +48,12 @@ class Course extends React.Component<CourseBasic, any> {
                     <h2 className="main-title"><strong>对象和目标</strong>STUDENT AND TARGET</h2>
                     <div className="students">
                         <span><i></i></span>
-                        <ul>{
-                            this.props.fitAgeTags && this.props.fitAgeTags.map((fitAgeItem, index) => {
-                                return <li key={index}>{fitAgeItem.label}</li>
-                            })
-                        }
+                        <ul>
+                            {
+                                this.props.fitAgeTags && this.props.fitAgeTags.map((fitAgeItem, index) => {
+                                    return <li key={index}>{fitAgeItem.label}</li>
+                                })
+                            }
                         </ul>
                     </div>
 
@@ -64,6 +63,22 @@ class Course extends React.Component<CourseBasic, any> {
                             {
                                 this.props.targetTags && this.props.targetTags.map((targetItem, index) => {
                                     return <li key={index}>{targetItem.label}</li>
+                                })
+                            }
+                        </ul>
+                    </div>
+
+                </section>
+                <section id="teacher-part" className="main-part">
+                    <h2 className="main-title"><strong>授课老师</strong>TEACHER</h2>
+                    <div className="teacher-profile">
+                        <ul>
+
+                            {
+                                this.props.teachers && this.props.teachers.map((teacher, index) => {
+                                    return (
+                                        <TeacherProfile { ...teacher } key={index} />
+                                    )
                                 })
                             }
 
