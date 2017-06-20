@@ -83,6 +83,7 @@ function mapStateToProps(state: any) {
 
     return { ...courseResponse };
 
+
 }
 
 (Course as any).propTypes = {
