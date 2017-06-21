@@ -3,7 +3,7 @@ import './index.less';
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
-import { number, string, array } from 'prop-types';
+import { number, string, array,bool } from 'prop-types';
 
 import { defaultAvatar, PriceUnitId, PriceUnitMap } from '../../configs/vars';
 import { TeacherBasic } from '../../interfaces/teacher';
@@ -12,15 +12,13 @@ import { CourseBasic } from '../../interfaces/course';
 class Course extends React.Component<CourseBasic, any> {
     render() {
         return (
-            <Link to={`/course/{ this.props.id }`} key={this.props.id}>
+            <Link key={this.props.id} className="teacher-course" to={`/course/{ this.props.id }`}>
+                {this.props.price && <span className="teacher-price"><strong>￥{this.props.price || '未设置'}</strong>起/{this.props.priceUnitNum}{this.props.priceUnit || '未设置'}</span>}
                 <span className="teacher-type">
                     <i className="iconfont icon-cat-1"></i>
                     <em>课程类型：{this.props.type || '未设置'}</em>
                 </span>
-                <span className="teacher-price">
-                    <i>{this.props.name}</i>
-                    {this.props.price && <span className="price"><strong className="teacher-price-num">￥{this.props.price || '未设置'}</strong>起/{this.props.priceUnitNum}{this.props.priceUnit || '未设置'}</span>}
-                </span>
+                <span className="teacher-course-name">{this.props.name}</span>
             </Link>
         )
     }
@@ -48,7 +46,9 @@ export default class TeacherProfile extends React.Component<TeacherBasic, any> {
                     </a>
                     <div className="teacher-info">
                         <p className="teacher-name clearfix">
-                            <span className="teacher-mark">{teacher.name}<i className="teacher-icon">顶</i></span>
+                            <span className="teacher-mark">{teacher.name}
+                                {teacher.isHot && <i className="teacher-icon">顶</i> }
+                            </span>
                             <span className="teaching-age col-r">{teacher.teachingAge}年教龄</span>
                         </p>
                         <p className="teacher-intro">
@@ -80,4 +80,5 @@ export default class TeacherProfile extends React.Component<TeacherBasic, any> {
     avatar: string,
     courses: array,
     intro: string,
+    isHot: bool,
 }

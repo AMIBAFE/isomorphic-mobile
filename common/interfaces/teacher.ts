@@ -14,6 +14,7 @@ export interface TeacherBasic {
     shortIntro: string;
     intro: string;
     selfIntro?: string;
+    isHot?:boolean;
 }
 
 export interface RecommendsResponseBasic {
