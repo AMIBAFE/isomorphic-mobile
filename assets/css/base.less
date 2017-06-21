@@ -24,44 +24,9 @@
     }
     &loading {
         &::before {
-            content: "\e637";    
+            content: "\e637";
         }
     }
 }
 
-.main-part {
-    margin-top: 50/@REM;
-    h2 {
-        position: relative;
-        margin-bottom: 30/@REM;
-        padding-bottom: 25/@REM;
-        text-align: center;
-        font-size: 14/@REM;
-        font-family: YH;
-        border-bottom: 1px solid @BORDER_COLOR;
-        letter-spacing: 1px;
-        &:after {
-            @size: 55/@REM;
-            @border-width: 20/@REM;
 
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            margin-left: -@size/2;
-            margin-bottom: -(@size - @border-width * 2)/2;
-            content: '';
-            width: @size;
-            height: @size - @border-width * 2;
-            background-color: @WARN_COLOR;
-            border-left: @border-width solid #fff;
-            border-right: @border-width solid #fff;
-        }
-        strong {
-            display: block;
-            font-size: 24/@REM;
-            color: #000;
-            line-height: 40/@REM;
-            letter-spacing: 0;
-        }
-    }
-}
