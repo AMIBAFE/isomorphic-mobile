@@ -41,9 +41,9 @@ export default class TeacherProfile extends React.Component<TeacherBasic, any> {
         return (
             <li className="teacher-item">
                 <Link to={`/teacher/{ teacher.id }`} className="teacher-top clearfix">
-                    <a href="javascript:;" className="teacher-avatar col-l">
+                    <span className="teacher-avatar col-l">
                         <img src={teacher.avatar || defaultAvatar} alt={teacher.name} />
-                    </a>
+                    </span>
                     <div className="teacher-info">
                         <p className="teacher-name clearfix">
                             <span className="teacher-mark">{teacher.name}

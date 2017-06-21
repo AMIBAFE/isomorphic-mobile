@@ -43,7 +43,7 @@ class Teacher extends React.Component<TeacherBasic, any> {
                     </div>
                 </section>
                 <section id="course-part" className="main-part">
-                    <h2><strong>全部课程</strong>ALL COURSE</h2>
+                    <h2 className="main-title"><strong>全部课程</strong>ALL COURSE</h2>
                     <ul>
                         {this.props.courses && this.props.courses.map((course, index) => {
                             return (
@@ -53,7 +53,7 @@ class Teacher extends React.Component<TeacherBasic, any> {
                     </ul>
                 </section>
                 <section id="intro-part" className="main-part">
-                    <h2><strong>教师简介</strong>TEACHER INTRODUCTION</h2>
+                    <h2 className="main-title"><strong>教师简介</strong>TEACHER INTRODUCTION</h2>
                     <div>{this.props.intro}</div>
                 </section>
             </div>
