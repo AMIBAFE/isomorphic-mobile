@@ -73,7 +73,6 @@ class Course extends React.Component<CourseBasic, any> {
                     <h2 className="main-title"><strong>授课老师</strong>TEACHER</h2>
                     <div className="teacher-profile">
                         <ul>
-
                             {
                                 this.props.teachers && this.props.teachers.map((teacher, index) => {
                                     return (

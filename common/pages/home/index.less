@@ -1,4 +1,5 @@
 @import '../../../assets/css/variable.less';
+@import '../../../assets/css/base.less';
 #app-home {
     position: relative;
 }
@@ -61,11 +62,15 @@
     border-bottom: 1px solid #ddd;
     .iconfont {
         position: absolute;
+        top:50%;
+        height: 100/@REM;
+        margin-top: -50/@REM;
         width: 75/@REM;
         font-size: 30/@REM;
         cursor: pointer;
         color: #999;
         text-align: center;
+        line-height: 100/@REM;
     }
     .search-back-btn {
         left: 0;

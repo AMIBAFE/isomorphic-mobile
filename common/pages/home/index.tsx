@@ -31,9 +31,9 @@ class SearchBar extends React.Component<SearchBarProps, any> {
     render() {
         return (
             <div className="search-bar" id="search-bar">
-                <Link to={`/search?keyword=${this.props.keyword}`} className="iconfont icon-arrow-left-b  search-back-btn">
+                <Link to={`/search?keyword=${this.props.keyword}`} className="iconfont icon-left-arrow  search-back-btn">
                 </Link>
-                <div className="iconfont icon-dot-three  search-toggle">
+                <div className="iconfont icon-three-dot  search-toggle">
                     <div className="dropdown-panel">
                         <a href="" className="dropdown-item">
                             <i className="iconfont icon-cats "></i>
