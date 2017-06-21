@@ -14,9 +14,9 @@ export default function (req, res) {
                 name: '课程名称钢琴' || '',
                 cover: 'http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/PlgTlDXg58f1d6e271640',
                 cats: ['一级类目', '二级类目', '钢琴'],
-                fitAge: '15-18周岁',
-                type: '一对一',
-                ways: ['授课方式','老师上门','学生上门'],
+                fitAge: '15-18周岁' || '',
+                type: '一对一' || '',
+                ways: ['授课方式', '老师上门', '学生上门'],
                 price: 1200 || 0,
                 priceUnitNum: 12 || 0,
                 priceUnit: '课程' || '',
@@ -47,9 +47,9 @@ export default function (req, res) {
                         name: '张老师',
                         avatar: '',
                         teachingAge: 4,
-                        intro: '介绍',
+                        intro: '介绍' || '',
                         isHot: true,
-                        courses:[
+                        courses: [
                             {
                                 id: 1,
                                 name: '课程1名字',
@@ -65,9 +65,9 @@ export default function (req, res) {
                         name: '李老师',
                         avatar: '',
                         teachingAge: 4,
-                        intro: '介绍不是热门老师',
+                        intro: '介绍不是热门老师' || '',
                         isHot: false,
-                        courses:[
+                        courses: [
                             {
                                 id: 1,
                                 name: '课程1名字',

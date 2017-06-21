@@ -1,8 +1,6 @@
 @import '../../../assets/css/variable.less';
-
-@AVATAR_SIZE : 150/@REM; 
+@AVATAR_SIZE : 150/@REM;
 @CARD_PADDING_SIZE : 30/@REM;
-
 .profile-card {
     display: block;
     margin-bottom: @CARD_PADDING_SIZE/2;
@@ -29,8 +27,8 @@
     }
     div.detail {
         margin-left: @AVATAR_SIZE + @CARD_PADDING_SIZE;
-        font-size: 22/@REM;  
-        line-height: @CARD_PADDING_SIZE*2;       
+        font-size: 22/@REM;
+        line-height: @CARD_PADDING_SIZE*2;
         strong {
             display: block;
             color: #3a3a3a;
@@ -42,7 +40,7 @@
         }
     }
     div.intro {
-        overflow : hidden;
+        overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -74,12 +72,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            text-align: left; 
+            text-align: left;
         }
         span.price {
             float: right;
             strong {
-                color: @WARN_COLOR;    
+                color: @WARN_COLOR;
             }
         }
     }

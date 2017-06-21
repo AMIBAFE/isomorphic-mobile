@@ -1,5 +1,4 @@
 @import 'variable.less';
-
 .fitScreen (@minWidth) {
     @media only screen and (min-device-width: @minWidth) {
         html {
@@ -8,18 +7,17 @@
     }
 }
 
-.fitScreen(320px); 
-.fitScreen(340px); 
+.fitScreen(320px);
+.fitScreen(340px);
 .fitScreen(360px);
 .fitScreen(380px);
 .fitScreen(414px);
 .fitScreen(480px);
 .fitScreen(640px);
-
 .layout {
     position: relative;
-    margin:0 auto;
-    @media only screen and (min-width:641px) {
+    margin: 0 auto;
+    @media only screen and (min-width: 641px) {
         width: 640px!important;
     }
 }

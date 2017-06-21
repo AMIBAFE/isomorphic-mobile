@@ -3,7 +3,7 @@ import './index.less';
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
-import { number, string, array,bool } from 'prop-types';
+import { number, string, array, bool } from 'prop-types';
 
 import { defaultAvatar, PriceUnitId, PriceUnitMap } from '../../configs/vars';
 import { TeacherBasic } from '../../interfaces/teacher';
@@ -47,7 +47,7 @@ export default class TeacherProfile extends React.Component<TeacherBasic, any> {
                     <div className="teacher-info">
                         <p className="teacher-name clearfix">
                             <span className="teacher-mark">{teacher.name}
-                                {teacher.isHot && <i className="teacher-icon">顶</i> }
+                                {teacher.isHot && <i className="teacher-icon">顶</i>}
                             </span>
                             <span className="teaching-age col-r">{teacher.teachingAge}年教龄</span>
                         </p>
