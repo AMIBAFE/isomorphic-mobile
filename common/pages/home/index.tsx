@@ -12,7 +12,7 @@ import { TeacherBasic } from '../../interfaces/teacher';
 import { fetchRecommendTeachers } from '../../actions/teacher';
 
 import fetch from '../../../client/fetch';
-import TeacherCard from '../../components/teacher-card';
+import TeacherCard from '../../components/teacher-profile';
 import NavBar from '../../components/nav-bar';
 import SideBar from '../../components/side-bar';
 import { catEntrances } from '../../configs/vars';
@@ -31,8 +31,8 @@ class SearchBar extends React.Component<SearchBarProps, any> {
     render() {
         return (
             <div className="search-bar" id="search-bar">
-                <Link to={`/search?keyword=${this.props.keyword}`} className="iconfont icon-left-arrow  search-back-btn">
-                </Link>
+                <div className="iconfont icon-left-arrow  search-back-btn">
+                </div>
               {/*  <Link to={`/search?keyword=${this.props.keyword}`} className="iconfont search-back-btn">
                     &leftArrow;
                 </Link>*/}
@@ -52,10 +52,10 @@ class SearchBar extends React.Component<SearchBarProps, any> {
                         </a>
                     </div>
                 </div>
-                <div className="search-input">
+                <Link to={`/search?keyword=${this.props.keyword}`} className="search-input">
                     <i className="iconfont icon-search-thin "></i>
                     <input ref="input" onInput={this.onInput.bind(this)} type="text" placeholder="搜索课程 / 机构 / 老师 " />
-                </div>
+                </Link>
             </div>
         )
     }

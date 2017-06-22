@@ -18,10 +18,6 @@ export const catEntrances = [
         className: "sport",
         cid: 128,
     }, {
-        name: "生活",
-        className: "life",
-        cid: 185,
-    }, {
         name: "出国",
         className: "abroad",
         cid: 214,
@@ -38,16 +34,12 @@ export const catEntrances = [
         className: "hight-school",
         cid: 531,
     }, {
-        name: "大学",
-        className: "college",
-        cid: 456,
-    }, {
         name: "语言",
         className: "language",
         cid: 490,
     }, {
-        name: "其他",
-        className: "other",
+        name: "技能",
+        className: "skill",
         cid: 520
     }
 ];
