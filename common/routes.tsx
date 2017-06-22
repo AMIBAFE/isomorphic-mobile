@@ -8,6 +8,7 @@ import CoursePage from './pages/course/async';
 import Find from './pages/find/async';
 import Cats from './pages/cats/async';
 import User from './pages/user/async';
+import Search from './pages/search/async';
 
 const routes = (
 	<Switch>
@@ -17,6 +18,7 @@ const routes = (
 		<Route path={routesUrl.find} component={Find} />
 		<Route path={routesUrl.cats} component={Cats} />
 		<Route path={routesUrl.user} component={User} />
+		<Route path={routesUrl.search} component={Search} />
 	</Switch>
 );
 
