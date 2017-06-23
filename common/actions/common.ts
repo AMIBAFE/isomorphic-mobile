@@ -15,8 +15,11 @@ import {
     RecommendsResponseBasic,
 } from '../interfaces/common';
 export interface User {
-    name: string,
-    id: number,
+    id: number;
+    name: string;
+    account: string;
+    token: string;
+    expires: string;
 }
 
 export function fetchUser() {
@@ -36,10 +39,24 @@ function receiveUser(user: User) {
     }
 }
 
-export function login(user: User) {
-    return {
-        type: LOG_IN,
-        user
+export function login({
+    account,
+    password,
+}: {
+        account: string;
+        password: string;
+    }) {
+    return (dispatch: Dispatch<any>) => {
+        return api
+            .post(correctApiUrl(apis.login), { account, password })
+            .then(res => {
+                const user: User = res.data;
+
+                localStorage.setItem('qm91_token_expires', user.expires);
+                localStorage.setItem('qm91_token', user.token);
+
+                dispatch(receiveUser(<User>res.data));
+            })
     }
 }
 export function logout() {

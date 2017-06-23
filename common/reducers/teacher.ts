@@ -11,7 +11,7 @@ import {
     ADD_RECOMMEND_TEACHER,
 } from '../actions/teacher';
 
-export function teacher(state = {}, action: any) {
+export function teacherReducer(state = {}, action: any) {
     switch (action.type) {
         case CHANGE_TEACHER:
             return action.teacher;
@@ -20,7 +20,7 @@ export function teacher(state = {}, action: any) {
     }
 }
 
-export function teachers(state: TeacherDictionary<TeacherBasic> = {}, action: {
+export function teachersReducer(state: TeacherDictionary<TeacherBasic> = {}, action: {
     type: string;
     teacher: TeacherBasic;
 }) {
@@ -37,7 +37,7 @@ export function teachers(state: TeacherDictionary<TeacherBasic> = {}, action: {
     }
 }
 
-export function recommendTeachers(state: TeacherBasic[] = [], action: {
+export function recommendTeachersReducer(state: TeacherBasic[] = [], action: {
     type: string;
     recommends: TeacherBasic[];
 }) {

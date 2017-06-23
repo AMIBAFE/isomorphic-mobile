@@ -1,21 +1,21 @@
 import { combineReducers } from 'redux';
 
 import {
-    seo,
-    user,
+    seoReducer,
+    userReducer,
 } from './common';
 import {
-    teacher,
-    teachers,
-    recommendTeachers,
+    teacherReducer,
+    teachersReducer,
+    recommendTeachersReducer,
 } from './teacher';
 
 const rootReducer = combineReducers({
-    seo,
-    user,
-    teacher,
-    teachers,
-    recommendTeachers,
+    seo: seoReducer,
+    user: userReducer,
+    teacher: teacherReducer,
+    teachers: teachersReducer,
+    recommendTeachers: recommendTeachersReducer,
 });
 
 export default rootReducer;

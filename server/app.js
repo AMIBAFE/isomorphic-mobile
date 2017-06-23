@@ -10,8 +10,9 @@ import env from './env';
 
 const app = express();
 const port = env.server.port;
+const isDevelopment = process.env.NODE_ENV === 'development';
 
-if (process.env.NODE_ENV === 'development') {
+if (isDevelopment) {
     app.use(logger('dev'));
 }
 app.use(bodyParser.json());
@@ -26,7 +27,7 @@ app.all('*', (req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
     next();
 });
-if (process.env.NODE_ENV === 'development') {
+if (isDevelopment) {
     app.use('/apis/mobile', apiRouter);
 }
 

@@ -14,7 +14,7 @@ import {
     LOG_OUT
 } from '../actions/common';
 
-export function seo(state = {}, action: any) {
+export function seoReducer(state = {}, action: any) {
     switch (action.type) {
         case UPDATE_SEO:
             return { ...action.seoInfo };
@@ -23,7 +23,7 @@ export function seo(state = {}, action: any) {
     }
 }
 
-export function user(state = {}, action: any) {
+export function userReducer(state = {}, action: any) {
     switch (action.type) {
         case RECEIVE_USER:
             return action.user;

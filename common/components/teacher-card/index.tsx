@@ -14,7 +14,7 @@ import { CourseBasic } from '../../interfaces/course';
 class Course extends React.Component<CourseBasic, any> {
     render() {
         return (
-            <Link key={this.props.id} className="course" to={`/course/{ this.props.id }`}>
+            <Link key={this.props.id} className="course" to={`/course/${this.props.id}`}>
                 {this.props.price && <span className="price"><strong>￥{this.props.price || '未设置'}</strong>起/{this.props.priceUnitNum}{this.props.priceUnit || '未设置'}</span>}
                 <span className="type">授课方式: {this.props.type || '未设置'}</span>
                 <span className="name">{this.props.name}</span>
@@ -40,7 +40,7 @@ export default class TeacherCard extends React.Component<TeacherBasic, any> {
 
         return (
             <li className="profile-card">
-                <Link className="profile" to={`/teacher/{ teacher.id }`}>
+                <Link className="profile" to={`/teacher/${teacher.id}`}>
                     <img className="avatar" src={teacher.avatar || defaultAvatar} alt={teacher.name} />
                     <div className="detail">
                         <p>
