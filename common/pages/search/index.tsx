@@ -2,6 +2,10 @@ import './index.less';
 
 import * as React from 'react';
 import { render } from 'react-dom';
+import { string, bool } from 'prop-types';
+
+
+
 
 export default class Search extends React.Component<any, any> {
     constructor(props: any, context: any) {
@@ -11,33 +15,31 @@ export default class Search extends React.Component<any, any> {
         return (
             <div id="search-wrapper">
                 <div className="search-box-wrapper">
-                    <form action="">
-                        <div className="type-wrapper">
-                            <div className="type-header dropdown" >
-                                <a href="javascript:;" className="dropdown-header">
-                                    课程
+                    <div className="type-wrapper">
+                        <div className="type-header dropdown" >
+                            <a href="javascript:;" className="dropdown-header">
+                                课程
+                            </a>
+                            <div className="dropdown-panel">
+                                <a className="dropdown-item">
+                                    <i className="dropdown-icon course"></i>
+                                    <span className="dropdown-label">课程</span>
                                 </a>
-                                <div className="dropdown-panel">
-                                    <a className="dropdown-item">
-                                        <i className="dropdown-icon course"></i>
-                                        <span className="dropdown-label">课程</span>
-                                    </a>
-                                    <a className="dropdown-item">
-                                        <i className="dropdown-icon studio"></i>
-                                        <span className="dropdown-label">机构</span>
-                                    </a>
-                                    <a className="dropdown-item">
-                                        <i className="dropdown-icon teacher"></i>
-                                        <span className="dropdown-label">老师</span>
-                                    </a>
-                                </div>
+                                <a className="dropdown-item">
+                                    <i className="dropdown-icon studio"></i>
+                                    <span className="dropdown-label">机构</span>
+                                </a>
+                                <a className="dropdown-item">
+                                    <i className="dropdown-icon teacher"></i>
+                                    <span className="dropdown-label">老师</span>
+                                </a>
                             </div>
                         </div>
-                        <input type="text" placeholder="" />
-                        <button type="submit">
-                            <span className="text">取消</span>
-                        </button>
-                    </form>
+                    </div>
+                    <input type="text" placeholder="" />
+                    <button type="submit">
+                        <span className="text">取消</span>
+                    </button>
                 </div>
                 <div className="search-hot-wrapper">
                     <p className="hot-title">热搜</p>
