@@ -1,24 +1,24 @@
 import { combineReducers } from 'redux';
 
 import {
-    seo,
-    user,
+    seoReducer,
+    userReducer,
 } from './common';
 import {
-    teacher,
-    teachers,
-    recommendTeachers,
+    teacherReducer,
+    teachersReducer,
+    recommendTeachersReducer,
 } from './teacher';
 
-import { course } from './course';
+import { courseReducer } from './course';
 
 const rootReducer = combineReducers({
-    seo,
-    user,
-    teacher,
-    teachers,
-    recommendTeachers,
-    course
+    seo: seoReducer,
+    user: userReducer,
+    teacher: teacherReducer,
+    teachers: teachersReducer,
+    recommendTeachers: recommendTeachersReducer,
+    course: courseReducer,
 });
 
 export default rootReducer;
