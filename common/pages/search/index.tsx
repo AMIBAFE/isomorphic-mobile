@@ -4,7 +4,19 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { string, bool } from 'prop-types';
 
+class SearchBar extends React.Component<any, any> {
+    onInput() {
+        //this.props.onInput((this.refs["input"] as any).value.trim());
+    }
 
+    render() {
+        return (
+            <div className="search-bar" id="search-bar">
+
+            </div>
+        )
+    }
+}
 
 
 export default class Search extends React.Component<any, any> {
