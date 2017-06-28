@@ -4,5 +4,6 @@ export default {
     courseDetail: '/course/:cid',
     find: '/find',
     cats: '/cats',
-    user: '/user'
+    user: '/user',
+    login: '/login'
 }
