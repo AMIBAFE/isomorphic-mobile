@@ -12,9 +12,7 @@
         "jsx": "react",
         "allowJs": true
     },
-    "exclude": [
-        "node_modules"
-    ],
+    "exclude": ["node_modules"],
     "files": [
         "./client/index.tsx",
         "./common/components/course-card/index.tsx",
@@ -31,8 +29,10 @@
         "./common/interfaces/common.ts",
         "./common/interfaces/teacher.ts",
         "./common/interfaces/course.ts",
+        "./common/interfaces/cat.ts",
         "./common/actions/common.ts",
+        "./common/actions/cats.ts",
         "./common/reducers/all.ts",
-        "./common/reducers/common.ts"
+        "./common/reducers/cat.ts"
     ]
 }
