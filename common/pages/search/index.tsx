@@ -54,44 +54,11 @@ class SearchBar extends React.Component<any, any> {
 }
 
 (SearchBar as any).propTypes = {
-    keyword: string
+    keyword: string,
     //带required 就不行
-    //onInput: func.isRequired
+    onInput: func.isRequired
 };
 
-/*interface HotSearchCatsProps {
-    hotSearchCats: {
-        id: number;
-        label: string;
-    }[];
-}
-
-class HotSearchCats extends React.Component<HotSearchCatsProps, any> {
-    render() {
-        console.log("子祖件里面this.props.hotSearchCats", this.props.hotSearchCats);
-        return (
-            <div className="search-hot-wrapper">
-                <p className="hot-title">热搜</p>
-                <div className="hot-cats-wrapper">
-                    {this.props.hotSearchCats.map((hotCat, i) => {
-                        return (
-                            <Link
-                                key={this.props.id}
-                                className="hot-cat"
-                                to={`/course/${this.props.id}`}
-                            >
-                                {this.props.label || "类目名称"}
-                            </Link>
-                        );
-                    })}
-                </div>
-            </div>
-        );
-    }
-}
-(HotSearchCats as any).propTypes = {
-    hotSearchCats: array.isRequired
-};*/
 interface SearchProps {
     hotSearchCats: catBasic[];
 }

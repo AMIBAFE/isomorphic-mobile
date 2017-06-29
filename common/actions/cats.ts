@@ -16,7 +16,6 @@ export function fetchHotSearchCats() {
         return api.post(correctApiUrl(apis.fetchHotSearchCats)).then(res => {
             const hotSearchCats: catBasic[] = res.data;
             dispatch(addHotSearchCats(hotSearchCats));
-            console.log("action里面的", hotSearchCats);
         });
     };
 }
