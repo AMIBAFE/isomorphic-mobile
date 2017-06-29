@@ -6,6 +6,3 @@ export interface catBasic {
     id: number;
     label: string;
 }
-export interface HotSearchCatBasic {
-    hotSearchCats: catBasic[];
-}

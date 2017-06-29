@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { string, bool, number, func, array } from "prop-types";
 
-import { catBasic, HotSearchCatBasic } from "../../interfaces/cat";
+import { catBasic } from "../../interfaces/cat";
 import { fetchHotSearchCats } from "../../actions/cats";
 
 import fetch from "../../../client/fetch";
@@ -92,14 +92,15 @@ class HotSearchCats extends React.Component<HotSearchCatsProps, any> {
 (HotSearchCats as any).propTypes = {
     hotSearchCats: array.isRequired
 };*/
-
-class Search extends React.Component<any, any> {
-    constructor(props: any, context: any) {
+interface SearchProps {
+    hotSearchCats: catBasic[];
+}
+class Search extends React.Component<SearchProps, any> {
+    constructor(props: SearchProps, context: any) {
         super(props, context);
     }
     render() {
-        console.log("父祖件里面this.props.hotSearchCats", this.props.hotSearchCats);
-        const hotCats = this.props;
+        const { hotSearchCats } = this.props;
         return (
             <div id="search-wrapper">
                 <SearchBar />
@@ -107,14 +108,14 @@ class Search extends React.Component<any, any> {
                 <div className="search-hot-wrapper">
                     <p className="hot-title">热搜</p>
                     <div className="hot-cats-wrapper">
-                        {this.props.hotSearchCats.map((hotCat, i) => {
+                        {hotSearchCats.map((hotCat, i) => {
                             return (
                                 <Link
-                                    key={this.props.id}
+                                    key={hotCat.id}
                                     className="hot-cat"
-                                    to={`/course/${this.props.id}`}
+                                    to={`/course/${hotCat.id}`}
                                 >
-                                    {this.props.label || "类目名称"}
+                                    {hotCat.label || "类目名称"}
                                 </Link>
                             );
                         })}
@@ -152,6 +153,8 @@ const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
 
 function mapStateToProps(state: any) {
     const hotSearchCats = state.hotSearchCats;
+    // 1. 这个state里面的hotSearchCats
+    //就是reduces//all.ts里面的combineReduces里面的那个 hotSearchCats: hotSearchReducer
 
     return {
         hotSearchCats

@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
     teachers: teachersReducer,
     recommendTeachers: recommendTeachersReducer,
     course: courseReducer,
-    hotSearch: hotSearchReducer
+    hotSearchCats: hotSearchReducer
 });
 
 export default rootReducer;

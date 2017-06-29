@@ -1,14 +1,15 @@
 import * as Lodash from "lodash";
 
-import { HotSearchCatBasic } from "../interfaces/cat";
+import { catBasic } from "../interfaces/cat";
 
 import { ADD_HOT_SEARCH_CATS } from "../actions/cats";
-
+// 2. 它是一个数组
+// 这里的state： any[] = []就应该是一个数组
 export function hotSearchReducer(
-    state: any = {},
+    state: any[] = [],
     action: {
         type: string;
-        hotSearchCats: HotSearchCatBasic;
+        hotSearchCats: catBasic[];
     }
 ) {
     switch (action.type) {

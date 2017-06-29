@@ -22,6 +22,7 @@
         "./common/pages/teacher/index.tsx",
         "./common/pages/course/index.tsx",
         "./common/pages/login/index.tsx",
+        "./common/pages/search/index.tsx",
         "./common/configStore.ts",
         "./common/routes.tsx",
         "./common/utils.ts",
