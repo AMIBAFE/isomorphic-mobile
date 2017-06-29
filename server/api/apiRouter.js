@@ -6,7 +6,7 @@ import getUserInfo from "./getUserInfo";
 import getRecommendTeachers from "./getRecommendTeachers";
 import getTeacherDetail from "./getTeacherDetail";
 import getCourseDetail from "./getCourseDetail";
-import getHotSearchCats from "./getCourseDetail";
+import getHotSearchCats from "./getHotSearchCats";
 const router = express.Router();
 
 router.post(apisUrl.login, login);

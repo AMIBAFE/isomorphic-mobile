@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { string, bool, number, array, func } from "prop-types";
 
-import { HotSearchCatBasic } from "../../interfaces/cat";
+import { catBasic, HotSearchCatBasic } from "../../interfaces/cat";
 import { fetchHotSearchCats } from "../../actions/cats";
 
 import fetch from "../../../client/fetch";
@@ -48,6 +48,30 @@ class SearchBar extends React.Component<any, any> {
         );
     }
 }
+
+class HotSearchCats extends React.Component<catBasic, any> {
+    constructor(props: any, context: any) {
+        super(props, context);
+    }
+    render() {
+        const cat = this.props;
+        return (
+            <Link
+                key={this.props.id}
+                className="hot-cat"
+                to={`/course/${this.props.id}`}
+            >
+                {this.props.label || "类目名称"}
+            </Link>
+        );
+    }
+}
+/*(HotSearchCats as any).propTypes = {
+    id: number.isRequired,
+    label: string.isRequired
+}
+*/
+
 interface PropsBasic {
     hotSearchCats: HotSearchCatBasic;
 }
@@ -63,9 +87,9 @@ class Search extends React.Component<PropsBasic, any> {
                 <div className="search-hot-wrapper">
                     <p className="hot-title">热搜</p>
                     <div className="hot-cats-wrapper">
-                        <a href="javascript:;" className="hot-cat">
-                            尤克里里
-                        </a>
+                        {this.props.hotSearchCats.map((hotCat, i) => {
+                            return <HotSearchCats {...hotCat} key={i} />;
+                        })}
                     </div>
                 </div>
                 <div className="search-history-wrapper">
