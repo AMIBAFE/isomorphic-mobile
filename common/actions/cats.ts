@@ -10,8 +10,13 @@ export const ADD_HOT_SEARCH_CATS = "ADD_HOT_SEARCH_CATS";
 
 export function fetchHotSearchCats() {
     return (dispatch: Dispatch<any>) => {
-        return api.post(correctApiUrl(apis.fetchHotSearchCats)).then(res => {
+        /*return api.post(correctApiUrl(apis.fetchHotSearchCats)).then(res => {
             dispatch(addHotSearchCats(<HotSearchCatBasic>res.data));
+        });*/
+        return api.post(correctApiUrl(apis.fetchHotSearchCats)).then(res => {
+            const hotSearchCats: HotSearchCatBasic = res.data;
+            dispatch(addHotSearchCats(hotSearchCats));
+            console.log("action里面的", hotSearchCats);
         });
     };
 }

@@ -1,25 +1,24 @@
-import './index.less';
+import "./index.less";
 
-import * as React from 'react';
-import { render } from 'react-dom';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { string, array, func } from 'prop-types';
+import * as React from "react";
+import { render } from "react-dom";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { string, array, func } from "prop-types";
 
-import { RecommendBasic } from '../../interfaces/common';
-import { TeacherBasic } from '../../interfaces/teacher';
-import { fetchRecommendTeachers } from '../../actions/teacher';
+import { RecommendBasic } from "../../interfaces/common";
+import { TeacherBasic } from "../../interfaces/teacher";
+import { fetchRecommendTeachers } from "../../actions/teacher";
 
-import fetch from '../../../client/fetch';
-import TeacherCard from '../../components/teacher-profile';
-import NavBar from '../../components/nav-bar';
-import SideBar from '../../components/side-bar';
-import { catEntrances } from '../../configs/vars';
-
+import fetch from "../../../client/fetch";
+import TeacherCard from "../../components/teacher-profile";
+import NavBar from "../../components/nav-bar";
+import SideBar from "../../components/side-bar";
+import { catEntrances } from "../../configs/vars";
 
 interface SearchBarProps {
-    keyword?: string,
+    keyword?: string;
     onInput(keyword: string): void;
 }
 
@@ -31,46 +30,58 @@ class SearchBar extends React.Component<SearchBarProps, any> {
     render() {
         return (
             <div className="search-bar" id="search-bar">
-                <div className="iconfont icon-left-arrow  search-back-btn">
-                </div>
-              {/*  <Link to={`/search?keyword=${this.props.keyword}`} className="iconfont search-back-btn">
+                <div className="iconfont icon-left-arrow  search-back-btn" />
+                {/*  <Link to={`/search?keyword=${this.props.keyword}`} className="iconfont search-back-btn">
                     &leftArrow;
                 </Link>*/}
                 <div className="iconfont icon-three-dot  search-toggle">
                     <div className="dropdown-panel">
                         <a href="" className="dropdown-item">
-                            <i className="iconfont icon-cats "></i>
+                            <i className="iconfont icon-cats " />
                             <span>科目分类</span>
                         </a>
                         <a href="" className="dropdown-item home">
-                            <i className="iconfont icon-home"></i>
+                            <i className="iconfont icon-home" />
                             <span> 91首页 </span>
                         </a>
                         <a href="" className="dropdown-item">
-                            <i className="iconfont icon-service "></i>
+                            <i className="iconfont icon-service " />
                             <span>在线客服</span>
                         </a>
                     </div>
                 </div>
-                <Link to={`/search?keyword=${this.props.keyword}`} className="search-input">
-                    <i className="iconfont icon-search-thin "></i>
-                    <input ref="input" onInput={this.onInput.bind(this)} type="text" placeholder="搜索课程 / 机构 / 老师 " />
+                <Link
+                    to={`/search?keyword=${this.props.keyword}`}
+                    className="search-input"
+                >
+                    <i className="iconfont icon-search-thin " />
+                    <input
+                        ref="input"
+                        onInput={this.onInput.bind(this)}
+                        type="text"
+                        placeholder="搜索课程 / 机构 / 老师 "
+                    />
                 </Link>
             </div>
-        )
+        );
     }
 }
 (SearchBar as any).propTypes = {
     keyword: string,
-    onInput: func.isRequired,
-}
+    onInput: func.isRequired
+};
 
 class Banner extends React.Component<any, any> {
     render() {
         return (
-            <div id="banner" style={{ backgroundImage: 'url("http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/LRpqY6Lc58f9bb876ec48")' }}>
-            </div>
-        )
+            <div
+                id="banner"
+                style={{
+                    backgroundImage:
+                        'url("http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/LRpqY6Lc58f9bb876ec48")'
+                }}
+            />
+        );
     }
 }
 
@@ -84,21 +95,27 @@ interface CatEntrancesProps {
 
 class CatEntrances extends React.Component<CatEntrancesProps, any> {
     render() {
+        console.log("this.props.catEntrances", this.props.catEntrances);
         return (
             <div id="entrances">
                 {this.props.catEntrances.map((entrance, index) => {
                     return (
-                        <Link key={index} to={`/search/${entrance.cid}`}><i className={`icon icon-${entrance.className}`}></i> {entrance.name}</Link>
-                    )
+                        <Link key={index} to={`/search/${entrance.cid}`}>
+                            <i
+                                className={`icon icon-${entrance.className}`}
+                            />{" "}
+                            {entrance.name}
+                        </Link>
+                    );
                 })}
             </div>
-        )
+        );
     }
 }
 
 (CatEntrances as any).propTypes = {
-    catEntrances: array.isRequired,
-}
+    catEntrances: array.isRequired
+};
 /*
 function mapStateToProps(state: any) {
     const recommends = state.recommendTeachers;
@@ -109,9 +126,8 @@ function mapStateToProps(state: any) {
 }
 */
 
-
 interface PropsBasic {
-    recommends: TeacherBasic[],
+    recommends: TeacherBasic[];
 }
 
 /*
@@ -122,8 +138,8 @@ class Home extends React.Component<PropsBasic, any> {
     constructor(props: any, context: any) {
         super(props, context);
         this.state = {
-            keyword: "",
-        }
+            keyword: ""
+        };
     }
 
     onInput(keyword: string) {
@@ -132,8 +148,8 @@ class Home extends React.Component<PropsBasic, any> {
     render() {
         let searchBarProps = {
             keyword: this.state.keyword,
-            onInput: this.onInput.bind(this),
-        }
+            onInput: this.onInput.bind(this)
+        };
 
         return (
             <div id="app-home">
@@ -146,42 +162,41 @@ class Home extends React.Component<PropsBasic, any> {
 
                 <div id="recommend-list">
                     {this.props.recommends.map((recommend, i) => {
-                        return (
-                            <TeacherCard { ...recommend } key={i} />
-                        )
+                        return <TeacherCard {...recommend} key={i} />;
                     })}
                 </div>
 
                 <NavBar />
                 <SideBar />
             </div>
-        )
+        );
     }
 }
 
 /**/
 const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
-    dispatch(fetchRecommendTeachers({
-        pageSize: 10,
-    }));
+    dispatch(
+        fetchRecommendTeachers({
+            pageSize: 10
+        })
+    );
 
 function mapStateToProps(state: any) {
     const recommends = state.recommendTeachers;
 
     return {
-        recommends,
-    }
+        recommends
+    };
 }
 
 (Home as any).propTypes = {
-    recommends: array.isRequired,
+    recommends: array.isRequired
 };
 
 /**/
 const ConnectedComponent = connect(mapStateToProps)(Home as any);
 
 export default fetch(fetchData)(ConnectedComponent);
-
 
 /*
 const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
@@ -190,4 +205,3 @@ const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
     }));
 export default fetch(fetchData)(Home);
 */
-

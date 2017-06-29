@@ -5,13 +5,17 @@ import { render } from "react-dom";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { string, bool, number, array, func } from "prop-types";
+import { string, bool, number, func, array } from "prop-types";
 
 import { catBasic, HotSearchCatBasic } from "../../interfaces/cat";
 import { fetchHotSearchCats } from "../../actions/cats";
 
 import fetch from "../../../client/fetch";
 
+interface SearchBarProps {
+    keyword?: string;
+    onInput(keyword: string): void;
+}
 class SearchBar extends React.Component<any, any> {
     onInput() {
         //this.props.onInput((this.refs["input"] as any).value.trim());
@@ -49,46 +53,70 @@ class SearchBar extends React.Component<any, any> {
     }
 }
 
-class HotSearchCats extends React.Component<catBasic, any> {
-    constructor(props: any, context: any) {
-        super(props, context);
-    }
+(SearchBar as any).propTypes = {
+    keyword: string
+    //带required 就不行
+    // onInput: func.isRequired
+};
+
+/*interface HotSearchCatsProps {
+    hotSearchCats: {
+        id: number;
+        label: string;
+    }[];
+}
+
+class HotSearchCats extends React.Component<HotSearchCatsProps, any> {
     render() {
-        const cat = this.props;
+        console.log("子祖件里面this.props.hotSearchCats", this.props.hotSearchCats);
         return (
-            <Link
-                key={this.props.id}
-                className="hot-cat"
-                to={`/course/${this.props.id}`}
-            >
-                {this.props.label || "类目名称"}
-            </Link>
+            <div className="search-hot-wrapper">
+                <p className="hot-title">热搜</p>
+                <div className="hot-cats-wrapper">
+                    {this.props.hotSearchCats.map((hotCat, i) => {
+                        return (
+                            <Link
+                                key={this.props.id}
+                                className="hot-cat"
+                                to={`/course/${this.props.id}`}
+                            >
+                                {this.props.label || "类目名称"}
+                            </Link>
+                        );
+                    })}
+                </div>
+            </div>
         );
     }
 }
-/*(HotSearchCats as any).propTypes = {
-    id: number.isRequired,
-    label: string.isRequired
-}
-*/
+(HotSearchCats as any).propTypes = {
+    hotSearchCats: array.isRequired
+};*/
 
-interface PropsBasic {
-    hotSearchCats: HotSearchCatBasic;
-}
-
-class Search extends React.Component<PropsBasic, any> {
+class Search extends React.Component<any, any> {
     constructor(props: any, context: any) {
         super(props, context);
     }
     render() {
+        console.log("父祖件里面this.props.hotSearchCats", this.props.hotSearchCats);
+        const hotCats = this.props;
         return (
             <div id="search-wrapper">
                 <SearchBar />
+                {/*  <HotSearchCats  />*/}
                 <div className="search-hot-wrapper">
                     <p className="hot-title">热搜</p>
                     <div className="hot-cats-wrapper">
                         {this.props.hotSearchCats.map((hotCat, i) => {
-                            return <HotSearchCats {...hotCat} key={i} />;
+                            return (
+                                <Link
+                                    key={this.props.id}
+                                    className="hot-cat"
+                                    to={`/course/${this.props.id}`}
+                                >
+                                    {this.props.label || "类目名称"}
+                                </Link>
+                            );
                         })}
                     </div>
                 </div>
@@ -116,7 +144,9 @@ class Search extends React.Component<PropsBasic, any> {
         );
     }
 }
-
+(Search as any).propTypes = {
+    hotSearchCats: array.isRequired
+};
 const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
     dispatch(fetchHotSearchCats());
 
@@ -127,12 +157,6 @@ function mapStateToProps(state: any) {
         hotSearchCats
     };
 }
-
-(Search as any).propTypes = {
-    id: number,
-    label: string,
-    hotSearchCats: array
-};
 
 const ConnectedComponent = connect(mapStateToProps)(Search as any);
 
