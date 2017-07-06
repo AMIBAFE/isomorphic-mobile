@@ -1,7 +1,7 @@
-import './index.less';
+import "./index.less";
 
-import * as React from 'react';
-import { render } from 'react-dom';
+import * as React from "react";
+import { render } from "react-dom";
 
 export default class Find extends React.Component<any, any> {
     constructor(props: any, context: any) {
@@ -9,11 +9,9 @@ export default class Find extends React.Component<any, any> {
     }
     render() {
         return (
-           <div id="find">
-            <p>发现页测试 这里会引入搜索条</p>
-           </div>
+            <div id="find">
+                <p>发现页测试 这里会引入搜索条</p>
+            </div>
         );
     }
-
 }
-
