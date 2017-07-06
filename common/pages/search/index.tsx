@@ -14,12 +14,8 @@ import fetch from "../../../client/fetch";
 
 interface SearchBarProps {
     keyword?: string;
-    onInput(keyword: string): void;
 }
-class SearchBar extends React.Component<any, any> {
-    onInput() {
-        //this.props.onInput((this.refs["input"] as any).value.trim());
-    }
+class SearchBar extends React.Component<SearchBarProps, any> {
     render() {
         return (
             <div className="search-box-wrapper">
@@ -46,19 +42,12 @@ class SearchBar extends React.Component<any, any> {
                 </div>
                 <input type="text" placeholder="" />
                 <button type="submit">
-                    <span className="text">取消</span>
+                    <span className="text">确定</span>
                 </button>
             </div>
         );
     }
 }
-
-(SearchBar as any).propTypes = {
-    keyword: string,
-    onInput: func
-    //带required 就不行
-    //onInput: func.isRequired
-};
 
 interface SearchProps {
     hotSearchCats: catBasic[];
