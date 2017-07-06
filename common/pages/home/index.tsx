@@ -174,12 +174,18 @@ class Home extends React.Component<PropsBasic, any> {
 }
 
 /**/
-const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
-    dispatch(
-        fetchRecommendTeachers({
-            pageSize: 10
-        })
-    );
+const fetchData = ({ dispatch, getState }: { dispatch: Dispatch<any>, getState: () => any }) => {
+    // 判断如果之前已有数据，就不用再请求一次。如果业务要求数据时效性比较高，可不需要这不操作
+    const teachers: TeacherBasic[] = getState().recommendTeachers;
+    
+    if (teachers && teachers.length) {
+        dispatch(
+            fetchRecommendTeachers({
+                pageSize: 10
+            })
+        );   
+    }
+};
 
 function mapStateToProps(state: any) {
     const recommends = state.recommendTeachers;
