@@ -55,8 +55,9 @@ class SearchBar extends React.Component<any, any> {
 
 (SearchBar as any).propTypes = {
     keyword: string,
+    onInput: func
     //带required 就不行
-    onInput: func.isRequired
+    //onInput: func.isRequired
 };
 
 interface SearchProps {
