@@ -18,7 +18,7 @@ export default function(req, res) {
                         "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/k4iyJrro58e894a367795"
                 },
                 {
-                    id: 1,
+                    id: 2,
                     label: "雅思口语测试权威版",
                     description: "考生必看",
                     cover:

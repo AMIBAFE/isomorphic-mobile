@@ -16,23 +16,52 @@ interface findListsProps {
     findLists: catBasic[];
 }
 
-export default class Find extends React.Component<findListsProps, any> {
+class Find extends React.Component<findListsProps, any> {
     constructor(props: findListsProps, context: any) {
         super(props, context);
     }
     render() {
         const { findLists } = this.props;
+        console.log(findLists);
         return (
             <div id="find-wrapper">
                 <div className="find-content-wrapper">
-                    <div className="find-item">
-                        <div className="find-intro">
-                            <p className="find-title">育儿小课堂</p>
-                            <p className="find-category">亲子育儿</p>
-                        </div>
-                    </div>
+                    {findLists.map((list, i) => {
+                        return (
+                            <Link
+                                key={list.id}
+                                className="find-item"
+                                to={`/course/${list.id}`}
+                            >
+                                <div className="find-intro">
+                                    <p className="find-title">
+                                        {list.label}
+                                    </p>
+                                    <p className="find-category">
+                                        {list.description}
+                                    </p>
+                                </div>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         );
     }
 }
+(Find as any).propTypes = {
+    findLists: array.isRequired
+};
+
+const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
+    dispatch(fetchFindLists());
+
+function mapStateToProps(state: any) {
+    const findLists = state.findLists;
+    return {
+        findLists
+    };
+}
+const ConnectedComponent = connect(mapStateToProps)(Find as any);
+
+export default fetch(fetchData)(ConnectedComponent);
