@@ -4,5 +4,6 @@ export default {
     fetchRecommendTeachers: "/getRecommendTeachers",
     fetchTeacherDetail: "/getTeacherDetail",
     fetchCourseDetail: "/getCourseDetail",
-    fetchHotSearchCats: "/getHotSearchCats"
+    fetchHotSearchCats: "/getHotSearchCats",
+    fetchFindLists: "/getFindLists"
 };
