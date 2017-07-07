@@ -16,6 +16,7 @@ export function getSuggestion({ keyword }: { keyword: string }) {
             .then(res => {
                 const results: TeacherBasic = res.data;
                 dispatch(getQueryLists(results));
+                console.log('action',results);
             });
     };
 }
