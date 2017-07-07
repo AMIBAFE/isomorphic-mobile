@@ -5,30 +5,31 @@ import * as React from "react";
 import { render } from "react-dom";
 import { Link } from "react-router-dom";
 import { number, string, array, bool, func } from "prop-types";
-
+import { TeacherBasic } from '../../interfaces/teacher';
 import { getSuggestion } from "../../actions/search";
 
 interface SearchProps {
-  initText?: string;
+  searchLists?: TeacherBasic[];
 }
 interface SearchState {
-  text?: string;
+  value?: string;
 }
 export default class Search extends React.Component<SearchProps, SearchState> {
   constructor(props: SearchProps) {
     super(props);
     this.state = {
-      text: ""
+      value: ""
     };
   }
   onClick(event: any) {
     event.preventDefault();
+    console.log(this.state.value);
   }
   onChange(event: any) {
-    let text = event.target.value;
+    let value = event.target.value;
 
     this.setState(state => {
-      state.text = text;
+      state.value = value;
       return state;
     });
   }
@@ -37,7 +38,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
     return (
       <div className="search-bar-wrapper col-l">
         <div className="search-box-wrapper">
-          <form action="">
+          <div >
             <div className="type-wrapper">
               <div className="type-header dropdown">
                 <a href="javascript:;" className="dropdown-header">
@@ -68,14 +69,14 @@ export default class Search extends React.Component<SearchProps, SearchState> {
             <input
               ref="input"
               type="text"
-              value={this.state.text}
+              value={this.state.value}
               onChange={this.onChange.bind(this)}
               placeholder="请输入您要找的内容"
             />
-            <a onClick={this.onClick} href="javascript:;">
+            <a onClick={this.onClick.bind(this)} href="javascript:;">
               <span className="text">确定</span>
             </a>
-          </form>
+          </div>
         </div>
       </div>
     );
