@@ -32,6 +32,9 @@ class Find extends React.Component<findListsProps, any> {
                                 key={list.id}
                                 className="find-item"
                                 to={`/course/${list.id}`}
+                                style={{
+                                    backgroundImage: `url(${list.cover})`
+                                }}
                             >
                                 <div className="find-intro">
                                     <p className="find-title">
