@@ -43,7 +43,7 @@ export function recommendTeachers(state: TeacherBasic[] = [], action: {
 }) {
     switch (action.type) {
         case ADD_RECOMMEND_TEACHER:
-            return action.recommends;
+            return [...state, ...action.recommends];
         default:
             return state;
     }
