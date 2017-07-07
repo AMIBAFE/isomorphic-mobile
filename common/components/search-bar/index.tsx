@@ -5,7 +5,18 @@ import { render } from "react-dom";
 import { Link } from "react-router-dom";
 import { number, string, array, bool } from "prop-types";
 
-export default class SearchBar extends React.Component<any, any> {
+interface SearchBarProps {
+    autoFocus?: bool;
+    delay?: number;
+    inputName?: string;
+    placeholder?: string;
+    initValue?: string;
+}
+export default class SearchBar extends React.Component<SearchBarProps, any> {
+    static defaultProps = {
+        autoFocus: false,
+        delay: 200
+    };
     constructor(props: any, context: any) {
         super(props, context);
     }
@@ -44,7 +55,18 @@ export default class SearchBar extends React.Component<any, any> {
                                 </div>
                             </div>
                         </div>
-                        <input type="text" placeholder="" />
+                        <input
+                            type="text"
+                            ref="input"
+                            placeholder={this.props.placeholder}
+                            name={this.props.inputName}
+                            value={this.state.value}
+                            onChange={this.onChange.bind(this)}
+                            maxLength="100"
+                            autoCapitalize="none"
+                            autoComplete="off"
+                            autoCorrect="off"
+                        />
                         <button type="submit">
                             <span className="text">确定</span>
                         </button>
