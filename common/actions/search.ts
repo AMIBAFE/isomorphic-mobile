@@ -6,15 +6,13 @@ import apis from "../../common/apisUrl";
 import { updateSEO } from "../actions/common";
 
 export const AUTO_COMPLETE = "AUTO_COMPLETE";
-
+//   .post(correctApiUrl(apis.fetchSuggestion + `?query=${keyword}`))
 export function fetchSuggestion(keyword) {
     return (dispatch: Dispatch<any>) => {
-        return api
-            .post(correctApiUrl(apis.fetchSuggestion + `?query=${keyword}`))
-            .then(res => {
-                const results: catBasic[] = res.data;
-                dispatch(getQueryLists(results));
-            });
+        return api.post(correctApiUrl(apis.fetchSuggestion)).then(res => {
+            const results: catBasic[] = res.data;
+            dispatch(getQueryLists(results));
+        });
     };
 }
 
