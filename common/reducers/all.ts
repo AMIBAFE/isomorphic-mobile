@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
     recommendTeachers: recommendTeachersReducer,
     course: courseReducer,
     hotSearchCats: hotSearchReducer,
-    findLists: findListsReducer
+    findLists: findListsReducer,
     searchResults: getSuggestionReducer
 });
 
