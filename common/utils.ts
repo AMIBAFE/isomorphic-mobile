@@ -50,8 +50,8 @@ function request({
         }).then((response: any) => {
             return Promise
                 .resolve(response.json())
-                .catch(() => {
-                    throw new Error('网络或服务器错误');
+                .catch(err => {
+                    throw new Error('网络或服务器错误,' + err);
                 }) as Promise<Response>;
             ;
         })
