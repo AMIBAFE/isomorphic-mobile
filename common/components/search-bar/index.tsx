@@ -13,12 +13,19 @@ import { getSuggestion } from "../../actions/search";
 
 interface SearchProps {
     searchLists?: TeacherBasic[];
+    delay?: number;
 }
 interface SearchState {
     value?: string;
     suggestions?: any;
 }
 export default class Search extends React.Component<SearchProps, SearchState> {
+    static propTypes = {
+        delay: number
+    };
+    static defaultProps = {
+        delay: 300
+    };
     timer: number;
     constructor(props: SearchProps) {
         super(props);
@@ -34,6 +41,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
         if (!this.state.value) return;
         const keyword = this.normalizeInput();
         const inputNode: any = this.refs["input"];
+        console.log(keyword);
         // 点击按钮 发送请求
         /* let { dispatch }: { dispatch: Dispatch<any> } = this.props;*/
 
@@ -49,11 +57,15 @@ export default class Search extends React.Component<SearchProps, SearchState> {
     }
     onChange(event: any) {
         let value = event.target.value;
+        if (!value) return;
 
         this.setState(state => {
             state.value = value;
             return state;
         });
+        clearTimeout(this.timer);
+
+        this.timer = setTimeout(() => this.search(), this.props.delay);
     }
 
     render() {
