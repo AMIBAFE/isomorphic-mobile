@@ -9,7 +9,11 @@ export default class ReturnButton extends React.Component<any, any> {
     };
     render() {
         return (
-            <div id="return-btn" onTouchEnd={this.handleGoBack}>
+            <div
+                id="return-btn"
+                className="col-l"
+                onTouchEnd={this.handleGoBack}
+            >
                 <i className="iconfont icon-left-arrow search-back-btn" />
             </div>
         );

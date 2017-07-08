@@ -9,8 +9,8 @@ import {
 
 import { courseReducer } from "./course";
 import { hotSearchReducer } from "./cat";
-// 引入依赖
 import { findListsReducer } from "./find";
+import { getSuggestionReducer } from "./search";
 
 const rootReducer = combineReducers({
     seo: seoReducer,
@@ -20,8 +20,8 @@ const rootReducer = combineReducers({
     recommendTeachers: recommendTeachersReducer,
     course: courseReducer,
     hotSearchCats: hotSearchReducer,
-    // combinde
-    findLists: findListsReducer
+    findLists: findListsReducer,
+    searchResults: getSuggestionReducer
 });
 
 export default rootReducer;
