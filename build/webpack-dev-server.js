@@ -23,14 +23,11 @@ const devWebpackConfig = merge(webpackConfig, {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
         new FriendlyErrorsPlugin(),
     ]
 });
 
 const app = new WebpackDevServer(webpack(devWebpackConfig), {
-    hot: true,
     inline: true,
     compress: false,
     stats: {
@@ -40,7 +37,6 @@ const app = new WebpackDevServer(webpack(devWebpackConfig), {
     },
     historyApiFallback: true,
     quiet: true,
-    publicPath: uri,
 });
 
 app.use(bodyParser.json());

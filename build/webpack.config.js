@@ -42,7 +42,7 @@ module.exports = {
                 exclude: [
                     path.join(__dirname, '../node_modules')
                 ],
-                loader: 'ts-loader'
+                use: ['ts-loader']
             }, {
                 test: /\.less$/,
                 exclude: [
