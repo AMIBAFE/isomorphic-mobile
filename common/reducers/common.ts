@@ -14,7 +14,13 @@ import {
     LOG_OUT
 } from '../actions/common';
 
-export function seoReducer(state = {}, action: any) {
+const seoInitState = {
+    keywords: ['全民教育'],
+    description: '全民教育',
+    title: '全民教育网移动端官网'
+}
+
+export function seoReducer(state = seoInitState, action: any) {
     switch (action.type) {
         case UPDATE_SEO:
             return { ...action.seoInfo };
