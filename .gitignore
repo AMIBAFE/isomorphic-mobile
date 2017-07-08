@@ -2,3 +2,4 @@
 /.vscode/*
 /assets/dist/*
 /webpack/*.json
+/build/*.json

@@ -84,7 +84,7 @@ module.exports = {
             filename: 'vendor.bundle_[hash:8].js',
             minChunks: Infinity
         }),
-        new webpack.optimize.UglifyJsPlugin(),
+        
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.BannerPlugin('This file is created by Yota')
     ],
