@@ -6,6 +6,7 @@ import {
     teachersReducer,
     recommendTeachersReducer
 } from "./teacher";
+import { recommendCoursesReducer } from "./course";
 
 import { courseReducer } from "./course";
 import { hotSearchReducer } from "./cat";
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     teacher: teacherReducer,
     teachers: teachersReducer,
     recommendTeachers: recommendTeachersReducer,
+    recommendCourses: recommendCoursesReducer,
     course: courseReducer,
     hotSearchCats: hotSearchReducer,
     findLists: findListsReducer,

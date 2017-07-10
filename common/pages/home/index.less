@@ -1,6 +1,7 @@
 @import '../../../assets/css/variable.less';
 #app-home {
     position: relative;
+    margin-bottom: @NAV_BAR_HEIGHT+30/@REM;
 }
 /*搜索框*/
 .home-search-wrapper {
@@ -11,7 +12,11 @@
     height: 100/@REM;
     line-height: 100/@REM;
     text-align: center;
-    background: linear-gradient(to bottom, rgba(26, 27, 32, 0.6) 0%, rgba(26, 27, 32, 0) 100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(26, 27, 32, 0.6) 0%,
+        rgba(26, 27, 32, 0) 100%
+    );
     .search-bar {
         position: absolute;
         background: transparent;
@@ -62,7 +67,7 @@
     border-bottom: 1px solid #ddd;
     .iconfont {
         position: absolute;
-        top:50%;
+        top: 50%;
         height: 100/@REM;
         margin-top: -50/@REM;
         width: 75/@REM;
@@ -98,11 +103,12 @@
             font-size: 30/@REM;
             line-height: 1;
         }
-        .iconfont, input {
+        .iconfont,
+        input {
             vertical-align: middle;
         }
     }
-    input[type="text"]{
+    input[type="text"] {
         border: 0;
         outline: 0;
         height: 50/@REM;
@@ -236,5 +242,16 @@
                 background-image: url("../../../assets/images/icon/icon-skill.png");
             }
         }
+    }
+}
+
+#recommend-courses {
+    ul {
+        margin-right: -30/@REM;
+        text-align: center;
+        font-size: 0;
+    }
+    li {
+        background-color: #fff;
     }
 }

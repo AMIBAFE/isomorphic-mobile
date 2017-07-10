@@ -1,251 +1,67 @@
 @import 'variable.less';
 .col-l() {
-	float: left;
+    float: left;
 }
 
 .col-r() {
-	float: right;
+    float: right;
 }
 
 .clearfix() {
-	*zoom: 1;
-	&:before, &:after {
-		display: table;
-		content: "";
-		// Fixes Opera/contenteditable bug:
-		// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
-		line-height: 0;
-	}
-	&:after {
-		clear: both;
-	}
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
 }
 
 .scroll-view() {
-	max-height: @max-height-scroll-view;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
+    max-height: @max-height-scroll-view;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .main-part() {
-	margin-top: 50/@REM;
-	.main-title {
-		position: relative;
-		margin: 50/@REM auto 30/@REM;
-		padding-bottom: 25/@REM;
-		text-align: center;
-		font-size: 14/@REM;
-		font-family: YH;
-		border-bottom: 1px solid @BORDER_COLOR;
-		letter-spacing: 1px;
-		&:after {
-			@size: 55/@REM;
-			@border-width: 20/@REM;
-			position: absolute;
-			left: 50%;
-			bottom: 0;
-			margin-left: -@size/2;
-			margin-bottom: -(@size - @border-width * 2)/2;
-			content: '';
-			width: @size;
-			height: @size - @border-width * 2;
-			background-color: @WARN_COLOR;
-			border-left: @border-width solid #fff;
-			border-right: @border-width solid #fff;
-		}
-		strong {
-			display: block;
-			font-size: 24/@REM;
-			color: #000;
-			line-height: 40/@REM;
-			letter-spacing: 0;
-		}
-	}
-}
-
-.course-part () {
-	margin-left: 30/@REM;
-	margin-right: 30/@REM;
-	ul {
-		margin-right: -30/@REM;
-		text-align: center;
-		font-size: 0;
-	}
-	li {
-		display: inline-block;
-		margin: 30/@REM 30/@REM 0 0;
-		list-style: none;
-		width: 275/@REM;
-		box-shadow: 1/@REM 0 8/@REM rgba(0, 0, 0, .2);
-		border-radius: 3/@REM;
-		a {
-			display: inline-block;
-			padding-bottom: 20/@REM;
-			width: 100%;
-			height: 100%;
-		}
-		h3 {
-			margin: 20/@REM 0;
-			padding: 0 20/@REM;
-			font-size: 24/@REM;
-			font-family: YH;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			font-weight: normal;
-			color: @EM_COLOR;
-		}
-		p {
-			font-size: 18/@REM;
-			line-height: 35/@REM;
-			color: @MARK_COLOR;
-			&.price-info {
-				position: relative;
-				margin: 15/@REM 25/@REM 0;
-				padding-top: 15/@REM;
-				border-top: 1px solid @BORDER_COLOR;
-				// overflow: hidden;
-				// text-overflow: ellipsis;
-				// white-space: nowrap;
-				&:before {
-					@size: 15/@REM;
-					@border-width: 5/@REM;
-					position: absolute;
-					left: 50%;
-					top: -(@size - @border-width * 2 + 0.5/@REM)/2;
-					margin-left: -@size/2;
-					content: '';
-					width: 4/@REM;
-					height: 4/@REM;
-					background-color: @WARN_COLOR;
-					border-left: @border-width solid #fff;
-					border-right: @border-width solid #fff;
-				}
-				strong {
-					margin-right: 5/@REM;
-					font-size: 24/@REM;
-					color: @WARN_COLOR;
-					font-family: initial;
-					font-weight: normal;
-				}
-			}
-		}
-		img {
-			display: inline-block;
-			vertical-align: top;
-			width: 100%;
-			height: 180/@REM;
-			background-color: @BORDER_COLOR;
-			border-radius: 3/@REM 3/@REM 0 0;
-		}
-	}
+    margin-top: 30/@REM;
+    .main-title {
+        position: relative;
+        padding-bottom: 25/@REM;
+        text-align: center;
+        font-size: 14/@REM;
+        font-family: YH;
+        border-bottom: 1px solid @BORDER_COLOR;
+        letter-spacing: 1px;
+        &:after {
+            @size: 55/@REM;
+            @border-width: 20/@REM;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            margin-left: -@size/2;
+            margin-bottom: -(@size - @border-width * 2)/2;
+            content: '';
+            width: @size;
+            height: @size - @border-width * 2;
+            background-color: @WARN_COLOR;
+            border-left: @border-width solid #fff;
+            border-right: @border-width solid #fff;
+        }
+        strong {
+            display: block;
+            font-size: 24/@REM;
+            color: #000;
+            line-height: 40/@REM;
+            letter-spacing: 0;
+        }
+    }
 }
 
 @AVATAR_SIZE : 150/@REM;
 @CARD_PADDING_SIZE : 30/@REM;
-
-.video() {
-	div.video {
-		position: relative;
-		margin: 0 auto;
-		margin-bottom: 30/@REM;
-		width: 445/@REM;
-		height: 320/@REM;
-		strong {
-			position: absolute;
-			left: 0;
-			margin-top: 200/@REM;
-			padding: 0 30/@REM;
-			width: 100%;
-			color: #fff;
-			font-size: 24/@REM;
-			font-family: YH;
-			text-align: center;
-			&:before {
-				position: absolute;
-				content: '';
-				top: -75/@REM;
-				left: 50%;
-				margin-left: -25/@REM;
-				width: 50/@REM;
-				height: 50/@REM;
-				border-radius: 50%;
-				border: 3/@REM solid @WARN_COLOR;
-			}
-			&:after {
-				position: absolute;
-				content: '';
-				border-left: 20/@REM solid @WARN_COLOR;
-				border-top: 10/@REM solid transparent;
-				border-bottom: 10/@REM solid transparent;
-				left: 50%;
-				top: -60/@REM;
-				margin-left: -7.5/@REM;
-			}
-		}
-		div.player {
-			display: none;
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 2;
-			div.mask {
-				width: 100%;
-				height: 100%;
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-		}
-		div.info {
-			width: 100%;
-			height: 100%;
-			background-color: #eee;
-			background-size: cover;
-			overflow: hidden;
-			&:before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				content: '';
-				background-color: rgba(0, 0, 0, 0.4);
-			}
-		}
-		div.without-video {
-			&:before {
-				display: none;
-			}
-			strong {
-				&:before, &:after {
-					display: none;
-				}
-			}
-		}
-		.loading {
-			display: none;
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: rgba(0, 0, 0, 0.5);
-			z-index: 2;
-			&:after {
-				content: "";
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				margin-left: -60/@REM;
-				margin-top: -60/@REM;
-				content: "";
-				width: 120/@REM;
-				height: 120/@REM;
-				background: url('/static/images/spin.gif') no-repeat center center;
-				background-size: cover;
-			}
-		}
-	}
-}
-

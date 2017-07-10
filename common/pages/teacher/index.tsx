@@ -12,22 +12,12 @@ import { TeacherBasic } from "../../interfaces/teacher";
 
 import CourseCard from "../../components/course-card";
 import fetch from "../../../client/fetch";
-/*
-function mapStateToProps(state: any) {
-    const teacherResponse: TeacherBasic = state.teacher;
-
-    return { ...teacherResponse };
-}
-
-
-@connect(mapStateToProps)
-*/
 
 class Teacher extends React.Component<TeacherBasic, any> {
     render() {
         return (
             <div id="teacher-home">
-                <section id="info-part">
+                <section className="info-part">
                     <img
                         src={this.props.avatar || defaultAvatar}
                         alt={this.props.name}
@@ -69,7 +59,7 @@ class Teacher extends React.Component<TeacherBasic, any> {
                         </ul>
                     </div>
                 </section>
-                <section id="course-part" className="main-part">
+                <section className="course-part">
                     <h2 className="main-title">
                         <strong>全部课程</strong>ALL COURSE
                     </h2>
@@ -82,7 +72,7 @@ class Teacher extends React.Component<TeacherBasic, any> {
                             })}
                     </ul>
                 </section>
-                <section id="intro-part" className="main-part">
+                <section className="intro-part">
                     <h2 className="main-title">
                         <strong>教师简介</strong>TEACHER INTRODUCTION
                     </h2>

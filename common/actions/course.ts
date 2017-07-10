@@ -8,6 +8,7 @@ import { CourseBasic, RecommendsResponseBasic } from "../interfaces/course";
 import { updateSEO } from "../actions/common";
 
 export const CHAGNE_COURSE = "CHANGE_COURSE";
+export const ADD_RECOMMEND_COURSE = "ADD_RECOMMEND_COURSE";
 
 export function fetchCourseDetail({ cid }: { cid: number }) {
     return (dispatch: Dispatch<any>) => {
@@ -35,5 +36,33 @@ function changeCourse(course: CourseBasic) {
     return {
         type: CHAGNE_COURSE,
         course
+    };
+}
+
+export function fetchRecommendCourses({
+    currentPage = 1,
+    pageSize = 10
+}: {
+    currentPage?: number;
+    pageSize?: number;
+}) {
+    return (dispatch: Dispatch<any>) => {
+        return api
+            .post(correctApiUrl(apis.fetchRecommendCourses), {
+                page: currentPage,
+                pageSize
+            })
+            .then(res => {
+                dispatch(
+                    addRecommendTeachers(<CourseBasic[]>res.data.recommends)
+                );
+            });
+    };
+}
+
+function addRecommendTeachers(recommends: CourseBasic[]) {
+    return {
+        type: ADD_RECOMMEND_COURSE,
+        recommends
     };
 }

@@ -9,12 +9,18 @@ import { string, array, func } from "prop-types";
 
 import { RecommendBasic } from "../../interfaces/common";
 import { TeacherBasic } from "../../interfaces/teacher";
-import { fetchRecommendTeachers } from "../../actions/teacher";
+import { CourseBasic } from "../../interfaces/course";
 
-import fetch from "../../../client/fetch";
+import { fetchRecommendTeachers } from "../../actions/teacher";
+import { fetchRecommendCourses } from "../../actions/course";
+
 import TeacherCard from "../../components/teacher-profile";
+import CourseCard from "../../components/course-card";
 import NavBar from "../../components/nav-bar";
 import SideBar from "../../components/side-bar";
+import Footer from "../../components/footer";
+
+import fetch from "../../../client/fetch";
 import { catEntrances } from "../../configs/vars";
 
 interface SearchBarProps {
@@ -101,9 +107,7 @@ class CatEntrances extends React.Component<CatEntrancesProps, any> {
                 {this.props.catEntrances.map((entrance, index) => {
                     return (
                         <Link key={index} to={`/search/${entrance.cid}`}>
-                            <i
-                                className={`icon icon-${entrance.className}`}
-                            />{" "}
+                            <i className={`icon icon-${entrance.className}`} />
                             {entrance.name}
                         </Link>
                     );
@@ -120,36 +124,53 @@ class CatEntrances extends React.Component<CatEntrancesProps, any> {
 interface RecommendTeachersPropsBasic {
     recommends: TeacherBasic[];
 }
-class RecommendTeachers extends React.Component<RecommendTeachersPropsBasic, any> {
+class RecommendTeachers extends React.Component<
+    RecommendTeachersPropsBasic,
+    any
+> {
     render() {
         return (
-            <div id="recommend-list">
+            <div id="recommend-teachers">
                 <ul>
                     {this.props.recommends.map((recommend, i) => {
                         return <TeacherCard {...recommend} key={i} />;
-                    })}    
-                </ul> 
+                    })}
+                </ul>
             </div>
-        )
+        );
     }
 }
-/*
-function mapStateToProps(state: any) {
-    const recommends = state.recommendTeachers;
+(RecommendTeachers as any).propTypes = {
+    recommends: array.isRequired
+};
 
-    return {
-        recommends,
+interface RecommendCoursesPropsBasic {
+    courses: CourseBasic[];
+}
+class RecommendCourses extends React.Component<
+    RecommendCoursesPropsBasic,
+    any
+> {
+    render() {
+        return (
+            <div id="recommend-courses">
+                <ul>
+                    {this.props.courses.map((course, index) => {
+                        return <CourseCard key={course.id} {...course} />;
+                    })}
+                </ul>
+            </div>
+        );
     }
 }
-*/
+(RecommendCourses as any).propTypes = {
+    courses: array.isRequired
+};
 
 interface PropsBasic {
     recommends: TeacherBasic[];
+    courses: CourseBasic[];
 }
-
-/*
-@connect(mapStateToProps)
-*/
 
 class Home extends React.Component<PropsBasic, any> {
     constructor(props: any, context: any) {
@@ -177,34 +198,48 @@ class Home extends React.Component<PropsBasic, any> {
                 <Banner />
                 <CatEntrances catEntrances={catEntrances} />
 
-                <RecommendTeachers recommends={ this.props.recommends }/>
-
+                <RecommendTeachers recommends={this.props.recommends} />
+                <RecommendCourses courses={this.props.courses} />
                 <NavBar />
                 <SideBar />
+                <Footer />
             </div>
         );
     }
 }
 
-/**/
-const fetchData = ({ dispatch, getState }: { dispatch: Dispatch<any>, getState: () => any }) => {
+const fetchData = ({
+    dispatch,
+    getState
+}: {
+    dispatch: Dispatch<any>;
+    getState: () => any;
+}) => {
     // 判断如果之前已有数据，就不用再请求一次。如果业务要求数据时效性比较高，可不需要这步操作
     const teachers: TeacherBasic[] = getState().recommendTeachers;
-    
+    const courses: CourseBasic[] = getState().recommendCourses || [];
+
     if (!teachers.length) {
         dispatch(
             fetchRecommendTeachers({
                 pageSize: 10
             })
-        );   
+        );
+        dispatch(
+            fetchRecommendCourses({
+                pageSize: 10
+            })
+        );
     }
 };
 
 function mapStateToProps(state: any) {
     const recommends = state.recommendTeachers;
+    const courses = state.recommendCourses;
 
     return {
-        recommends
+        recommends,
+        courses
     };
 }
 
@@ -212,15 +247,6 @@ function mapStateToProps(state: any) {
     recommends: array.isRequired
 };
 
-/**/
 const ConnectedComponent = connect(mapStateToProps)(Home as any);
 
 export default fetch(fetchData)(ConnectedComponent);
-
-/*
-const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }) =>
-    dispatch(fetchRecommendTeachers({
-        pageSize: 10,
-    }));
-export default fetch(fetchData)(Home);
-*/
