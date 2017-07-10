@@ -111,10 +111,4 @@ function mapStateToProps(state: any) {
 
 const ConnectedComponent = connect(mapStateToProps)(Teacher as any);
 
-/*
-const fetchData = ({ dispatch }: { dispatch: Dispatch<any> }, params: { tid: number }) =>
-    dispatch(fetchTeacherDetail({ ...params }));
-*/
 export default fetch(fetchData)(ConnectedComponent);
-
-//  export default fetch(fetchData)(Teacher);

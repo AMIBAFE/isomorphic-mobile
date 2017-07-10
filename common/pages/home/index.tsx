@@ -7,14 +7,13 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { string, array, func } from "prop-types";
 
-import { RecommendBasic } from "../../interfaces/common";
-import { TeacherBasic } from "../../interfaces/teacher";
+import { RecommendBasic as RecommendRoleBasic } from "../../interfaces/common";
 import { CourseBasic } from "../../interfaces/course";
 
-import { fetchRecommendTeachers } from "../../actions/teacher";
+import { fetchRecommendRoles } from "../../actions/common";
 import { fetchRecommendCourses } from "../../actions/course";
 
-import TeacherCard from "../../components/teacher-profile";
+import RoleCard from "../../components/role-profile";
 import CourseCard from "../../components/course-card";
 import NavBar from "../../components/nav-bar";
 import SideBar from "../../components/side-bar";
@@ -122,25 +121,22 @@ class CatEntrances extends React.Component<CatEntrancesProps, any> {
 };
 
 interface RecommendTeachersPropsBasic {
-    recommends: TeacherBasic[];
+    recommends: RecommendRoleBasic[];
 }
-class RecommendTeachers extends React.Component<
-    RecommendTeachersPropsBasic,
-    any
-> {
+class RecommendRoles extends React.Component<RecommendTeachersPropsBasic, any> {
     render() {
         return (
             <div id="recommend-teachers">
                 <ul>
                     {this.props.recommends.map((recommend, i) => {
-                        return <TeacherCard {...recommend} key={i} />;
+                        return <RoleCard {...recommend} key={i} />;
                     })}
                 </ul>
             </div>
         );
     }
 }
-(RecommendTeachers as any).propTypes = {
+(RecommendRoles as any).propTypes = {
     recommends: array.isRequired
 };
 
@@ -168,7 +164,7 @@ class RecommendCourses extends React.Component<
 };
 
 interface PropsBasic {
-    recommends: TeacherBasic[];
+    recommends: RecommendRoleBasic[];
     courses: CourseBasic[];
 }
 
@@ -198,7 +194,7 @@ class Home extends React.Component<PropsBasic, any> {
                 <Banner />
                 <CatEntrances catEntrances={catEntrances} />
 
-                <RecommendTeachers recommends={this.props.recommends} />
+                <RecommendRoles recommends={this.props.recommends} />
                 <RecommendCourses courses={this.props.courses} />
                 <NavBar />
                 <SideBar />
@@ -208,6 +204,10 @@ class Home extends React.Component<PropsBasic, any> {
     }
 }
 
+(Home as any).propTypes = {
+    recommends: array.isRequired
+};
+
 const fetchData = ({
     dispatch,
     getState
@@ -216,12 +216,12 @@ const fetchData = ({
     getState: () => any;
 }) => {
     // 判断如果之前已有数据，就不用再请求一次。如果业务要求数据时效性比较高，可不需要这步操作
-    const teachers: TeacherBasic[] = getState().recommendTeachers;
+    const roles: RecommendRoleBasic[] = getState().recommendRoles;
     const courses: CourseBasic[] = getState().recommendCourses || [];
 
-    if (!teachers.length) {
+    if (!roles.length) {
         dispatch(
-            fetchRecommendTeachers({
+            fetchRecommendRoles({
                 pageSize: 10
             })
         );
@@ -234,7 +234,7 @@ const fetchData = ({
 };
 
 function mapStateToProps(state: any) {
-    const recommends = state.recommendTeachers;
+    const recommends = state.recommendRoles;
     const courses = state.recommendCourses;
 
     return {
@@ -242,10 +242,6 @@ function mapStateToProps(state: any) {
         courses
     };
 }
-
-(Home as any).propTypes = {
-    recommends: array.isRequired
-};
 
 const ConnectedComponent = connect(mapStateToProps)(Home as any);
 

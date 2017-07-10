@@ -1,9 +1,10 @@
 export default {
     login: "/login",
     fetchUser: "/fetch/user",
-    fetchRecommendTeachers: "/getRecommendTeachers",
+    fetchRecommendRoles: "/getRecommendRoles",
     fetchRecommendCourses: "/getRecommendCourses",
     fetchTeacherDetail: "/getTeacherDetail",
+    fetchStudioDetail: "/getStudioDetail",
     fetchCourseDetail: "/getCourseDetail",
     fetchHotSearchCats: "/getHotSearchCats",
     fetchFindLists: "/getFindLists",

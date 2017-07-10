@@ -8,7 +8,7 @@ import { number, string, array, object } from "prop-types";
 
 import { fetchCourseDetail } from "../../actions/course";
 import { CourseBasic } from "../../interfaces/course";
-import TeacherProfile from "../../components/teacher-profile";
+import TeacherProfile from "../../components/role-profile";
 
 import fetch from "../../../client/fetch";
 
