@@ -1,2 +1,136 @@
+@import '../../../assets/css/mixins.less';
 @import '../../../assets/css/variable.less';
-.teacher-profile;
+
+.teacher-profile {
+    background: #fff;
+    min-height: 285/@REM;
+    border-bottom: 1px solid #e0e0e0;
+    margin-top: 35/@REM;
+    padding: 20/@REM;
+    list-style: none;  
+    .teacher-top {
+        display: block;
+        .clearfix;
+	}
+    .teacher-bot {
+		margin-top: 20/@REM;
+		border-top: 1px solid #e6e6e6;        
+    }
+	.teacher-avatar {
+        .col-l;
+        img {
+            width: 150/@REM;
+            height: 150/@REM;
+            background: #d7d7d7;
+            border-radius: 100%;
+            float: left;
+            font-size: 24/@REM;
+        }
+    }
+	.teacher-info {
+		margin-left: 185/@REM;
+	}
+	.teacher-name {
+		color: #3a3a3a;
+		font-size: 24/@REM;
+		height: 32/@REM;
+		line-height: 32/@REM;
+		margin: 20/@REM 0 15/@REM;
+        .clearfix;
+	}
+	.teacher-mark {
+		position: relative;
+	}
+	.teacher-icon {
+		font-style: normal;
+		padding: 0 8/@REM;
+		background: #f5613e;
+		position: absolute;
+		top: 2/@REM;
+		right: -45/@REM;
+		height: 25/@REM;
+		line-height: 25/@REM;
+		color: #fff;
+		font-size: 18/@REM;
+		text-align: center;
+		font-weight: bold;
+		font-style: normal;
+		display: inline-block;
+		border-radius: 2px;
+		&:after {
+			position: absolute;
+			content: "";
+			width: 0px;
+			height: 0px;
+			border-width: 0 5/@REM 4/@REM 0;
+			border-style: solid;
+			border-color: transparent #f5613e transparent transparent;
+			top: 0;
+			left: -4/@REM;
+		}
+	}
+	.teaching-age {
+		display: inline-block;
+		padding: 0 12/@REM;
+		border: 1px solid #fb5838;
+		border-radius: 3/@REM;
+        color: #fb5838;
+        .col-r;
+	}
+	.teacher-intro {
+		line-height: 30/@REM;
+		color: #999;
+		font-size: 18/@REM;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		word-break: break-all;
+		overflow: hidden;
+	}
+	.teacher-course {
+		display: block;
+		margin-top: 20/@REM;
+		min-height: 45/@REM;
+		line-height: 45/@REM;
+		font-size: 24/@REM;
+		color: #6e6e6e;
+		span, i, em, strong {
+			display: inline-block;
+			font-style: normal;
+			font-weight: normal;
+		}
+		.iconfont {
+			width: 20/@REM;
+			height: 22/@REM;
+			background: url('../../../assets/images/icon/icon-course.png') no-repeat center;
+			background-size: cover;
+			margin-right: 5/@REM;
+		}
+		.teacher-type {
+			float: left;
+			padding: 0 10/@REM;
+			background-color: @WARN_COLOR;
+			color: #fff;
+			font-size: 20/@REM;
+			border-radius: 2px;
+			i, em {
+				vertical-align: middle;
+			}
+		}
+		.teacher-course-name {
+			display: block;
+			padding: 0 10/@REM;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			line-height: 45/@REM;
+			text-align: right;
+		}
+		.teacher-price {
+			float: right;
+			strong {
+				color: @WARN_COLOR;
+			}
+		}
+	}
+};

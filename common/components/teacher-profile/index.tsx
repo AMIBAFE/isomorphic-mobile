@@ -39,17 +39,17 @@ export default class TeacherProfile extends React.Component<TeacherBasic, any> {
     render() {
         const teacher = this.props;
         return (
-            <li className="teacher-item">
-                <Link to={`/teacher/{ teacher.id }`} className="teacher-top clearfix">
-                    <span className="teacher-avatar col-l">
+            <li className="teacher-profile">
+                <Link to={`/teacher/{ teacher.id }`} className="teacher-top">
+                    <span className="teacher-avatar">
                         <img src={teacher.avatar || defaultAvatar} alt={teacher.name} />
                     </span>
                     <div className="teacher-info">
-                        <p className="teacher-name clearfix">
+                        <p className="teacher-name">
                             <span className="teacher-mark">{teacher.name}
                                 {teacher.isHot && <i className="teacher-icon">顶</i>}
                             </span>
-                            <span className="teaching-age col-r">{teacher.teachingAge}年教龄</span>
+                            <span className="teaching-age">{teacher.teachingAge}年教龄</span>
                         </p>
                         <p className="teacher-intro">
                             {teacher.intro || '暂未完善介绍'}

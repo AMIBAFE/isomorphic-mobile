@@ -116,6 +116,23 @@ class CatEntrances extends React.Component<CatEntrancesProps, any> {
 (CatEntrances as any).propTypes = {
     catEntrances: array.isRequired
 };
+
+interface RecommendTeachersPropsBasic {
+    recommends: TeacherBasic[];
+}
+class RecommendTeachers extends React.Component<RecommendTeachersPropsBasic, any> {
+    render() {
+        return (
+            <div id="recommend-list">
+                <ul>
+                    {this.props.recommends.map((recommend, i) => {
+                        return <TeacherCard {...recommend} key={i} />;
+                    })}    
+                </ul> 
+            </div>
+        )
+    }
+}
 /*
 function mapStateToProps(state: any) {
     const recommends = state.recommendTeachers;
@@ -160,11 +177,7 @@ class Home extends React.Component<PropsBasic, any> {
                 <Banner />
                 <CatEntrances catEntrances={catEntrances} />
 
-                <div id="recommend-list">
-                    {this.props.recommends.map((recommend, i) => {
-                        return <TeacherCard {...recommend} key={i} />;
-                    })}
-                </div>
+                <RecommendTeachers recommends={ this.props.recommends }/>
 
                 <NavBar />
                 <SideBar />
@@ -175,10 +188,10 @@ class Home extends React.Component<PropsBasic, any> {
 
 /**/
 const fetchData = ({ dispatch, getState }: { dispatch: Dispatch<any>, getState: () => any }) => {
-    // 判断如果之前已有数据，就不用再请求一次。如果业务要求数据时效性比较高，可不需要这不操作
+    // 判断如果之前已有数据，就不用再请求一次。如果业务要求数据时效性比较高，可不需要这步操作
     const teachers: TeacherBasic[] = getState().recommendTeachers;
     
-    if (teachers && teachers.length) {
+    if (!teachers.length) {
         dispatch(
             fetchRecommendTeachers({
                 pageSize: 10
