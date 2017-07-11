@@ -21,3 +21,16 @@ export interface RecommendsResponseBasic {
     pageSize: number;
     recommends: RecommendBasic[];
 }
+
+export interface PhotoBasic {
+    src: string;
+    alt: string;
+    w?: number;
+    h?: number;
+}
+
+export interface PhotoAlbumBasic {
+    name: string;
+    desc: string;
+    photos: PhotoBasic[];
+}

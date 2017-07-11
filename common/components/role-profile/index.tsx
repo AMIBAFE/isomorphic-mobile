@@ -72,9 +72,10 @@ export default class RoleProfile extends React.Component<RoleCardBasic, any> {
                                 {name}
                                 {isHot && <i className="role-icon">顶</i>}
                             </span>
-                            <span className="teaching-age">
-                                {teachingAge}年教龄
-                            </span>
+                            {teachingAge &&
+                                <span className="teaching-age">
+                                    {teachingAge}年教龄
+                                </span>}
                         </p>
                         <p className="role-intro">
                             {intro || "暂未完善介绍"}

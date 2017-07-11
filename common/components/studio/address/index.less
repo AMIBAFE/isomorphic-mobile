@@ -1,0 +1,117 @@
+@import '../../../../assets/css/variable.less';
+
+.studio-address {
+    @color: #2e3642;
+    .main-part;
+    padding: 30/@REM;
+    background-color: #fff;
+    address {
+        margin-top: 30/@REM;
+        background-image: url('../../../../assets/images/map-dots.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        font-family: YH;
+        font-style: normal;
+    }
+    div {
+        padding-top: 10/@REM;
+    }
+    i {
+        position: relative;
+        display: inline-block;
+        width: 45/@REM;
+        height: 45/@REM;
+        border-radius: 50%;
+        border: 5/@REM solid @color;
+        &.icon-time {
+            &:before,
+            &:after {
+                position: absolute;
+                left: 50%;
+                bottom: 50%;
+                margin-left: -2.5/@REM;
+                content: '';
+                width: 5/@REM;
+                height: 15/@REM;
+                border-radius: 3/@REM;
+                background-color: @color;
+            }
+            &:after {
+                height: 10/@REM;
+                transform-origin: center bottom;
+                -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+            }
+        }
+        &.icon-location {
+            &:before,
+            &:after {
+                position: absolute;
+                left: 50%;
+                margin-left: -7.5/@REM;
+                content: '';
+            }
+            &:before {
+                top: 4.5/@REM;
+                width: 15/@REM;
+                height: 15/@REM;
+                border-radius: 50%;
+                border: 4/@REM solid @color;
+            }
+            &:after {
+                top: 15/@REM;
+                margin-left: -6.5/@REM;
+                border-top: 15/@REM solid @color;
+                border-left: 7/@REM solid transparent;
+                border-right: 7/@REM solid transparent;
+            }
+        }
+    }
+    p {
+        font-size: 20/@REM;
+        color: @color;
+        line-height: 50/@REM;
+        strong {
+            display: block;
+            font-size: 28/@REM;
+        }
+    }
+    a {
+        position: relative;
+        display: inline-block;
+        margin-top: 30/@REM;
+        font-size: 20/@REM;
+        color: #fff;
+        background-color: @color;
+        padding: 15/@REM 70/@REM 15/@REM 30/@REM;
+        border-radius: 5/@REM;
+        &:before,
+        &:after {
+            position: absolute;
+            content: '';
+        }
+        &:before {
+            top: 50%;
+            right: 20/@REM;
+            margin-top: -15/@REM;
+            width: 30/@REM;
+            height: 30/@REM;
+            border: 2/@REM solid #4a535f;
+            border-radius: 50%;
+        }
+        &:after {
+            top: 50%;
+            right: 28/@REM;
+            margin-top: -1/@REM;
+            width: 4/@REM;
+            height: 2/@REM;
+            background-color: #4a535f;
+            color: #4a535f;
+            box-shadow: -4/@REM 0 0, -8/@REM 0 0, -12/@REM 0 0,
+                -2/@REM -2/@REM 0, -4/@REM -4/@REM, -2/@REM 2/@REM 0,
+                -4/@REM 4/@REM;
+        }
+    }
+}
