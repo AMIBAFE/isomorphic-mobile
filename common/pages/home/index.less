@@ -2,6 +2,32 @@
 #app-home {
     position: relative;
     margin-bottom: @NAV_BAR_HEIGHT+30/@REM;
+    .tabs {
+        padding: 0 30/@REM;
+        background-color: #fff;
+        border-bottom: 1px solid @BORDER_COLOR;
+        display: flex;
+        li {
+            position: relative;
+            flex: 1;
+            line-height: @TAB_HEIGHT;
+            text-align: center;
+            font-size: @TAB_FONT_SIZE;
+            color: @MAIN_COLOR;
+            cursor: pointer;
+            &.active {
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    content: '';
+                    display: inline-block;
+                    width: 100%;
+                    border: 2/@REM solid @TAB_ACTIVE_BODER_COLOR;
+                }
+            }
+        }
+    }
 }
 /*搜索框*/
 .home-search-wrapper {
@@ -245,7 +271,8 @@
     }
 }
 
-#recommend-courses {
+#recommend-courses,
+#hot-courses {
     ul {
         margin-right: -30/@REM;
         text-align: center;
@@ -254,4 +281,11 @@
     li {
         background-color: #fff;
     }
+}
+
+#adv-roles {
+    margin-top: 1px;
+}
+#adv-courses {
+    margin-top: 30/@REM;
 }

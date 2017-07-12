@@ -1,20 +1,20 @@
-import * as fetch from 'isomorphic-fetch';
-import * as qs from 'query-string';
-import { Promise } from 'thenfail';
+import * as fetch from "isomorphic-fetch";
+import * as qs from "query-string";
+import { Promise } from "thenfail";
 
-import env from '../server/env';
+import env from "../server/env";
 
 interface Dictionary<T> {
-    [key: string]: T
+    [key: string]: T;
 }
 type DataType = Dictionary<any>;
 interface Response {
-    data: DataType,
+    data: DataType;
     meta: {
         code: number;
         msg: string;
         redirect?: string;
-    }
+    };
 }
 
 class ResponseError extends Error {
@@ -24,18 +24,18 @@ class ResponseError extends Error {
 }
 
 function request({
-    method = 'GET',
+    method = "GET",
     url,
     data = {}
 }: {
-        method?: string;
-        url: string;
-        data: DataType;
-    }): Promise<any> {
-    if (method == 'GET') {
+    method?: string;
+    url: string;
+    data: DataType;
+}): Promise<any> {
+    if (method == "GET") {
         let query = data && qs.stringify(data);
         if (query) {
-            url = url + (url.indexOf('?') > -1 ? `&${query}` : `?${query}`);
+            url = url + (url.indexOf("?") > -1 ? `&${query}` : `?${query}`);
         }
     }
 
@@ -44,20 +44,20 @@ function request({
             method: method.toLowerCase(),
             body: JSON.stringify(data),
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
+                Accept: "application/json",
+                "Content-Type": "application/json"
             }
-        }).then((response: any) => {
-            return Promise
-                .resolve(response.json())
-                .catch(() => {
-                    throw new Error('网络或服务器错误');
-                }) as Promise<Response>;
-            ;
         })
+            .then((response: any) => {
+                return Promise.resolve(response.json()).catch(() => {
+                    throw new Error("网络或服务器错误");
+                }) as Promise<Response>;
+            })
             .then((res): Response => {
                 if (res.meta && res.meta.code != 0) {
-                    console.log(res.meta.msg + ' error code is ' + res.meta.code);
+                    console.log(
+                        res.meta.msg + " error code is " + res.meta.code
+                    );
 
                     throw new Error(res.meta.msg);
                 }
@@ -74,22 +74,22 @@ function request({
 export const api = {
     get: (url: string, data?: DataType) => {
         return request({
-            method: 'GET',
-            url,
+            method: "GET",
+            url: correctApiUrl(url),
             data
-        })
+        });
     },
     post: (url: string, data?: DataType) => {
         return request({
-            method: 'POST',
-            url,
+            method: "POST",
+            url: correctApiUrl(url),
             data
-        })
+        });
     }
-}
+};
 
 export function correctApiUrl(url: string) {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === "production") {
         return `http://qmin91.com/apis/mobile${url}`;
     } else {
         return `http://localhost:${env.webpack.port}/apis/mobile${url}`;

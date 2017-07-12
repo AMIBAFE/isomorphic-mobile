@@ -1,10 +1,17 @@
 import * as Lodash from "lodash";
 
-import { RecommendBasic, RecommendsResponseBasic } from "../interfaces/common";
+import {
+    RecommendRoleBasic,
+    HotRoleBasic,
+    RecommendsResponseBasic
+} from "../interfaces/common";
+import { CourseBasic } from "../interfaces/course";
 import {
     UPDATE_SEO,
-    FETCH_RECOMMEND,
-    ADD_RECOMMEND,
+    UPDATE_RECOMMEND_ROLES,
+    UPDATE_RECOMMEND_COURSES,
+    UPDATE_HOT_ROLES,
+    UPDATE_HOT_COURSES,
     RECEIVE_USER,
     LOG_IN,
     LOG_OUT
@@ -39,15 +46,60 @@ export function userReducer(state = {}, action: any) {
 }
 
 export function recommendRolesReducer(
-    state: RecommendBasic[] = [],
+    state: RecommendRoleBasic[] = [],
     action: {
         type: string;
-        recommends: RecommendBasic[];
+        recommends: RecommendRoleBasic[];
     }
 ) {
     switch (action.type) {
-        case ADD_RECOMMEND:
+        case UPDATE_RECOMMEND_ROLES:
             return action.recommends;
+        default:
+            return state;
+    }
+}
+
+export function recommendCoursesReducer(
+    state: CourseBasic[] = [],
+    action: {
+        type: string;
+        recommends: CourseBasic[];
+    }
+) {
+    switch (action.type) {
+        case UPDATE_RECOMMEND_COURSES:
+            return action.recommends;
+        default:
+            return state;
+    }
+}
+
+export function hotRolesReducer(
+    state: HotRoleBasic[] = [],
+    action: {
+        type: string;
+        hots: HotRoleBasic[];
+    }
+) {
+    switch (action.type) {
+        case UPDATE_HOT_ROLES:
+            return action.hots;
+        default:
+            return state;
+    }
+}
+
+export function hotCoursesReducer(
+    state: CourseBasic[] = [],
+    action: {
+        type: string;
+        hots: HotRoleBasic[];
+    }
+) {
+    switch (action.type) {
+        case UPDATE_HOT_COURSES:
+            return action.hots;
         default:
             return state;
     }

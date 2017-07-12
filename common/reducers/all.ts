@@ -1,6 +1,13 @@
 import { combineReducers } from "redux";
 
-import { seoReducer, userReducer, recommendRolesReducer } from "./common";
+import {
+    seoReducer,
+    userReducer,
+    recommendRolesReducer,
+    recommendCoursesReducer,
+    hotRolesReducer,
+    hotCoursesReducer
+} from "./common";
 import { teacherReducer, teachersReducer } from "./teacher";
 import {
     studioReducer,
@@ -8,7 +15,6 @@ import {
     studioHomeDataReducer,
     studioTeacherTeamReducer
 } from "./studio";
-import { recommendCoursesReducer } from "./course";
 
 import { courseReducer } from "./course";
 import { hotSearchReducer } from "./cat";
@@ -26,6 +32,8 @@ const rootReducer = combineReducers({
     teachers: teachersReducer,
     recommendRoles: recommendRolesReducer,
     recommendCourses: recommendCoursesReducer,
+    hotRoles: hotRolesReducer,
+    hotCourses: hotCoursesReducer,
     course: courseReducer,
     hotSearchCats: hotSearchReducer,
     findLists: findListsReducer,

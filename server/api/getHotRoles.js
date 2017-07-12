@@ -14,7 +14,7 @@ export default function(req, res) {
                 {
                     id: 1,
                     role: 3,
-                    name: "推荐老师yota" || "",
+                    name: "热门老师yota" || "",
                     shortIntro: "音乐是打开智慧之门的金钥匙，学习钢琴能陶冶情操，提高艺术修养，有助..." || "",
                     intro: "音乐是打开智慧之门的金钥匙，学习钢琴能陶冶情操，提高艺术修养，有助..." || "",
                     avatar:
@@ -49,7 +49,7 @@ export default function(req, res) {
                 {
                     id: 2,
                     role: 4,
-                    name: "推荐机构yota" || "",
+                    name: "热门机构yota" || "",
                     shortIntro: "音乐是打开智慧之门的金钥匙，学习钢琴能陶冶情操，提高艺术修养，有助..." || "",
                     intro: "音乐是打开智慧之门的金钥匙，学习钢琴能陶冶情操，提高艺术修养，有助..." || "",
                     avatar:

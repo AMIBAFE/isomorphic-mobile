@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 
-import { api, correctApiUrl } from "../../common/utils";
+import { api } from "../../common/utils";
 import apis from "../../common/apisUrl";
 import { TeacherBasic } from "../interfaces/teacher";
 import { updateSEO } from "../actions/common";
@@ -10,13 +10,13 @@ export const AUTO_COMPLETE = "AUTO_COMPLETE";
 export function getSuggestion({ keyword }: { keyword: string }) {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(correctApiUrl(apis.fetchSuggestion), {
+            .post(apis.fetchSuggestion, {
                 keyword: String(keyword)
             })
             .then(res => {
                 const results: TeacherBasic = res.data;
                 dispatch(getQueryLists(results));
-                console.log('action',results);
+                console.log("action", results);
             });
     };
 }

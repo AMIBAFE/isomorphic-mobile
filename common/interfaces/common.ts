@@ -14,12 +14,13 @@ export interface RoleCardBasic {
     isHot?: boolean;
 }
 
-export interface RecommendBasic extends RoleCardBasic {}
+export interface RecommendRoleBasic extends RoleCardBasic {}
+export interface HotRoleBasic extends RoleCardBasic {}
 export interface RecommendsResponseBasic {
     currentPage: number;
     totalPages: number;
     pageSize: number;
-    recommends: RecommendBasic[];
+    recommends: RecommendRoleBasic[];
 }
 
 export interface PhotoBasic {

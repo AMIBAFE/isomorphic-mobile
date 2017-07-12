@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 
-import { api, correctApiUrl } from "../../common/utils";
+import { api } from "../../common/utils";
 import apis from "../../common/apisUrl";
 
 import { catBasic } from "../interfaces/cat";
@@ -13,7 +13,7 @@ export function fetchHotSearchCats() {
         /*return api.post(correctApiUrl(apis.fetchHotSearchCats)).then(res => {
             dispatch(addHotSearchCats(<catBasic[]>res.data));
         });*/
-        return api.post(correctApiUrl(apis.fetchHotSearchCats)).then(res => {
+        return api.post(apis.fetchHotSearchCats).then(res => {
             const hotSearchCats: catBasic[] = res.data;
             dispatch(addHotSearchCats(hotSearchCats));
         });

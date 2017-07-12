@@ -1,9 +1,12 @@
 import { Dispatch } from "redux";
 
-import { api, correctApiUrl } from "../../common/utils";
+import { api } from "../../common/utils";
 import apis from "../../common/apisUrl";
 
-import { RecommendBasic, RecommendsResponseBasic } from "../interfaces/common";
+import {
+    RecommendRoleBasic,
+    RecommendsResponseBasic
+} from "../interfaces/common";
 import { TeacherBasic } from "../interfaces/teacher";
 import { updateSEO } from "../actions/common";
 
@@ -15,7 +18,7 @@ export const ADD_RECOMMEND_TEACHER = "ADD_RECOMMEND_TEACHER";
 export function fetchTeacherDetail({ tid }: { tid: number }) {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(correctApiUrl(apis.fetchTeacherDetail), { id: Number(tid) })
+            .post(apis.fetchTeacherDetail, { id: Number(tid) })
             .then(res => {
                 const teacher: TeacherBasic = res.data;
 

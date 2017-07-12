@@ -12,7 +12,7 @@ export default function(req, res) {
             data: [
                 {
                     id: 1,
-                    name: "推荐课程1名字",
+                    name: "热门课程1名字",
                     fitAge: "5-18岁（青年）" || "",
                     type: "大班（15人以上）" || "",
                     price: 1200 || 0,
@@ -22,7 +22,7 @@ export default function(req, res) {
                 },
                 {
                     id: 2,
-                    name: "推荐课程2",
+                    name: "热门课程2",
                     fitAge: "5-18岁（青年）" || "",
                     type: "大班（15人以上）" || "",
                     price: 1200 || 0,
@@ -32,7 +32,7 @@ export default function(req, res) {
                 },
                 {
                     id: 3,
-                    name: "推荐课程3",
+                    name: "热门课程3",
                     fitAge: "5-18岁（青年）" || "",
                     type: "大班（15人以上）" || "",
                     price: 1200 || 0,
@@ -42,7 +42,7 @@ export default function(req, res) {
                 },
                 {
                     id: 4,
-                    name: "推荐课程4",
+                    name: "热门课程4",
                     fitAge: "5-18岁（青年）" || "",
                     type: "大班（15人以上）" || "",
                     price: 1200 || 0,

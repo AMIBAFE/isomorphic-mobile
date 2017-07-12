@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 
-import { api, correctApiUrl } from "../../common/utils";
+import { api } from "../../common/utils";
 import apis from "../../common/apisUrl";
 
 import { updateSEO } from "../actions/common";
@@ -18,27 +18,25 @@ export const UPDATE_STUDIO_TEACHER_TEAM = "UPDATE_STUDIO_TEACHER_TEAM";
 
 export function fetchStudioInfo({ sid }: { sid: number }) {
     return (dispatch: Dispatch<any>) => {
-        return api
-            .post(correctApiUrl(apis.fetchStudioInfo), { id: Number(sid) })
-            .then(res => {
-                const studio: StudioBasic = res.data;
+        return api.post(apis.fetchStudioInfo, { id: Number(sid) }).then(res => {
+            const studio: StudioBasic = res.data;
 
-                dispatch(changeStudio(studio));
-                dispatch(
-                    updateSEO({
-                        title: studio.name,
-                        keywords: [studio.name],
-                        description: studio.intro
-                    })
-                );
-            });
+            dispatch(changeStudio(studio));
+            dispatch(
+                updateSEO({
+                    title: studio.name,
+                    keywords: [studio.name],
+                    description: studio.intro
+                })
+            );
+        });
     };
 }
 
 export function fetchStudioHomeData({ sid }: { sid: number }) {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(correctApiUrl(apis.fetchStudioHomeData), { id: Number(sid) })
+            .post(apis.fetchStudioHomeData, { id: Number(sid) })
             .then(res => {
                 const data: StudioHomeDataBasic = res.data;
 
@@ -50,7 +48,7 @@ export function fetchStudioHomeData({ sid }: { sid: number }) {
 export function fetchStudioCourses({ sid }: { sid: number }) {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(correctApiUrl(apis.fetchStudioCourses), { id: Number(sid) })
+            .post(apis.fetchStudioCourses, { id: Number(sid) })
             .then(res => {
                 const courses: CourseBasic[] = res.data;
 
@@ -69,7 +67,7 @@ export function fetchStudioCourses({ sid }: { sid: number }) {
 export function fetchStudioTeachers({ sid }: { sid: number }) {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(correctApiUrl(apis.fetchStudioTeachers), { id: Number(sid) })
+            .post(apis.fetchStudioTeachers, { id: Number(sid) })
             .then(res => {
                 const teachers: TeacherBasic[] = res.data;
 

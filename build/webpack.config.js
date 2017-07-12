@@ -1,94 +1,108 @@
-const path = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin');
+const path = require("path");
+const webpack = require("webpack");
+const autoprefixer = require("autoprefixer");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const Webpack_isomorphic_tools_plugin = require("webpack-isomorphic-tools/plugin");
 
-const webpack_isomorphic_tools_plugin =
-    new Webpack_isomorphic_tools_plugin(require('./webpack-isomorphic-tools-configuration'))
-        .development()
+const webpack_isomorphic_tools_plugin = new Webpack_isomorphic_tools_plugin(
+    require("./webpack-isomorphic-tools-configuration")
+).development();
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: path.join(__dirname, '../client/index.html'),
-    filename: 'index.html',
+    template: path.join(__dirname, "../client/index.html"),
+    filename: "index.html",
     inject: true,
-    chunks: ['vendor', 'app'],
+    chunks: ["vendor", "app"]
 });
 
+const NODE_MODULES_PATH = path.resolve(__dirname, "../node_modules");
+const BUILD_PATH = path.resolve(__dirname, "../build");
+
 module.exports = {
-    context: path.join(__dirname, '..'),
+    context: path.join(__dirname, ".."),
     entry: {
         vendor: [
-            'react',
-            'react-dom',
-            'react-router-dom',
-            'react-redux',
-            'prop-types'
+            "react",
+            "react-dom",
+            "react-router-dom",
+            "react-redux",
+            "prop-types"
         ],
-        app: ['./client/index.tsx']
+        app: ["./client/index.tsx"]
     },
     output: {
-        path: path.join(__dirname, '../assets/dist'),
-        filename: '[name].[hash:8].js'
+        path: path.join(__dirname, "../assets/dist"),
+        filename: "[name].[hash:8].js"
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js'],
+        extensions: [".ts", ".tsx", ".js"],
+        modules: [NODE_MODULES_PATH],
+        alias: {
+            react: "react/dist/react.js",
+            "react-dom": "react-dom/dist/react-dom.js",
+            "react-redux": "react-redux/dist/react-redux.js"
+        }
     },
     module: {
         rules: [
             {
                 test: /\.js|tsx?$/,
-                exclude: [
-                    path.join(__dirname, '../node_modules')
-                ],
-                use: ['ts-loader']
-            }, {
+                exclude: [BUILD_PATH, NODE_MODULES_PATH],
+                loader: "ts-loader",
+                options: {
+                    transpileOnly: true
+                }
+            },
+            {
                 test: /\.less$/,
-                exclude: [
-                    path.join(__dirname, '../node_modules')
-                ],
+                exclude: [BUILD_PATH, NODE_MODULES_PATH],
                 use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
+                    fallback: "style-loader",
                     use: [
-                        'css-loader',
+                        "css-loader",
                         {
-                            loader: 'postcss-loader',
+                            loader: "postcss-loader",
                             options: {
-                                plugins: (loader) => {
-                                    require('autoprefixer')()
+                                plugins: loader => {
+                                    require("autoprefixer")();
                                 }
                             }
                         },
-                        'less-loader'
+                        "less-loader"
                     ]
-                }),
-            }, {
-                test: webpack_isomorphic_tools_plugin.regular_expression('images'),
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 10240
+                })
+            },
+            {
+                test: webpack_isomorphic_tools_plugin.regular_expression(
+                    "images"
+                ),
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10240
+                        }
                     }
-                }],
-
+                ]
             }
-        ],
+        ]
     },
     plugins: [
         HtmlWebpackPluginConfig,
         webpack_isomorphic_tools_plugin,
-        new ExtractTextPlugin('[name]_[hash:8].css'),
+        new ExtractTextPlugin("[name]_[hash:8].css"),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.bundle_[hash:8].js',
+            name: "vendor",
+            filename: "vendor.bundle_[hash:8].js",
             minChunks: Infinity
         }),
-        
+        new ForkTsCheckerWebpackPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.BannerPlugin('This file is created by Yota')
+        new webpack.BannerPlugin("This file is created by Yota")
     ],
     node: {
-        'child_process': 'empty'
+        child_process: "empty"
     }
-}
+};

@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 
-import { api, correctApiUrl } from "../../common/utils";
+import { api } from "../../common/utils";
 import apis from "../../common/apisUrl";
 
 import { catBasic } from "../interfaces/cat";
@@ -15,7 +15,7 @@ export function fetchFindLists() {
             dispatch(addFindLists(<findLists[]>res.data));
         });
         */
-        return api.post(correctApiUrl(apis.fetchFindLists)).then(res => {
+        return api.post(apis.fetchFindLists).then(res => {
             const findLists: catBasic[] = res.data;
             dispatch(addFindLists(findLists));
         });

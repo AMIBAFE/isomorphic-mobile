@@ -3,6 +3,8 @@ export default {
     fetchUser: "/fetch/user",
     fetchRecommendRoles: "/getRecommendRoles",
     fetchRecommendCourses: "/getRecommendCourses",
+    fetchHotRoles: "/getHotRoles",
+    fetchHotCourses: "/getHotCourses",
     fetchTeacherDetail: "/getTeacherDetail",
     fetchStudioInfo: "/getStudioInfo",
     fetchStudioHomeData: "/getStudioHomeData",
