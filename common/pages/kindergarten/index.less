@@ -1,0 +1,173 @@
+@import '../../../assets/css/variable.less';
+@import '../../../assets/css/mixins.less';
+
+@keyframes slider {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+#kindergarten-home {
+    background-color: #fff;
+    overflow: hidden;
+    .intro-part,
+    .school-environment,
+    .school-honor,
+    .booking-way {
+        .main-part;
+    }
+    .intro-part {
+        .intro-text {
+            margin: 0 30/@REM;
+            padding: 30/@REM 0;
+            font-size: 24/@REM;
+            font-family: YH;
+            line-height: 40/@REM;
+            color: @EM_COLOR;
+            text-align: justify;
+        }
+    }
+    .school-environment {
+        ul {
+            margin-right: -30/@REM;
+            padding-bottom: 30/@REM;
+            text-align: center;
+            font-size: 0;
+        }
+        li {
+            position: relative;
+            display: inline-block;
+            margin: 30/@REM 30/@REM 0 0;
+            padding: 0 0 20/@REM;
+            list-style: none;
+            width: 275/@REM;
+            box-shadow: 0 0 15/@REM #ddd;
+            overflow: hidden;
+            h3 {
+                margin: 20/@REM;
+                font-size: 18/@REM;
+                font-family: YH;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            p {
+                position: relative;
+                margin: 0 20/@REM;
+                padding-top: 15/@REM;
+                font-size: 28/@REM;
+                strong {
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+        div {
+            width: 100%;
+            position: relative;
+            height: 270/@REM;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    .school-honor {
+        div {
+            position: relative;
+            margin-top: 30/@REM;
+            height: 300/@REM;
+            background-color: #eee;
+            padding: 40/@REM 0;
+            overflow: hidden;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 40/@REM;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAAAOklEQVRYw+3QwQ0AIAgEQbD/nrEGTBQfM39yGyIAgEnZPaiqOh7LbO+t1x8RKFCgwM8IFDhNIADAVRs8+wQeVUImJgAAAABJRU5ErkJggg==');
+                background-repeat: repeat-x;
+                background-size: contain;
+            }
+            &:before {
+                top: 0;
+            }
+            &:after {
+                bottom: 0;
+            }
+        }
+        ul {
+            // TODO：需要计算，不能写死
+            width: 200%;
+            overflow: hidden;
+            // &.playing {
+            //     animation: slider linear 30s infinite;
+            // }
+        }
+        ul,
+        li,
+        img {
+            height: 100%;
+        }
+        li {
+            list-style: none;
+            overflow: hidden;
+            float: left;
+            padding-right: 10/@REM;
+            font-size: 0;
+        }
+    }
+    .booking-way {
+        padding-top: 30/@REM;
+        font-size: 24/@REM;
+        text-align: center;
+        ul {
+            display: flex;
+        }
+        li {
+            flex: 1;
+            position: relative;
+            padding-top: 160/@REM;
+            &:before {
+                position: absolute;
+                top: 20/@REM;
+                left: 50%;
+                margin-left: -60/@REM;
+                content: "";
+                width: 120/@REM;
+                height: 120/@REM;
+                background-color: #fb5835;
+                border-radius: 50%;
+            }
+        }
+        h2 {
+            font-size: 30/@REM;
+        }
+        .document {
+            p {
+                margin: 20/@REM;
+                color: #fb5835;
+            }
+            img {
+                display: block;
+                margin: 30/@REM;
+                min-height: 600/@REM;
+                background-color: #e5e5e5;
+            }
+            a.btn-download {
+                padding: 20/@REM;
+                background-color: #fb5835;
+                font-size: 30/@REM;
+                color: #fff;
+                border-radius: 5/@REM;
+                box-shadow: 2px 2px 1px #ddd;
+            }
+        }
+    }
+}

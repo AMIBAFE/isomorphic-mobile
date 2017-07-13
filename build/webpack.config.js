@@ -14,7 +14,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: path.join(__dirname, "../client/index.html"),
     filename: "index.html",
     inject: true,
-    chunks: ["vendor", "app"]
+    chunks: ["manifest", "vendor", "app"]
 });
 
 const NODE_MODULES_PATH = path.resolve(__dirname, "../node_modules");
@@ -34,7 +34,8 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, "../assets/dist"),
-        filename: "[name].[hash:8].js"
+        filename: "[name].[chunkhash:8].js",
+        chunkFilename: "[name].[chunkhash:8].chunk.js"
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js"],
@@ -92,10 +93,10 @@ module.exports = {
     plugins: [
         HtmlWebpackPluginConfig,
         webpack_isomorphic_tools_plugin,
-        new ExtractTextPlugin("[name]_[hash:8].css"),
+        new ExtractTextPlugin("[name].[chunkhash:8].css"),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-            filename: "vendor.bundle_[hash:8].js",
+            name: ["vendor", "manifest"],
+            filename: "[name].[chunkhash:8].js",
             minChunks: Infinity
         }),
         new ForkTsCheckerWebpackPlugin(),

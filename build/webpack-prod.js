@@ -32,7 +32,8 @@ const prodWebpackConfig = merge(webpackConfig, {
                 // 删除所有的'console'语句
                 drop_console: true
             }
-        })
+        }),
+        new webpack.HashedModuleIdsPlugin()
     ]
 });
 

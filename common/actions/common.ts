@@ -120,7 +120,7 @@ export function fetchHomePageData() {
         let fetchRecommendCoursesPromise = api.post(apis.fetchRecommendCourses);
         let fetchHotCoursesPromise = api.post(apis.fetchHotCourses);
 
-        Promise.all([
+        return Promise.all([
             fetchRecommendRolesPromise,
             fetchHotRolesPromise,
             fetchRecommendCoursesPromise,

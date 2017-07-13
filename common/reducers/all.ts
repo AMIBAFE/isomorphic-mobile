@@ -15,6 +15,7 @@ import {
     studioHomeDataReducer,
     studioTeacherTeamReducer
 } from "./studio";
+import { kindergartenReducer } from "./kindergarten";
 
 import { courseReducer } from "./course";
 import { hotSearchReducer } from "./cat";
@@ -35,6 +36,8 @@ const rootReducer = combineReducers({
     hotRoles: hotRolesReducer,
     hotCourses: hotCoursesReducer,
     course: courseReducer,
+    kindergarten: kindergartenReducer,
+
     hotSearchCats: hotSearchReducer,
     findLists: findListsReducer,
     searchResults: getSuggestionReducer
