@@ -17,6 +17,8 @@ import getHotSearchCats from "./getHotSearchCats";
 import getFindLists from "./getFindLists";
 import getSuggestion from "./getSuggestion";
 import getKindergarten from "./getKindergarten";
+import submitBookInfo from "./submitBookInfo";
+
 const router = express.Router();
 
 router.post(apisUrl.login, login);
@@ -34,5 +36,6 @@ router.post(apisUrl.fetchCourseDetail, getCourseDetail);
 router.post(apisUrl.fetchFindLists, getFindLists);
 router.post(apisUrl.fetchSuggestion, getSuggestion);
 router.post(apisUrl.fetchKindergarten, getKindergarten);
+router.post(apisUrl.postLooking, submitBookInfo);
 
 export default router;

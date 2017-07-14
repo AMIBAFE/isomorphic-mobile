@@ -14,5 +14,6 @@ export default {
     fetchHotSearchCats: "/getHotSearchCats",
     fetchFindLists: "/getFindLists",
     fetchSuggestion: "/getSuggestion",
-    fetchKindergarten: "/getMobileKindInfo"
+    fetchKindergarten: "/getMobileKindInfo",
+    postLooking: "/looking"
 };

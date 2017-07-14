@@ -15,6 +15,7 @@ import LoginPage from "./pages/login/async";
 import FindPage from "./pages/find/async";
 import CatsPage from "./pages/cats/async";
 import UserPage from "./pages/user/async";
+import LookingPage from "./pages/look-form";
 
 const routes = (
     <Switch>
@@ -25,6 +26,7 @@ const routes = (
         <Route path={routesUrl.studioHome} component={StudioPage} />
         <Route path={routesUrl.teacherHome} component={TeacherPage} />
         <Route path={routesUrl.kindergartenHome} component={KindergartenPage} />
+        <Route path={routesUrl.looking} component={LookingPage} />
 
         <Route path={routesUrl.courseDetail} component={CoursePage} />
         <Route path={routesUrl.search} component={SearchPage} />

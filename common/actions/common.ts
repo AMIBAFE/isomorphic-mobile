@@ -161,3 +161,25 @@ function updateHotCourses(hots: CourseBasic[]) {
         hots
     };
 }
+
+export function postLooking({
+    mark,
+    name,
+    mobile,
+    location,
+    age
+}: {
+    mark: string;
+    name: string;
+    mobile: string;
+    location: string;
+    age: number;
+}) {
+    return api.post(apis.postLooking, {
+        mark,
+        name,
+        mobile,
+        location,
+        age
+    });
+}

@@ -1,0 +1,82 @@
+@import '../../../assets/css/variable.less';
+#banner {
+    position: relative;
+    header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        a {
+            display: inline-block;
+        }
+        span {
+            position: relative;
+            display: inline-block;
+            margin-left: 20/@REM;
+            height: 100/@REM;
+            line-height: 100/@REM;
+            font-size: 30/@REM;
+            color: #fff;
+            vertical-align: top;
+            width: 80/@REM;
+            &:after {
+                position: absolute;
+                content: "\e662";
+                font-family: "iconfont";
+                font-size: 15px;
+                transform: scale(0.6);
+            }
+        }
+    }
+    .logo {
+        margin: 20/@REM 0 20/@REM 20/@REM;
+        width: 170/@REM;
+        height: 60/@REM;
+    }
+    .banner {
+        display: block;
+        width: 100%;
+    }
+}
+#booking-form-page {
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#booking-form {
+    margin: @GAP_WIDTH*2;
+    p {
+        font-size: 30/@REM;
+        line-height: 50/@REM;
+        color: @MAIN_COLOR;
+        text-align: center;
+        b {
+            color: @WARN_COLOR;
+        }
+    }
+    input {
+        margin-top: @GAP_WIDTH*2;
+        padding: 10/@REM 30/@REM;
+        width: 100%;
+        height: 80/@REM;
+        line-height: 60/@REM;
+        border: 1px solid #e7e7e7;
+        border-radius: 5/@REM;
+        font-size: 28/@REM;
+        &[type=text] {
+            &.error {
+                border-color: @WARN_COLOR;
+            }
+        }
+        &[type=button] {
+            color: #fff;
+            background-color: @WARN_COLOR;
+            border-color: @WARN_COLOR;
+            &.submiting {
+                color: rgba(0, 0, 0, 0.3);
+                background-color: #ececec;
+                border: none;
+            }
+        }
+    }
+}

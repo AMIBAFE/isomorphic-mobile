@@ -10,5 +10,6 @@ export default {
     cats: "/cats",
     user: "/user",
     login: "/login",
-    search: "/search"
+    search: "/search",
+    looking: "/looking"
 };
