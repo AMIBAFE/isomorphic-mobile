@@ -26,7 +26,7 @@ function renderFullPage(html, initState) {
 
     return `
         <!DOCTYPE html>
-        <html lang="en">
+        <html>
         <head>
             <meta charset="utf-8">
             <meta name="applicable-device" content="mobile" />
