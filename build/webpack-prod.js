@@ -30,7 +30,7 @@ const prodWebpackConfig = merge(webpackConfig, {
             comments: false,
             compress: {
                 // 删除所有的'console'语句
-                drop_console: true
+                // drop_console: true
             }
         }),
         new webpack.HashedModuleIdsPlugin()
