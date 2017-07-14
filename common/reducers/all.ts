@@ -1,21 +1,46 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
 import {
-    seo,
-    user,
-} from './common';
+    seoReducer,
+    userReducer,
+    recommendRolesReducer,
+    recommendCoursesReducer,
+    hotRolesReducer,
+    hotCoursesReducer
+} from "./common";
+import { teacherReducer, teachersReducer } from "./teacher";
 import {
-    teacher,
-    teachers,
-    recommendTeachers,
-} from './teacher';
+    studioReducer,
+    studioCoursesReducer,
+    studioHomeDataReducer,
+    studioTeacherTeamReducer
+} from "./studio";
+import { kindergartenReducer } from "./kindergarten";
+
+import { courseReducer } from "./course";
+import { hotSearchReducer } from "./cat";
+import { findListsReducer } from "./find";
+import { getSuggestionReducer } from "./search";
 
 const rootReducer = combineReducers({
-    seo,
-    user,
-    teacher,
-    teachers,
-    recommendTeachers,
+    seo: seoReducer,
+    user: userReducer,
+    studio: studioReducer,
+    studioHomeData: studioHomeDataReducer,
+    studioCourses: studioCoursesReducer,
+    studioTeachers: studioTeacherTeamReducer,
+    teacher: teacherReducer,
+    teachers: teachersReducer,
+    recommendRoles: recommendRolesReducer,
+    recommendCourses: recommendCoursesReducer,
+    hotRoles: hotRolesReducer,
+    hotCourses: hotCoursesReducer,
+    course: courseReducer,
+    kindergarten: kindergartenReducer,
+
+    hotSearchCats: hotSearchReducer,
+    findLists: findListsReducer,
+    searchResults: getSuggestionReducer
 });
 
 export default rootReducer;

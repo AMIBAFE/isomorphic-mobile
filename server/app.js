@@ -10,8 +10,9 @@ import env from './env';
 
 const app = express();
 const port = env.server.port;
+const isDevelopment = process.env.NODE_ENV === 'development';
 
-if (process.env.NODE_ENV === 'development') {
+if (isDevelopment) {
     app.use(logger('dev'));
 }
 app.use(bodyParser.json());
@@ -26,12 +27,16 @@ app.all('*', (req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
     next();
 });
-if (process.env.NODE_ENV === 'development') {
+if (isDevelopment) {
     app.use('/apis/mobile', apiRouter);
 }
 
 app.get(routesUrl.teacherHome, handleRender);
 app.get(routesUrl.index, handleRender);
+app.get(routesUrl.courseDetail, handleRender);
+app.get(routesUrl.find, handleRender);
+app.get(routesUrl.cats, handleRender);
+app.get(routesUrl.user, handleRender);
 
 app.listen(port, err => {
     if (err) {

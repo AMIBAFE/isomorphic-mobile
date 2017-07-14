@@ -7,36 +7,37 @@
 
 // Reset the box-sizing
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 * {
-  -webkit-tap-highlight-color:rgba(0,0,0,0)
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html {
-  // `rem` based on the `font-size` of html
-  //   font-size: @rem-base;
-  font-size: @BASE_FONT_SIZE / 16 * 100%;
-  // Changes the default tap highlight in iOS.
-  -webkit-tap-highlight-color: @color-background-active;
-  // Prevent adjustments of font size after orientation changes in IE and iOS.
-  -webkit-text-size-adjust: 100%;
+    // `rem` based on the `font-size` of html
+    //   font-size: @rem-base;
+    font-size: @BASE_FONT_SIZE / 16 * 100%;
+    // Changes the default tap highlight in iOS.
+    -webkit-tap-highlight-color: @color-background-active;
+    // Prevent adjustments of font size after orientation changes in IE and iOS.
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
-  position: relative;
-  color: @color-text-body;
-  font-family: @font-family;
-  margin: 0;
+    position: relative;
+    color: @color-text-body;
+    font-family: @font-family;
+    margin: 0;
+    background-color: #efefef;
 }
 
 //
@@ -49,7 +50,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+    margin: 0;
 }
 
 p,
@@ -62,7 +63,7 @@ ol,
 pre,
 address,
 figure {
-  margin: 0;
+    margin: 0;
 }
 
 h1,
@@ -71,76 +72,88 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: @font-weight-bold;
+    font-weight: @font-weight-bold;
 }
 
-h1 { font-size: @font-size-h1; }
-h2 { font-size: @font-size-h2; }
-h3 { font-size: @font-size-h3; }
-h4 { font-size: @font-size-h4; }
-h5 { font-size: @font-size-h5; }
-h6 { font-size: @font-size-h6; }
+h1 {
+    font-size: @font-size-h1;
+}
+h2 {
+    font-size: @font-size-h2;
+}
+h3 {
+    font-size: @font-size-h3;
+}
+h4 {
+    font-size: @font-size-h4;
+}
+h5 {
+    font-size: @font-size-h5;
+}
+h6 {
+    font-size: @font-size-h6;
+}
 
 a {
-  color: @color-text-body;
-  text-decoration: none;
-  // Remove gaps in links underline in iOS 8+ and Safari 8+.
-  -webkit-text-decoration-skip: objects;
-
-  &:active,
-  &:hover {
+    color: @color-text-body;
     text-decoration: none;
-  }
+    // Remove gaps in links underline in iOS 8+ and Safari 8+.
+    -webkit-text-decoration-skip: objects;
+
+    &:active,
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 b,
 strong,
 dt {
-  font-weight: @font-weight-bold;
+    font-weight: @font-weight-bold;
 }
 
 code {
-  background-color: @color-background-code;
-  font-family: @font-family-monospace;
-  font-size: @font-size-code;
-  padding: @padding-code;
+    background-color: @color-background-code;
+    font-family: @font-family-monospace;
+    font-size: @font-size-code;
+    padding: @padding-code;
 }
 
 pre {
-  // Mobile device has a small height, so we need to enable scroll-view
-  .scroll-view();
- 
-  background-color: @color-background-pre;
-  font-family: @font-family-monospace;
-  font-size: @font-size-pre;
-  line-height: @line-height-pre;
-  // Mobile device has a small height, so we need to set the width of pre to the device width
-  margin-left: -@width-gap;
-  margin-right: -@width-gap;
-  padding: @width-gap;
+    // Mobile device has a small height, so we need to enable scroll-view
+    .scroll-view();
 
-  // Override the code styles
-  code {
-    background-color: transparent;
+    background-color: @color-background-pre;
+    font-family: @font-family-monospace;
     font-size: @font-size-pre;
-    padding: 0;
-  }
+    line-height: @line-height-pre;
+    // Mobile device has a small height, so we need to set the width of pre to the device width
+    margin-left: -@width-gap;
+    margin-right: -@width-gap;
+    padding: @width-gap;
 
-  @media (min-width: @max-width-container) {
-    margin-left: 0;
-    margin-right: 0;
-  }
+    // Override the code styles
+    code {
+        background-color: transparent;
+        font-size: @font-size-pre;
+        padding: 0;
+    }
+
+    @media (min-width: @max-width-container) {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 blockquote {
-  border-left: @border-left-blockquote;
-  color: @color-text-blockquote;
-  padding-left: @width-gap;
+    border-left: @border-left-blockquote;
+    color: @color-text-blockquote;
+    padding-left: @width-gap;
 }
 
 ul,
 ol {
-  list-style: none;
+    list-style: none;
 }
 
 dt,
@@ -149,46 +162,45 @@ ol ol,
 ul ul,
 ol ul,
 ul ol {
-  margin: 0;
+    margin: 0;
 }
 
 hr {
-  border: 0;
-  border-top: @border-top-hr;
+    border: 0;
+    border-top: @border-top-hr;
 }
 
 small {
-  font-size: @font-size-small;
+    font-size: @font-size-small;
 }
 
 // Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 sub,
 sup {
-  font-size: @font-size-sub-sup;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+    font-size: @font-size-sub-sup;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
 sub {
-  bottom: -.25em;
+    bottom: -.25em;
 }
 
 sup {
-  top: -.5em;
+    top: -.5em;
 }
 
 address {
-  color: @color-text-muted;
-  font-size: @font-size-address;
-  font-style: normal;
+    color: @color-text-muted;
+    font-size: @font-size-address;
+    font-style: normal;
 }
 
 mark {
-  background-color: @color-background-mark;
-  color: @color-text;
+    background-color: @color-background-mark;
+    color: @color-text;
 }
-
 
 //
 // Embedded Content
@@ -196,15 +208,14 @@ mark {
 
 // Add the correct display in iOS 4-7.
 audio:not([controls]) {
-  display: none;
-  height: 0;
+    display: none;
+    height: 0;
 }
 
 img {
-  max-width: 100%;
-  vertical-align: middle;
+    max-width: 100%;
+    vertical-align: middle;
 }
-
 
 //
 // Forms
@@ -216,7 +227,7 @@ img {
 // for traditionally non-focusable elements with role="button"
 // see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
 [role="button"] {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 // Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
@@ -229,8 +240,8 @@ label,
 select,
 summary,
 textarea {
-  outline: 0;
-  touch-action: manipulation;
+    outline: 0;
+    touch-action: manipulation;
 }
 
 button,
@@ -239,47 +250,51 @@ html [type=button],
 [type=reset],
 [type=submit],
 ::-webkit-file-upload-button {
-  // (*) Correct the inability to style clickable types in iOS and Safari.
-  -webkit-appearance: button;
+    // (*) Correct the inability to style clickable types in iOS and Safari.
+    -webkit-appearance: button;
 }
 
 [type=search] {
-  // Correct the odd appearance in Chrome and Safari.
-  -webkit-appearance: none;
+    // Correct the odd appearance in Chrome and Safari.
+    -webkit-appearance: none;
 }
 
 /* 隐藏取消按钮 */
-::-webkit-search-cancel-button { -webkit-appearance: none; }
+::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
 
 /* 隐藏放大镜 */
-::-webkit-search-results-button { -webkit-appearance: none; }
+::-webkit-search-results-button {
+    -webkit-appearance: none;
+}
 
 [type="date"],
 [type="time"],
 [type="datetime-local"],
 [type="month"] {
-  // Remove the default appearance of temporal inputs to avoid a Mobile Safari
-  // bug where setting a custom line-height prevents text from being vertically
-  // centered within the input.
-  //
-  // Bug report: https://github.com/twbs/bootstrap/issues/11266
-  -webkit-appearance: listbox;
+    // Remove the default appearance of temporal inputs to avoid a Mobile Safari
+    // bug where setting a custom line-height prevents text from being vertically
+    // centered within the input.
+    //
+    // Bug report: https://github.com/twbs/bootstrap/issues/11266
+    -webkit-appearance: listbox;
 }
 
 // Change font properties to `inherit` in Safari.
 ::-webkit-file-upload-button {
-  font: inherit;
+    font: inherit;
 }
 
 [hidden] {
-  display: none;
+    display: none;
 }
 
 input[type="text"],
 textarea {
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-appearance: none;
-  border: 0;
-  border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-appearance: none;
+    border: 0;
+    border-radius: 0;
 }

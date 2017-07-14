@@ -1,0 +1,62 @@
+@import '../../../assets/css/variable.less';
+
+.nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-flex;
+    display: flex;
+    background-color: #fff;
+    text-align: center;
+    border-top: 1px solid #d5d5d5;
+    height: @NAV_BAR_HEIGHT;
+    box-sizing: content-box;
+    .nav-item {
+        display: inline-block;
+        text-align: center;
+        font-size: 18/@REM;
+        color: #333333;
+        -webkit-flex: 1;
+        flex: 1;
+        cursor: pointer;
+        &:hover {
+            .nav-label {
+                color: #fb5835;
+            }
+            .icon-main {
+                background-image: url('../../../assets/images/icon/main-h.png');
+            }
+            .icon-find {
+                background-image: url('../../../assets/images/icon/find-h.png');
+            }
+            .icon-courses {
+                background-image: url('../../../assets/images/icon/courses-h.png');
+            }
+            .icon-my {
+                background-image: url('../../../assets/images/icon/my-h.png');
+            }
+        }
+    }
+    .nav-icon {
+        width: 40/@REM;
+        height: 40/@REM;
+        display: block;
+        margin: 10/@REM auto;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .icon-main {
+        background-image: url('../../../assets/images/icon/main.png');
+    }
+    .icon-find {
+        background-image: url('../../../assets/images/icon/find.png');
+    }
+    .icon-courses {
+        background-image: url('../../../assets/images/icon/courses.png');
+    }
+    .icon-my {
+        background-image: url('../../../assets/images/icon/my.png');
+    }
+}

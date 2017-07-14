@@ -1,7 +1,7 @@
-import { CourseBasic } from './course';
+import { CourseBasic } from "./course";
 
 export interface TeacherDictionary<T> {
-    [key: number]: T
+    [key: number]: T;
 }
 
 export interface TeacherBasic {
@@ -14,11 +14,5 @@ export interface TeacherBasic {
     shortIntro: string;
     intro: string;
     selfIntro?: string;
-}
-
-export interface RecommendsResponseBasic {
-    currentPage: number;
-    totalPages: number;
-    pageSize: number;
-    recommends: TeacherBasic[];
+    isHot?: boolean;
 }

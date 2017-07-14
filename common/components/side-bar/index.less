@@ -1,0 +1,55 @@
+@import '../../../assets/css/variable.less';
+#side-bar {
+    position: fixed;
+    bottom: @NAV_BAR_HEIGHT;
+    right: 20/@REM;
+    z-index: 2;
+    .side-pic {
+        width: 80/@REM;
+        height: 115/@REM;
+        background: url('./mao.png') no-repeat center;
+        background-size: cover;
+        position: relative;
+        margin: 0 auto;
+    }
+    .side-hi {
+        position: absolute;
+        top: 40/@REM;
+        left: -15/@REM;
+        width: 35/@REM;
+        height: 30/@REM;
+        background: url('./icon-hi.png') no-repeat center;
+        background-size: cover;
+    }
+    .side-label {
+        background: #fb5838;
+        color: #fff;
+        border-radius: 3/@REM;
+        font-size: 18/@REM;
+        width: 110/@REM;
+        text-align: center;
+    }
+    .side-back-top {
+        width: 65/@REM;
+        height: 65/@REM;
+        margin: 0 auto;
+        border: 1px solid #d9d9d9;
+        position: relative;
+        border-radius: 100%;
+        cursor: pointer;
+        background-color: #fdfdfd;
+        &:hover {
+            background-color: #d9d9d9;
+        }
+    }
+    .icon-arrow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30/@REM;
+        height: 30/@REM;
+        background: url('./top.png') no-repeat center;
+        background-size: cover;
+        transform: translate(-50%, -50%);
+    }
+}

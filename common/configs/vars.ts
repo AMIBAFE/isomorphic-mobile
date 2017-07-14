@@ -1,6 +1,7 @@
 export const defaultAvatar = require("../../assets/images/default-avatar.png");
 
 export enum Role { teacher = 3, studio };// 这里对应的是数据库的role表
+//export enum Role { course = 20, studio };// 这里对应的是数据库的role表
 export enum PriceUnitId { hour, term, course };
 export const PriceUnitMap: string[] = [];
 PriceUnitMap[PriceUnitId.hour] = "课时";
@@ -16,10 +17,6 @@ export const catEntrances = [
         name: "体育",
         className: "sport",
         cid: 128,
-    }, {
-        name: "生活",
-        className: "life",
-        cid: 185,
     }, {
         name: "出国",
         className: "abroad",
@@ -37,16 +34,12 @@ export const catEntrances = [
         className: "hight-school",
         cid: 531,
     }, {
-        name: "大学",
-        className: "college",
-        cid: 456,
-    }, {
         name: "语言",
         className: "language",
         cid: 490,
     }, {
-        name: "其他",
-        className: "other",
+        name: "技能",
+        className: "skill",
         cid: 520
     }
 ];

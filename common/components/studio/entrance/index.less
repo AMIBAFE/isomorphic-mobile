@@ -1,0 +1,26 @@
+@import '../../../../assets/css/variable.less';
+
+.entrance {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+    background-color: #fff;
+    a {
+        display: block;
+        padding: 30/@REM 0;
+        -webkit-flex: 1;
+        -webkit-box-flex: 1;
+        flex: 1;
+        border: 1px solid #eee;
+        border-left: none;
+        text-align: center;
+        font-size: 24/@REM;
+        &.active {
+            background-color: @PINK_COLOR;
+            color: @EM_COLOR;
+        }
+        &:last-child {
+            border-right: none;
+        }
+    }
+}

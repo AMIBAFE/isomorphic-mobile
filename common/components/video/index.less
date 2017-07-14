@@ -1,0 +1,86 @@
+@import '../../../assets/css/variable.less';
+.video {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 30/@REM;
+    width: 445/@REM;
+    height: 320/@REM;
+    background-color: #eee;
+    background-size: cover;
+    overflow: hidden;
+    background-position: center center;
+    &.multi {
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: '';
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        strong {
+            &:before {
+                position: absolute;
+                content: '';
+                top: -75/@REM;
+                left: 50%;
+                margin-left: -25/@REM;
+                width: 50/@REM;
+                height: 50/@REM;
+                border-radius: 50%;
+                border: 3/@REM solid @WARN_COLOR;
+            }
+            &:after {
+                position: absolute;
+                content: '';
+                border-left: 20/@REM solid @WARN_COLOR;
+                border-top: 10/@REM solid transparent;
+                border-bottom: 10/@REM solid transparent;
+                left: 50%;
+                top: -60/@REM;
+                margin-left: -7.5/@REM;
+            }
+        }
+    }
+
+    strong {
+        position: absolute;
+        left: 0;
+        margin-top: 200/@REM;
+        padding: 0 30/@REM;
+        width: 100%;
+        color: #fff;
+        font-size: 24/@REM;
+        font-family: YH;
+        text-align: center;
+    }
+}
+
+.video-player {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
+    &.playing {
+        display: block;
+    }
+    video {
+        display: block;
+        margin: 50% auto;
+        width: 90%;
+        height: 50%;
+    }
+    span.btn-close-player {
+        position: absolute;
+        top: 30/@REM;
+        left: 30/@REM;
+        line-height: 60/@REM;
+        color: #fff;
+        font-size: 30/@REM;
+    }
+}

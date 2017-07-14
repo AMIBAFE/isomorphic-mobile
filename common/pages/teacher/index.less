@@ -1,93 +1,90 @@
-@import '../../../assets/css/variable.less'; 
-
+@import '../../../assets/css/variable.less';
 #teacher-home {
     background-color: #f5f5f5;
-}
-
-#info-part {
-    padding: 30/@REM 40/@REM 0;    
-    font-size: 24/@REM; 
-    img {
-        display: block;
-        margin: 0 auto 30/@REM;
-        width: 290/@REM;
-        height: 290/@REM;
-        border: 4/@REM solid #fff;
-        border-radius: 50%;
-        box-shadow: 0 0 16/@REM #ddd;
-    }
-    h1 {
+    .info-part {
+        padding: 30/@REM 40/@REM 0;
         font-size: 24/@REM;
-        strong {
-            margin-right: 10/@REM;
-            font-size: 36/@REM;
-            color: @EM_COLOR;
+        img {
+            display: block;
+            margin: 0 auto 30/@REM;
+            width: 290/@REM;
+            height: 290/@REM;
+            border: 4/@REM solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 16/@REM #ddd;
+        }
+        h1 {
+            font-size: 24/@REM;
+            strong {
+                margin-right: 10/@REM;
+                font-size: 36/@REM;
+                color: @EM_COLOR;
+            }
+        }
+        p {
+            margin: 30/@REM 0;
+            line-height: 30/@REM;
+        }
+        ul {
+            margin-top: 30/@REM;
+            padding: 30/@REM 30/@REM 30/@REM 60/@REM;
+            list-style: none;
+            background-color: #fff;
+            border-radius: 5/@REM;
+            box-shadow: 0 0 10/@REM #ddd;
+            line-height: 50/@REM;
+        }
+        li {
+            position: relative;
+            border-bottom: 1px solid #ddd;
+            &:before {
+                position: absolute;
+                top: 12/@REM;
+                left: -35/@REM;
+                content: '';
+                width: 24/@REM;
+                height: 24/@REM;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            &:nth-child(1) {
+                &:before {
+                    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAbFBMVEUAAAD7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDVO2us4AAAAI3RSTlMA7oiW4UstpdN3MkTxYhnjg1joy8KyqzkhD/bbvZt7ai4LBO6BzEEAAACqSURBVCjPjdDJDoMwDEXRl0CBUoaEeZ78//9Y1URNUBf0rKwrywuDBYs0UnxpGsSJaIWxJ81uxiQsHjx0S0g8cZWtCADECQmnekjzDKj9LLB1LHrIqMc4w6kpRU1DHnzPrdBVWQ6hrVZ0V7OYbdc60Wm77r5Y+89dLZnqL9UTLO/uL/zWjlI3HgX/AZVQT2uilmtWkyPXQFnBNQvz0VpaISmw1RdWro5PewPOYA7HkyAJLAAAAABJRU5ErkJggg==);
+                }
+            }
+            &:nth-child(2) {
+                &:before {
+                    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAMAAAAc9R5vAAAAilBMVEUAAAD7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDUTXNYhAAAALXRSTlMAVbuHByL37gPTQm0cspcn3cCln3hySC0R+/Dlo313ZGAgzcWqjFAWqWc4Ng+KH1ZdAAAA8ElEQVQoz3XQ546DMBAE4AE7jjE9JEA6pF6b93+9o8lG6O77NdZYq9Vi8tNK/KG5kfvcYEE+mIfeNqBYFKd9g44W3GHO2HehIszEmcborQRKf3ABpBLuzw1mLEKgpWcLcYCT8mXzWcGpGdpcZHh7gwpA4GOijyfsOIiBLn5jdKWBblc9CUAes3H9r0OOmSgnj581orMiT9IdKmBifFJxX5iYH5DZulOg4QVAFZ6v/bwNK4SiUyI5SDip230TYI7b/4uL6LwWheZWButOgkRJOBWvmHh8wtI+U5vvjMt01Uu9OxNY9YOWemrMRKU3MjWsX0KkE+hALPNeAAAAAElFTkSuQmCC);
+                }
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+            strong {
+                color: @WARN_COLOR;
+            }
         }
     }
-    p {
-        margin: 30/@REM 0;
-        line-height: 30/@REM;
-    }
-    ul {
-        margin-top: 30/@REM;
-        padding: 30/@REM 30/@REM 30/@REM 60/@REM;
-        list-style: none;
+    .intro-part,
+    .course-part {
+        .main-part;
+        padding: 30/@REM;
         background-color: #fff;
-        border-radius: 5/@REM;
-        box-shadow: 0 0 10/@REM #ddd;
-        line-height: 50/@REM;
-     }
-    li {
-        position: relative;
-        border-bottom: 1px solid #ddd;
-        &:before {
-            position: absolute;
-            top: 12/@REM;
-            left: -35/@REM;
-            content: '';
-            width: 24/@REM;
-            height: 24/@REM;
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-        &:nth-child(1) {
-            &:before {
-                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAbFBMVEUAAAD7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDVO2us4AAAAI3RSTlMA7oiW4UstpdN3MkTxYhnjg1joy8KyqzkhD/bbvZt7ai4LBO6BzEEAAACqSURBVCjPjdDJDoMwDEXRl0CBUoaEeZ78//9Y1URNUBf0rKwrywuDBYs0UnxpGsSJaIWxJ81uxiQsHjx0S0g8cZWtCADECQmnekjzDKj9LLB1LHrIqMc4w6kpRU1DHnzPrdBVWQ6hrVZ0V7OYbdc60Wm77r5Y+89dLZnqL9UTLO/uL/zWjlI3HgX/AZVQT2uilmtWkyPXQFnBNQvz0VpaISmw1RdWro5PewPOYA7HkyAJLAAAAABJRU5ErkJggg==);
-            }
-        }
-        &:nth-child(2) {
-            &:before {
-                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAMAAAAc9R5vAAAAilBMVEUAAAD7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDX7WDUTXNYhAAAALXRSTlMAVbuHByL37gPTQm0cspcn3cCln3hySC0R+/Dlo313ZGAgzcWqjFAWqWc4Ng+KH1ZdAAAA8ElEQVQoz3XQ546DMBAE4AE7jjE9JEA6pF6b93+9o8lG6O77NdZYq9Vi8tNK/KG5kfvcYEE+mIfeNqBYFKd9g44W3GHO2HehIszEmcborQRKf3ABpBLuzw1mLEKgpWcLcYCT8mXzWcGpGdpcZHh7gwpA4GOijyfsOIiBLn5jdKWBblc9CUAes3H9r0OOmSgnj581orMiT9IdKmBifFJxX5iYH5DZulOg4QVAFZ6v/bwNK4SiUyI5SDip230TYI7b/4uL6LwWheZWButOgkRJOBWvmHh8wtI+U5vvjMt01Uu9OxNY9YOWemrMRKU3MjWsX0KkE+hALPNeAAAAAElFTkSuQmCC);
-            }
-        }
-        &:last-child {
-            border-bottom: none;
-        }
-        strong {
-            color: @WARN_COLOR;
+    }
+    .intro-part {
+        div {
+            margin-top: 30/@REM;
+            line-height: 40/@REM;
+            text-align: justify;
+            font-size: 24/@REM;
         }
     }
-}
-
-#intro-part, #course-part {
-    margin-top: 30/@REM;
-    padding: 30/@REM;
-    background-color: #fff;
-}
-
-#intro-part {
-    div {
-        line-height: 40/@REM;
-        text-align: justify;
-        font-size: 24/@REM;
-    }  
-}  
-
-#course-part {
-    ul {
-        margin-right: -30/@REM;
-        text-align: center;
-        font-size: 0;
+    .course-part {
+        ul {
+            margin-right: -30/@REM;
+            text-align: center;
+            font-size: 0;
+        }
     }
 }

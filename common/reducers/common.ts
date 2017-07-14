@@ -1,20 +1,29 @@
-import * as Lodash from 'lodash';
+import * as Lodash from "lodash";
 
 import {
-    RecommendBasic,
-    RecommendsResponseBasic,
-} from '../interfaces/common';
+    RecommendRoleBasic,
+    HotRoleBasic,
+    RecommendsResponseBasic
+} from "../interfaces/common";
+import { CourseBasic } from "../interfaces/course";
 import {
     UPDATE_SEO,
-    FETCH_RECOMMEND,
-    ADD_RECOMMEND,
-
+    UPDATE_RECOMMEND_ROLES,
+    UPDATE_RECOMMEND_COURSES,
+    UPDATE_HOT_ROLES,
+    UPDATE_HOT_COURSES,
     RECEIVE_USER,
     LOG_IN,
     LOG_OUT
-} from '../actions/common';
+} from "../actions/common";
 
-export function seo(state = {}, action: any) {
+const seoInitState = {
+    keywords: ["全民教育"],
+    description: "全民教育",
+    title: "全民教育网移动端官网"
+};
+
+export function seoReducer(state = seoInitState, action: any) {
     switch (action.type) {
         case UPDATE_SEO:
             return { ...action.seoInfo };
@@ -23,7 +32,7 @@ export function seo(state = {}, action: any) {
     }
 }
 
-export function user(state = {}, action: any) {
+export function userReducer(state = {}, action: any) {
     switch (action.type) {
         case RECEIVE_USER:
             return action.user;
@@ -31,6 +40,66 @@ export function user(state = {}, action: any) {
             return action.user;
         case LOG_OUT:
             return {};
+        default:
+            return state;
+    }
+}
+
+export function recommendRolesReducer(
+    state: RecommendRoleBasic[] = [],
+    action: {
+        type: string;
+        recommends: RecommendRoleBasic[];
+    }
+) {
+    switch (action.type) {
+        case UPDATE_RECOMMEND_ROLES:
+            return action.recommends;
+        default:
+            return state;
+    }
+}
+
+export function recommendCoursesReducer(
+    state: CourseBasic[] = [],
+    action: {
+        type: string;
+        recommends: CourseBasic[];
+    }
+) {
+    switch (action.type) {
+        case UPDATE_RECOMMEND_COURSES:
+            return action.recommends;
+        default:
+            return state;
+    }
+}
+
+export function hotRolesReducer(
+    state: HotRoleBasic[] = [],
+    action: {
+        type: string;
+        hots: HotRoleBasic[];
+    }
+) {
+    switch (action.type) {
+        case UPDATE_HOT_ROLES:
+            return action.hots;
+        default:
+            return state;
+    }
+}
+
+export function hotCoursesReducer(
+    state: CourseBasic[] = [],
+    action: {
+        type: string;
+        hots: HotRoleBasic[];
+    }
+) {
+    switch (action.type) {
+        case UPDATE_HOT_COURSES:
+            return action.hots;
         default:
             return state;
     }

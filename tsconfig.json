@@ -12,16 +12,22 @@
         "jsx": "react",
         "allowJs": true
     },
-    "exclude": [
-        "node_modules"
-    ],
+    "exclude": ["node_modules"],
     "files": [
         "./client/index.tsx",
         "./common/components/course-card/index.tsx",
         "./common/components/teacher-card/index.tsx",
         "./common/components/user-label/index.tsx",
+        "./common/components/video/index.tsx",
         "./common/pages/home/index.tsx",
         "./common/pages/teacher/index.tsx",
+        "./common/pages/course/index.tsx",
+        "./common/pages/login/index.tsx",
+        "./common/pages/search/index.tsx",
+        "./common/pages/studio/home/index.tsx",
+        "./common/pages/studio/courses/index.tsx",
+        "./common/pages/studio/teachers/index.tsx",
+        "./common/pages/kindergarten/index.tsx",
         "./common/configStore.ts",
         "./common/routes.tsx",
         "./common/utils.ts",
@@ -29,8 +35,10 @@
         "./common/interfaces/common.ts",
         "./common/interfaces/teacher.ts",
         "./common/interfaces/course.ts",
+        "./common/interfaces/cat.ts",
         "./common/actions/common.ts",
+        "./common/actions/cats.ts",
         "./common/reducers/all.ts",
-        "./common/reducers/common.ts"
+        "./common/reducers/cat.ts"
     ]
 }
