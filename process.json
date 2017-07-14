@@ -3,7 +3,7 @@
     "script": "server/index.js",
     "cwd": "./",
     "exec_mode": "fork",
-    "watch": false,
+    "watch": true,
     "env": {
         "NODE_ENV": "production",
         "DEBUG_SDK": "yes"
