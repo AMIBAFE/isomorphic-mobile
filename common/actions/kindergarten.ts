@@ -8,10 +8,10 @@ import { updateSEO } from "../actions/common";
 
 export const UPDATE_KINDERGARTEN = "UPDATE_KINDERGARTEN";
 
-export function fetchKindergarten({ kid }: { kid: number }) {
+export function fetchKindergarten({ sid }: { sid: number }) {
     return (dispatch: Dispatch<any>) => {
         return api
-            .post(apis.fetchKindergarten, { kid: Number(kid) })
+            .post(apis.fetchKindergarten, { sid: Number(sid) })
             .then(res => {
                 const kindergarten: KindergartenBasic = res.data;
 

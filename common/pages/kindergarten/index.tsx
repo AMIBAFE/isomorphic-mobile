@@ -122,7 +122,7 @@ class Kindergarten extends React.Component<KindergartenBasic, any> {
 
 const fetchData = (
     { dispatch }: { dispatch: Dispatch<any> },
-    params: { kid: number }
+    params: { sid: number }
 ) => dispatch(fetchKindergarten({ ...params }));
 
 function mapStateToProps(state: any) {

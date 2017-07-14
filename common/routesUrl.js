@@ -5,7 +5,7 @@ export default {
     studioHome: "/studio/:sid",
     studioCourses: "/studio/:sid/courses",
     studioTeachers: "/studio/:sid/teachers",
-    kindergartenHome: "/kindergarten/:kid",
+    kindergartenHome: "/kindergarten/:sid",
     find: "/find",
     cats: "/cats",
     user: "/user",
