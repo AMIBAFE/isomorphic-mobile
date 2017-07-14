@@ -25,9 +25,10 @@ class Kindergarten extends React.Component<KindergartenBasic, any> {
                         <strong>学校简介</strong>SCHOLL PROFILE
                     </h2>
                     <Video {...video} />
-                    <div className="intro-text">
-                        {intro}
-                    </div>
+                    <div
+                        className="intro-text"
+                        dangerouslySetInnerHTML={{ __html: intro }}
+                    />
                 </section>
                 <section className="school-environment">
                     <h2 className="main-title">
