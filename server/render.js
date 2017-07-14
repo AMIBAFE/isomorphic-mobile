@@ -27,33 +27,42 @@ function renderFullPage(html, initState) {
     return `
         <!DOCTYPE html>
         <html>
-        <head>
-            <meta charset="utf-8">
-            <meta name="applicable-device" content="mobile" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
-            />
-            <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-            <meta name="msapplication-tap-highlight" content="no" />
-
-            <meta name="keywords" content="${initState.seo.keywords.join(",") ||
-                "全民教育"}">
-            <meta name="description" content="${initState.seo.description ||
-                "全民教育"}">
-            <title>${initState.seo.title || "全民教育网移动端官网"}</title>
-            <link href="${appCss}" rel="stylesheet">
-        </head>
-        <body>
-            <div id="container" class="layout">${html}</div>
-            <script>
-                window.__INITIAL_STATE__ = ${JSON.stringify(initState)}
-            </script>
-            <script src="${manifestJs}"></script>
-            <script src="${vendorJs}"></script>
-            <script src="${appJs}"></script>
-        </body>
+            <body>
+                it is a test!
+            </body>   
         </html>
     `;
+
+    // return `
+    //     <!DOCTYPE html>
+    //     <html>
+    //     <head>
+    //         <meta charset="utf-8">
+    //         <meta name="applicable-device" content="mobile" />
+    //         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    //         />
+    //         <meta name="apple-mobile-web-app-capable" content="yes" />
+    //         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    //         <meta name="msapplication-tap-highlight" content="no" />
+
+    //         <meta name="keywords" content="${initState.seo.keywords.join(",") ||
+    //             "全民教育"}">
+    //         <meta name="description" content="${initState.seo.description ||
+    //             "全民教育"}">
+    //         <title>${initState.seo.title || "全民教育网移动端官网"}</title>
+    //         <link href="${appCss}" rel="stylesheet">
+    //     </head>
+    //     <body>
+    //         <div id="container" class="layout">${html}</div>
+    //         <script>
+    //             window.__INITIAL_STATE__ = ${JSON.stringify(initState)}
+    //         </script>
+    //         <script src="${manifestJs}"></script>
+    //         <script src="${vendorJs}"></script>
+    //         <script src="${appJs}"></script>
+    //     </body>
+    //     </html>
+    // `;
 }
 
 function renderApp(store, context, req) {
