@@ -28,6 +28,14 @@ export default class Footer extends React.Component<any, any> {
                         </a>
                     </p>
                 </section>
+                <section>
+                    <a href="http://qmin91.com">
+                        <img
+                            src={require("./footer.png")}
+                            alt="找老师，上全民教育网。海量师资随你挑！"
+                        />
+                    </a>
+                </section>
             </div>
         );
     }
