@@ -36,7 +36,7 @@ if (isDevelopment) {
 }
 
 _.forEach(routesUrl, url => {
-    app.get(url, handleRender);
+    app.use(url, handleRender);
 });
 
 app.listen(port, err => {
