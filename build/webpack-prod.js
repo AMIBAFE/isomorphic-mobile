@@ -17,6 +17,13 @@ const prodWebpackConfig = merge(webpackConfig, {
     output: {
         publicPath: "/dist/"
     },
+    resolve: {
+        alias: {
+            react: "react/dist/react.min.js",
+            "react-dom": "react-dom/dist/react-dom.min.js",
+            "react-redux": "react-redux/dist/react-redux.min.js"
+        }
+    },
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
