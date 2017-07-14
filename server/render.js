@@ -36,21 +36,21 @@ function renderFullPage(html, initState) {
             <meta name="apple-mobile-web-app-status-bar-style" content="black" />
             <meta name="msapplication-tap-highlight" content="no" />
 
-            <meta name="keywords" content=${initState.seo.keywords.join(",") ||
-                "全民教育"}>
-            <meta name="description" content=${initState.seo.description ||
-                "全民教育"}>
+            <meta name="keywords" content="${initState.seo.keywords.join(",") ||
+                "全民教育"}">
+            <meta name="description" content="${initState.seo.description ||
+                "全民教育"}">
             <title>${initState.seo.title || "全民教育网移动端官网"}</title>
-            <link href=${appCss} rel="stylesheet">
+            <link href="${appCss}" rel="stylesheet">
         </head>
         <body>
             <div id="container" class="layout">${html}</div>
             <script>
                 window.__INITIAL_STATE__ = ${JSON.stringify(initState)}
             </script>
-            <script src=${manifestJs}></script>
-            <script src=${vendorJs}></script>
-            <script src=${appJs}></script>
+            <script src="${manifestJs}"></script>
+            <script src="${vendorJs}"></script>
+            <script src="${appJs}"></script>
         </body>
         </html>
     `;
