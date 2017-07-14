@@ -18,17 +18,13 @@ import UserPage from "./pages/user/async";
 
 const routes = (
     <Switch>
-        <Route path={routesUrl.index} component={HomePage} />
+        <Route exact path={routesUrl.index} component={HomePage} />
         <Route path={routesUrl.login} component={LoginPage} />
         <Route path={routesUrl.studioCourses} component={StudioCoursesPage} />
         <Route path={routesUrl.studioTeachers} component={StudioTeachersPage} />
         <Route path={routesUrl.studioHome} component={StudioPage} />
         <Route path={routesUrl.teacherHome} component={TeacherPage} />
-        <Route
-            exact
-            path={routesUrl.kindergartenHome}
-            component={KindergartenPage}
-        />
+        <Route path={routesUrl.kindergartenHome} component={KindergartenPage} />
 
         <Route path={routesUrl.courseDetail} component={CoursePage} />
         <Route path={routesUrl.search} component={SearchPage} />
