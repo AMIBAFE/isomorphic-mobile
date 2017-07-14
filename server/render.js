@@ -30,8 +30,7 @@ function renderFullPage(html, initState) {
             <body>
                 it is a test!
             </body>   
-        </html>
-    `;
+        </html>`;
 
     // return `
     //     <!DOCTYPE html>
