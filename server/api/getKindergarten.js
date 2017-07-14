@@ -1,7 +1,8 @@
 export default function(req, res) {
-    const account = req.body.account;
-    const password = req.body.password;
-    const err = false; // 模拟请求失败
+    // 请求发的参数
+    const kid = req.body.kid;
+    // 模拟请求失败
+    const err = false;
 
     if (err) {
         return res.status(500).end("服务器错误");
