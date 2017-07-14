@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { string, array, func } from "prop-types";
-import * as classNames from "classNames";
+import * as classNames from "classnames";
 
 import { RecommendRoleBasic, HotRoleBasic } from "../../interfaces/common";
 import { CourseBasic } from "../../interfaces/course";

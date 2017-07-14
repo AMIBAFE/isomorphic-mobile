@@ -2,7 +2,7 @@ import "./index.less";
 
 import * as React from "react";
 import { render } from "react-dom";
-import * as classNames from "classNames";
+import * as classNames from "classnames";
 import { string, array } from "prop-types";
 
 interface ContactPropsBasic {

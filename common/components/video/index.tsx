@@ -3,7 +3,7 @@ import "./index.less";
 import * as React from "react";
 import { render } from "react-dom";
 import { string } from "prop-types";
-import * as classNames from "classNames";
+import * as classNames from "classnames";
 
 interface VideoStatic {
     title?: string;
