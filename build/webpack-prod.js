@@ -19,9 +19,9 @@ const prodWebpackConfig = merge(webpackConfig, {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env.NODE_ENV": JSON.stringify(
-                process.env.NODE_ENV || "production"
-            )
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
         }),
         new webpack.optimize.UglifyJsPlugin({
             // 最紧凑的输出
@@ -30,7 +30,7 @@ const prodWebpackConfig = merge(webpackConfig, {
             comments: false,
             compress: {
                 // 删除所有的'console'语句
-                // drop_console: true
+                drop_console: true
             }
         }),
         new webpack.HashedModuleIdsPlugin()

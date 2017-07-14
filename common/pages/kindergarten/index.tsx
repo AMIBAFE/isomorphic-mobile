@@ -16,7 +16,6 @@ import Video from "../../components/video";
 
 class Kindergarten extends React.Component<KindergartenBasic, any> {
     render() {
-        console.log("render Kindergarten");
         const { intro, address, video, envAlbum, honorAlbum } = this.props;
 
         return (
