@@ -87,9 +87,7 @@ export default function handleRender(req, res) {
         requires
             .map(file => babelInterop(require(file)))
             .filter(component => Boolean(component && component.fetch))
-            .map(component =>
-                component.fetch(store, req.params || { sid: 3009 })
-            )
+            .map(component => component.fetch(store, req.params))
     )
         .then(() => {
             const html = renderApp(store, context, req);
