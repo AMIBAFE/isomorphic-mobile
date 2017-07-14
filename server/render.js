@@ -17,7 +17,7 @@ const babelInterop = obj => (obj && obj.__esModule ? obj.default : obj);
 
 function renderFullPage(html, initState) {
     const assets = JSON.parse(
-        fs.readFileSync(path.join(__dirname, "../build/webpack-assets.json"))
+        fs.readFileSync(path.join(__dirname, "../webpack/webpack-assets.json"))
     );
     const manifestJs = assets.javascript.manifest;
     const vendorJs = assets.javascript.vendor;
