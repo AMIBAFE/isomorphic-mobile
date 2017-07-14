@@ -1,6 +1,6 @@
 export default function(req, res) {
     // 请求发的参数
-    const kid = req.body.kid;
+    const sid = req.body.sid;
     // 模拟请求失败
     const err = false;
 

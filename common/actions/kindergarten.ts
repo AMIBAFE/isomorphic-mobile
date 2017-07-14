@@ -10,6 +10,7 @@ export const UPDATE_KINDERGARTEN = "UPDATE_KINDERGARTEN";
 
 export function fetchKindergarten({ sid }: { sid: number }) {
     return (dispatch: Dispatch<any>) => {
+        console.log("请求家教园数据，", sid);
         return api
             .post(apis.fetchKindergarten, { sid: Number(sid) })
             .then(res => {
