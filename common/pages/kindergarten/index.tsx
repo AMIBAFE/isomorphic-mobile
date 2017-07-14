@@ -95,10 +95,13 @@ class Kindergarten extends React.Component<KindergartenBasic, any> {
                         </p>
                         <div>
                             <h2>学校新生报告登记表</h2>
-                            <img src="" alt="学校新生报告登记表" />
+                            <img
+                                src={require("./book-excel.jpg")}
+                                alt="学校新生报告登记表"
+                            />
                             <a
                                 className="btn-download"
-                                href="http://st.qmin91.com/images/logo-165-1_136d8b9.png"
+                                href={require("./book-excel.jpg")}
                                 download="学校新生报告登记表"
                             >
                                 点击下载
