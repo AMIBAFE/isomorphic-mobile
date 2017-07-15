@@ -49,6 +49,7 @@ export interface Dispatch<S> {
 * 开发过程中，如有修改或添加server/api下的文件，请重新执行./debug
 * 由于正式服务器有多个版本的node，切换频繁。为了解决切换过程中，跑该项目的node进程突然死掉，再次跑起来的node版本不合适，故使用了docker来搭建虚拟环境。（可用过docker images查看已搭建好的镜像。本项目用的是wap这个镜像，跑该项目的容器名为run_wap，可通过docker ps查看）。
 * 设置ts-loader的参数{transpileOnly: true}，对没有修改过的文件不会再重新编译，提升webpack的编译速度。当然，改设置会使类型检查失效，该项目使用[fork-ts-checker-webpack-plugin](https://github.com/Realytics/fork-ts-checker-webpack-plugin)来创建一个异步的进程来做类型检查的工作。
+* 静态资源缓存（给资源加chunkhash，生产换用HashedModuleIdsPlugin开发环境用NamedModulesPlugin来保证模块的id不变，从而使每次重新编译不至于chunkhash值一直都变）
 
 ## 拓展文档
 * [docker介绍文档](https://www.gitbook.com/book/yeasy/docker_practice 'Docker — 从入门到实践')
@@ -58,3 +59,4 @@ export interface Dispatch<S> {
 ## TODO
 * 首页加载速度问题
 * [~~按需加载，代码分割（没有好的解决方案）~~](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/guides/code-splitting.md)
+* webpack配置优化（使编译速度加快）

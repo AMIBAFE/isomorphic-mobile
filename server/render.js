@@ -87,7 +87,7 @@ export default function handleRender(req, res) {
 
             res.end(renderFullPage(html, finalState));
         })
-        .fail(err => {
-            res.end(`500 ${err}`);
+        .fail(error => {
+            res.status(500).send({ error });
         });
 }
