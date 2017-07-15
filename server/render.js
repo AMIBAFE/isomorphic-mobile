@@ -88,6 +88,6 @@ export default function handleRender(req, res) {
             res.end(renderFullPage(html, finalState));
         })
         .fail(error => {
-            res.status(500).send({ error });
+            res.status(500).send(`500 ${error}`);
         });
 }
