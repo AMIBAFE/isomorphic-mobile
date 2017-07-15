@@ -57,6 +57,6 @@ export interface Dispatch<S> {
 * [JWT](https://github.com/hokaccha/node-jwt-simple) 请求验证，防止暴力刷接口
 
 ## TODO
-* 首页加载速度问题
+* 提升首屏页面加载速度（只直出首屏页面可视内容，其他在客户端上延迟处理，在客户端上通过 react 的 dom diff 机制来动态挂载，无页面刷新的感知）
 * [~~按需加载，代码分割（没有好的解决方案）~~](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/guides/code-splitting.md)
 * webpack配置优化（使编译速度加快）

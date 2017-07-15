@@ -83,7 +83,8 @@ module.exports = {
                     {
                         loader: "url-loader",
                         options: {
-                            limit: 10240
+                            limit: 10240,
+                            name: "images/[name].[hash:8].[ext]"
                         }
                     }
                 ]

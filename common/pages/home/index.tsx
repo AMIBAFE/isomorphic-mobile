@@ -322,7 +322,6 @@ class Home extends React.Component<PropsBasic, any> {
             keyword: ""
         };
     }
-
     onInput(keyword: string) {
         this.setState({ keyword });
     }

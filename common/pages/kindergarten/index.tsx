@@ -16,7 +16,14 @@ import Video from "../../components/video";
 
 class Kindergarten extends React.Component<KindergartenBasic, any> {
     render() {
-        const { intro, address, video, envAlbum, honorAlbum } = this.props;
+        const {
+            intro,
+            address,
+            video,
+            envAlbum,
+            honorAlbum,
+            checkinExcel
+        } = this.props;
 
         return (
             <div id="kindergarten-home">
@@ -101,8 +108,8 @@ class Kindergarten extends React.Component<KindergartenBasic, any> {
                             />
                             <a
                                 className="btn-download"
-                                href={require("./book-excel.jpg")}
-                                download="学校新生报告登记表"
+                                href={checkinExcel}
+                                target="_blank"
                             >
                                 点击下载
                             </a>

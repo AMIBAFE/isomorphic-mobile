@@ -74,7 +74,9 @@ export default function(req, res) {
                         src:
                             "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/PEEOjzQL58f1d694a50f1"
                     }
-                ]
+                ],
+                checkinExcel:
+                    "http://qmin91.com/download/xls/eW0ybVJoRDBhVzE1MDAwODk5ODE="
             }
         });
     }

@@ -21,4 +21,5 @@ export interface KindergartenBasic {
         name: string;
         src: string;
     }[];
+    checkinExcel: string;
 }
