@@ -18,23 +18,31 @@ import PhotoSwiper from "../../components/photoswipe";
 class Kindergarten extends React.Component<
     KindergartenBasic,
     {
-        showAlbum: boolean;
-        albumSwiperIndex: number;
+        showEnvAlbumean: boolean;
+        envAlbumSwiperIndex: number;
+        showHonorAlbumean: boolean;
     }
 > {
     constructor() {
         super();
 
         this.state = {
-            showAlbum: false,
-            albumSwiperIndex: 0
+            showEnvAlbumean: false,
+            showHonorAlbumean: false,
+            envAlbumSwiperIndex: 0
         };
     }
 
-    handleToggleAlbum(index?: number) {
+    handleToggleEnvAlbum(index?: number) {
         this.setState({
-            showAlbum: !this.state.showAlbum,
-            albumSwiperIndex: index || 0
+            showEnvAlbumean: !this.state.showEnvAlbumean,
+            envAlbumSwiperIndex: index || 0
+        });
+    }
+
+    handleToggleHonorAlbum() {
+        this.setState({
+            showHonorAlbumean: !this.state.showHonorAlbumean
         });
     }
 
@@ -71,7 +79,7 @@ class Kindergarten extends React.Component<
                                 return (
                                     <li
                                         key={index}
-                                        onClick={this.handleToggleAlbum.bind(
+                                        onClick={this.handleToggleEnvAlbum.bind(
                                             this,
                                             index
                                         )}
@@ -92,11 +100,11 @@ class Kindergarten extends React.Component<
                                 );
                             })}
                     </ul>
-                    {this.state.showAlbum
+                    {this.state.showEnvAlbumean
                         ? <PhotoSwiper
                               photos={envAlbum}
-                              onClose={this.handleToggleAlbum.bind(this)}
-                              index={this.state.albumSwiperIndex}
+                              onClose={this.handleToggleEnvAlbum.bind(this)}
+                              index={this.state.envAlbumSwiperIndex}
                           />
                         : null}
                 </section>
@@ -104,8 +112,11 @@ class Kindergarten extends React.Component<
                     <h2 className="main-title">
                         <strong>学校荣誉</strong>SCHOOL HONOR
                     </h2>
-                    <div>
-                        <ul className="playing">
+                    <div className="scroller">
+                        <ul
+                            className="playing"
+                            onClick={this.handleToggleHonorAlbum.bind(this)}
+                        >
                             {honorAlbum &&
                                 honorAlbum.length &&
                                 honorAlbum.map((photo, index) => {
@@ -117,6 +128,12 @@ class Kindergarten extends React.Component<
                                 })}
                         </ul>
                     </div>
+                    {this.state.showHonorAlbumean
+                        ? <PhotoSwiper
+                              photos={honorAlbum}
+                              onClose={this.handleToggleHonorAlbum.bind(this)}
+                          />
+                        : null}
                 </section>
                 <section className="booking-way">
                     <h2 className="main-title">
@@ -144,11 +161,8 @@ class Kindergarten extends React.Component<
                                 src={require("./book-excel.png")}
                                 alt="学校新生报告登记表"
                             />
-                            <a
-                                className="btn-download"
-                                href={checkinExcel}
-                                target="_blank"
-                            >
+                            <p>如是在微信打开，请长按图片，保存图片。</p>
+                            <a className="btn-download" href={checkinExcel}>
                                 点击下载
                             </a>
                         </div>

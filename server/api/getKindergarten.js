@@ -64,23 +64,33 @@ export default function(req, res) {
                 honorAlbum: [
                     {
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/4Xh7Jry258f1d4986f881"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/4Xh7Jry258f1d4986f881",
+                        w: 1200,
+                        h: 900
                     },
                     {
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/VRf1J1DZ58f1d67f0ee81"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/VRf1J1DZ58f1d67f0ee81",
+                        w: 1200,
+                        h: 900
                     },
                     {
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/v760m4pZ58f1d687330a6"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/v760m4pZ58f1d687330a6",
+                        w: 1200,
+                        h: 900
                     },
                     {
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/65C2Aa7858f1d68f0594f"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/65C2Aa7858f1d68f0594f",
+                        w: 1200,
+                        h: 900
                     },
                     {
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/PEEOjzQL58f1d694a50f1"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/PEEOjzQL58f1d694a50f1",
+                        w: 1200,
+                        h: 900
                     }
                 ],
                 checkinExcel:

@@ -9,7 +9,7 @@ const Webpack_isomorphic_tools_plugin = require("webpack-isomorphic-tools/plugin
 const webpack_isomorphic_tools_plugin = new Webpack_isomorphic_tools_plugin(
     require("./webpack-isomorphic-tools-configuration")
 ).development();
-console.log("__dirname", __dirname);
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: path.join(__dirname, "../client/index.html"),
     filename: "index.html",
