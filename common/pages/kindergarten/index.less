@@ -67,7 +67,7 @@
                 }
             }
         }
-        div {
+        div.album-cover {
             width: 100%;
             position: relative;
             height: 270/@REM;
@@ -106,9 +106,9 @@
             // TODO：需要计算，不能写死
             width: 200%;
             overflow: hidden;
-            // &.playing {
-            //     animation: slider linear 30s infinite;
-            // }
+            &.playing {
+                animation: slider linear 30s infinite;
+            }
         }
         ul,
         li,
@@ -143,7 +143,20 @@
                 width: 120/@REM;
                 height: 120/@REM;
                 background-color: #fb5835;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 50%;
                 border-radius: 50%;
+            }
+            &:first-child {
+                &:before {
+                    background-image: url('./icon-download.png');
+                }
+            }
+            &:last-child {
+                &:before {
+                    background-image: url('./icon-phone.png');
+                }
             }
         }
         h2 {
@@ -163,7 +176,9 @@
                 border: 1px solid #ddd;
             }
             a.btn-download {
+                display: inline-block;
                 padding: 20/@REM;
+                margin-bottom: 30/@REM;
                 background-color: #fb5835;
                 font-size: 30/@REM;
                 color: #fff;

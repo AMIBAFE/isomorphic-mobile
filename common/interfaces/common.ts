@@ -25,13 +25,25 @@ export interface RecommendsResponseBasic {
 
 export interface PhotoBasic {
     src: string;
-    alt: string;
-    w?: number;
-    h?: number;
+    name?: string;
+    w: number;
+    h: number;
 }
 
 export interface PhotoAlbumBasic {
     name: string;
     desc: string;
     photos: PhotoBasic[];
+}
+
+export interface VideoStatic {
+    title?: string;
+    cover?: string;
+    mp4?: string;
+    webm?: string;
+}
+
+export interface MediasBasic {
+    videos: VideoStatic[];
+    photoAlbums: PhotoAlbumBasic[];
 }

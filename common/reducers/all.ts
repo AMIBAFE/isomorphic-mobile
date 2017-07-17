@@ -13,7 +13,8 @@ import {
     studioReducer,
     studioCoursesReducer,
     studioHomeDataReducer,
-    studioTeacherTeamReducer
+    studioTeacherTeamReducer,
+    studioMediasReducer
 } from "./studio";
 import { kindergartenReducer } from "./kindergarten";
 
@@ -25,16 +26,21 @@ import { getSuggestionReducer } from "./search";
 const rootReducer = combineReducers({
     seo: seoReducer,
     user: userReducer,
+
     studio: studioReducer,
     studioHomeData: studioHomeDataReducer,
     studioCourses: studioCoursesReducer,
     studioTeachers: studioTeacherTeamReducer,
+    studioMedias: studioMediasReducer,
+
     teacher: teacherReducer,
     teachers: teachersReducer,
+
     recommendRoles: recommendRolesReducer,
     recommendCourses: recommendCoursesReducer,
     hotRoles: hotRolesReducer,
     hotCourses: hotCoursesReducer,
+
     course: courseReducer,
     kindergarten: kindergartenReducer,
 

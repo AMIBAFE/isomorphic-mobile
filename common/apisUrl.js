@@ -10,6 +10,7 @@ export default {
     fetchStudioHomeData: "/getStudioHomeData",
     fetchStudioCourses: "/getStudioCourses",
     fetchStudioTeachers: "/getStudioTeachers",
+    fetchStudioMedias: "/getStudioMedias",
     fetchCourseDetail: "/getCourseDetail",
     fetchHotSearchCats: "/getHotSearchCats",
     fetchFindLists: "/getFindLists",

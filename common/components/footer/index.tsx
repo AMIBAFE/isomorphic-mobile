@@ -8,7 +8,7 @@ export default class Footer extends React.Component<any, any> {
     render() {
         return (
             <div>
-                <section id="label-part">
+                {/* <section id="label-part">
                     <ul>
                         <li>
                             <a href="http://qmin91.com">
@@ -27,7 +27,7 @@ export default class Footer extends React.Component<any, any> {
                             粤ICP备15090983号
                         </a>
                     </p>
-                </section>
+                </section> */}
                 <section>
                     <a href="http://qmin91.com">
                         <img

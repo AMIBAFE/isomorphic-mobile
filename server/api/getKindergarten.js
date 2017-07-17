@@ -35,22 +35,30 @@ export default function(req, res) {
                     {
                         name: "教学环境",
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/4Xh7Jry258f1d4986f881"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/4Xh7Jry258f1d4986f881",
+                        w: 1200,
+                        h: 900
                     },
                     {
                         name: "教学环境2",
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/mxCryDL4576b918bbd3b8"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/mxCryDL4576b918bbd3b8",
+                        w: 1200,
+                        h: 900
                     },
                     {
                         name: "教学环境3",
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/4Xh7Jry258f1d4986f881"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/4Xh7Jry258f1d4986f881",
+                        w: 1200,
+                        h: 900
                     },
                     {
                         name: "教学环境4",
                         src:
-                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/mxCryDL4576b918bbd3b8"
+                            "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/mxCryDL4576b918bbd3b8",
+                        w: 1200,
+                        h: 900
                     }
                 ],
                 honorAlbum: [

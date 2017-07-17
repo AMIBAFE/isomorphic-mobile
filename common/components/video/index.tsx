@@ -5,12 +5,7 @@ import { render } from "react-dom";
 import { string } from "prop-types";
 import * as classNames from "classnames";
 
-interface VideoStatic {
-    title?: string;
-    cover?: string;
-    mp4?: string;
-    webm?: string;
-}
+import { VideoStatic } from "../../interfaces/common";
 
 export default class Video extends React.Component<
     VideoStatic,

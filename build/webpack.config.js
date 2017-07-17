@@ -9,7 +9,7 @@ const Webpack_isomorphic_tools_plugin = require("webpack-isomorphic-tools/plugin
 const webpack_isomorphic_tools_plugin = new Webpack_isomorphic_tools_plugin(
     require("./webpack-isomorphic-tools-configuration")
 ).development();
-
+console.log("__dirname", __dirname);
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: path.join(__dirname, "../client/index.html"),
     filename: "index.html",
@@ -57,7 +57,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.less$/,
+                test: /\.css|less$/,
                 exclude: [BUILD_PATH, NODE_MODULES_PATH],
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
@@ -66,9 +66,7 @@ module.exports = {
                         {
                             loader: "postcss-loader",
                             options: {
-                                plugins: loader => {
-                                    require("autoprefixer")();
-                                }
+                                plugins: loader => [require("autoprefixer")()]
                             }
                         },
                         "less-loader"

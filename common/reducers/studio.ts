@@ -1,9 +1,11 @@
+import { MediasBasic } from "../interfaces/common";
 import { TeacherBasic } from "../interfaces/teacher";
 import {
     CHANGE_STUDIO,
     UPDATE_STUDIO_COURSES,
     UPDATE_STUDIO_HOME_DATA,
-    UPDATE_STUDIO_TEACHER_TEAM
+    UPDATE_STUDIO_TEACHER_TEAM,
+    UPDATE_STUDIO_MEDIAS
 } from "../actions/studio";
 
 export function studioReducer(
@@ -48,6 +50,15 @@ export function studioTeacherTeamReducer(
     switch (action.type) {
         case UPDATE_STUDIO_TEACHER_TEAM:
             return action.teachers;
+        default:
+            return state;
+    }
+}
+
+export function studioMediasReducer(state = <MediasBasic>{}, action: any) {
+    switch (action.type) {
+        case UPDATE_STUDIO_MEDIAS:
+            return action.medias;
         default:
             return state;
     }

@@ -13,8 +13,31 @@ import { fetchKindergarten } from "../../actions/kindergarten";
 
 import Footer from "../../components/footer";
 import Video from "../../components/video";
+import PhotoSwiper from "../../components/photoswipe";
 
-class Kindergarten extends React.Component<KindergartenBasic, any> {
+class Kindergarten extends React.Component<
+    KindergartenBasic,
+    {
+        showAlbum: boolean;
+        albumSwiperIndex: number;
+    }
+> {
+    constructor() {
+        super();
+
+        this.state = {
+            showAlbum: false,
+            albumSwiperIndex: 0
+        };
+    }
+
+    handleToggleAlbum(index?: number) {
+        this.setState({
+            showAlbum: !this.state.showAlbum,
+            albumSwiperIndex: index || 0
+        });
+    }
+
     render() {
         const {
             intro,
@@ -46,21 +69,36 @@ class Kindergarten extends React.Component<KindergartenBasic, any> {
                             envAlbum.length &&
                             envAlbum.map((photo, index) => {
                                 return (
-                                    <li key={index}>
+                                    <li
+                                        key={index}
+                                        onClick={this.handleToggleAlbum.bind(
+                                            this,
+                                            index
+                                        )}
+                                    >
                                         <div
+                                            className="album-cover"
                                             style={{
                                                 backgroundImage: `url(${photo.src})`
                                             }}
                                         />
                                         <p>
                                             <strong>
-                                                {photo.name}
+                                                {photo.name ||
+                                                    `学校环境${index + 1}`}
                                             </strong>
                                         </p>
                                     </li>
                                 );
                             })}
                     </ul>
+                    {this.state.showAlbum
+                        ? <PhotoSwiper
+                              photos={envAlbum}
+                              onClose={this.handleToggleAlbum.bind(this)}
+                              index={this.state.albumSwiperIndex}
+                          />
+                        : null}
                 </section>
                 <section className="school-honor">
                     <h2 className="main-title">
@@ -103,7 +141,7 @@ class Kindergarten extends React.Component<KindergartenBasic, any> {
                         <div>
                             <h2>学校新生报告登记表</h2>
                             <img
-                                src={require("./book-excel.jpg")}
+                                src={require("./book-excel.png")}
                                 alt="学校新生报告登记表"
                             />
                             <a

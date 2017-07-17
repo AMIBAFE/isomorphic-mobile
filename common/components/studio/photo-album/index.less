@@ -1,0 +1,48 @@
+@import '../../../../assets/css/variable.less';
+.photo-album-list {
+    li {
+        position: relative;
+        display: inline-block;
+        margin: 30/@REM 30/@REM 0 0;
+        padding: 10/@REM 10/@REM 0;
+        list-style: none;
+        width: 275/@REM;
+        box-shadow: 0 0 15/@REM #ddd;
+        overflow: hidden;
+    }
+    div.album-cover {
+        position: relative;
+        padding: 210/@REM 0 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:before,
+        &:after {
+            position: absolute;
+            content: '';
+        }
+        &:before {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        &:after {
+            content: attr(data-amount);
+            bottom: 10/@REM;
+            right: 10/@REM;
+            font-size: 25/@REM;
+            color: #fff;
+        }
+    }
+    p {
+        position: relative;
+        padding: 15/@REM 0;
+        font-size: 22/@REM;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: left;
+    }
+}

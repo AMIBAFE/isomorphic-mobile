@@ -310,6 +310,7 @@ class CoursesSection extends React.Component<
 };
 
 interface PropsBasic {
+    dispatch: Dispatch<any>;
     recommendRoles: RecommendRoleBasic[];
     recommendCourses: CourseBasic[];
     hotRoles: HotRoleBasic[];
@@ -321,6 +322,14 @@ class Home extends React.Component<PropsBasic, any> {
         this.state = {
             keyword: ""
         };
+    }
+    componentDidMount() {
+        !this.props.hotRoles ||
+            (!this.props.hotRoles.length &&
+                this.props.dispatch(fetchHotRoles()));
+        !this.props.hotCourses ||
+            (!this.props.hotCourses.length &&
+                this.props.dispatch(fetchHotCourses()));
     }
     onInput(keyword: string) {
         this.setState({ keyword });
@@ -368,12 +377,6 @@ const fetchData = ({
     dispatch: Dispatch<any>;
     getState: () => any;
 }) => {
-    // 判断如果之前已有数据，就不用再请求一次。如果业务要求数据时效性比较高，可不需要这步操作
-    const recommendRoles: RecommendRoleBasic[] = getState().recommendRoles;
-    const recommendCourses: CourseBasic[] = getState().recommendCourses;
-    const hotRoles: HotRoleBasic[] = getState().hotRoles;
-    const hotCourses: CourseBasic[] = getState().hotCourses;
-
     dispatch(fetchHomePageData());
 };
 

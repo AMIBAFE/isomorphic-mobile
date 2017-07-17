@@ -1,0 +1,19 @@
+@import '../../../../assets/css/variable.less';
+@import '../../../../assets/css/mixins.less';
+
+#studio-medias {
+    margin-bottom: @CONTACT_LABEL_BAR;
+    background-color: #fff;
+    overflow: hidden;
+    .video-list,
+    .photo-album-list {
+        .main-part;
+    }
+    .photo-album-list {
+        ul {
+            margin-right: -30/@REM;
+            text-align: center;
+            font-size: 0;
+        }
+    }
+}

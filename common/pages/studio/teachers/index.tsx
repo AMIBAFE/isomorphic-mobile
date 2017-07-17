@@ -55,7 +55,7 @@ class StudioTeachersPage extends React.Component<
         const { studio, teachers } = this.props;
 
         return (
-            <div id="studio-courses">
+            <div id="studio-teachers">
                 <Notices notices={studio.notices} />
                 <Banner src={studio.banner} alt={studio.name} />
                 <Entrance sid={studio.id} />

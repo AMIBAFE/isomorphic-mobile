@@ -116,20 +116,20 @@ export function fetchHotCourses() {
 export function fetchHomePageData() {
     return (dispatch: Dispatch<any>) => {
         let fetchRecommendRolesPromise = api.post(apis.fetchRecommendRoles);
-        let fetchHotRolesPromise = api.post(apis.fetchHotRoles);
         let fetchRecommendCoursesPromise = api.post(apis.fetchRecommendCourses);
-        let fetchHotCoursesPromise = api.post(apis.fetchHotCourses);
+        // let fetchHotRolesPromise = api.post(apis.fetchHotRoles);
+        // let fetchHotCoursesPromise = api.post(apis.fetchHotCourses);
 
         return Promise.all([
             fetchRecommendRolesPromise,
-            fetchHotRolesPromise,
-            fetchRecommendCoursesPromise,
-            fetchHotCoursesPromise
-        ]).then(([res1, res2, res3, res4]) => {
-            dispatch(updateRecommendRoles(res1.data));
-            dispatch(updateHotRoles(res2.data));
-            dispatch(updateRecommendCourses(res3.data));
-            dispatch(updateHotCourses(res4.data));
+            fetchRecommendCoursesPromise
+            // fetchHotRolesPromise,
+            // fetchHotCoursesPromise
+        ]).then(responses => {
+            dispatch(updateRecommendRoles(responses[0].data));
+            dispatch(updateRecommendCourses(responses[1].data));
+            // dispatch(updateHotRoles(responses[3].data));
+            // dispatch(updateHotCourses(responses[4].data));
         });
     };
 }

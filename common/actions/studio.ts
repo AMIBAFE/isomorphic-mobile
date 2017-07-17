@@ -5,6 +5,7 @@ import apis from "../../common/apisUrl";
 
 import { updateSEO } from "../actions/common";
 
+import { MediasBasic } from "../interfaces/common";
 import { StudioBasic, StudioHomeDataBasic } from "../interfaces/studio";
 import { CourseBasic } from "../interfaces/course";
 import { TeacherBasic } from "../interfaces/teacher";
@@ -15,6 +16,7 @@ export const CHANGE_STUDIO = "CHANGE_STUDIO";
 export const UPDATE_STUDIO_COURSES = "UPDATE_STUDIO_COURSES";
 export const UPDATE_STUDIO_HOME_DATA = "UPDATE_STUDIO_HOME_DATA";
 export const UPDATE_STUDIO_TEACHER_TEAM = "UPDATE_STUDIO_TEACHER_TEAM";
+export const UPDATE_STUDIO_MEDIAS = "UPDATE_STUDIO_MEDIAS";
 
 export function fetchStudioInfo({ sid }: { sid: number }) {
     return (dispatch: Dispatch<any>) => {
@@ -83,6 +85,25 @@ export function fetchStudioTeachers({ sid }: { sid: number }) {
     };
 }
 
+export function fetchStudioMedias({ sid }: { sid: number }) {
+    return (dispatch: Dispatch<any>) => {
+        return api
+            .post(apis.fetchStudioMedias, { id: Number(sid) })
+            .then(res => {
+                const medias: MediasBasic = res.data;
+
+                dispatch(updateStudioMedias(medias));
+                dispatch(
+                    updateSEO({
+                        title: "视频相册",
+                        keywords: ["机构名字"],
+                        description: "机构名字"
+                    })
+                );
+            });
+    };
+}
+
 function changeStudio(studio: StudioBasic) {
     return {
         type: CHANGE_STUDIO,
@@ -108,5 +129,12 @@ function updateStudioTeacherTeam(teachers: TeacherBasic[]) {
     return {
         type: UPDATE_STUDIO_TEACHER_TEAM,
         teachers
+    };
+}
+
+function updateStudioMedias(medias: MediasBasic) {
+    return {
+        type: UPDATE_STUDIO_MEDIAS,
+        medias
     };
 }

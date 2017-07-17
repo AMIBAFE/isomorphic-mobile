@@ -97,27 +97,27 @@ export default function(req, res) {
                     {
                         src:
                             "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/4Xh7Jry258f1d4986f881",
-                        alt: "教学环境"
+                        name: "教学环境"
                     },
                     {
                         src:
                             "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/VRf1J1DZ58f1d67f0ee81",
-                        alt: "教学环境"
+                        name: "教学环境"
                     },
                     {
                         src:
                             "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/v760m4pZ58f1d687330a6",
-                        alt: "教学环境"
+                        name: "教学环境"
                     },
                     {
                         src:
                             "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/65C2Aa7858f1d68f0594f",
-                        alt: "教学环境"
+                        name: "教学环境"
                     },
                     {
                         src:
                             "http://maoyou-qmjy.oss-cn-hangzhou.aliyuncs.com/PEEOjzQL58f1d694a50f1",
-                        alt: "教学环境"
+                        name: "教学环境"
                     }
                 ],
                 studentStylePhotoAlbums: [

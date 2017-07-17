@@ -5,19 +5,18 @@
     bottom: 0;
     left: 0;
     right: 0;
-    display: -webkit-flex;
     display: flex;
     background-color: #fff;
     text-align: center;
     border-top: 1px solid #d5d5d5;
     height: @NAV_BAR_HEIGHT;
     box-sizing: content-box;
+    z-index: 2;
     .nav-item {
         display: inline-block;
         text-align: center;
         font-size: 18/@REM;
         color: #333333;
-        -webkit-flex: 1;
         flex: 1;
         cursor: pointer;
         &:hover {
@@ -25,16 +24,16 @@
                 color: #fb5835;
             }
             .icon-main {
-                background-image: url('../../../assets/images/icon/main-h.png');
+                background-image: url('./icons/main-h.png');
             }
             .icon-find {
-                background-image: url('../../../assets/images/icon/find-h.png');
+                background-image: url('./icons/find-h.png');
             }
             .icon-courses {
-                background-image: url('../../../assets/images/icon/courses-h.png');
+                background-image: url('./icons/courses-h.png');
             }
             .icon-my {
-                background-image: url('../../../assets/images/icon/my-h.png');
+                background-image: url('./icons/my-h.png');
             }
         }
     }
@@ -48,15 +47,15 @@
         background-repeat: no-repeat;
     }
     .icon-main {
-        background-image: url('../../../assets/images/icon/main.png');
+        background-image: url('./icons/main.png');
     }
     .icon-find {
-        background-image: url('../../../assets/images/icon/find.png');
+        background-image: url('./icons/find.png');
     }
     .icon-courses {
-        background-image: url('../../../assets/images/icon/courses.png');
+        background-image: url('./icons/courses.png');
     }
     .icon-my {
-        background-image: url('../../../assets/images/icon/my.png');
+        background-image: url('./icons/my.png');
     }
 }

@@ -34,9 +34,10 @@ class IntroPart extends React.Component<IntroPartPropsBasic, any> {
                 <h2 className="main-title">
                     <strong>机构简介</strong>INSTITUTIONAL PROFILE
                 </h2>
-                <div className="intro-text">
-                    {this.props.intro}
-                </div>
+                <div
+                    className="intro-text"
+                    dangerouslySetInnerHTML={{ __html: this.props.intro }}
+                />
             </section>
         );
     }
@@ -107,7 +108,7 @@ class TeachingEnvironment extends React.Component<
                             this.props.photos.map((photo, index) => {
                                 return (
                                     <li key={index}>
-                                        <img src={photo.src} alt={photo.alt} />
+                                        <img src={photo.src} alt={photo.name} />
                                     </li>
                                 );
                             })}
