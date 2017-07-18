@@ -2,7 +2,7 @@
 
 ## 概述
 
-该项目是为了解决之前的[qmjy-mobile](http://121.41.5.131:3000/x-bird/qmjy-mobile '全民教育移动端')项目的SEO问题
+该项目是为了解决之前的[qmjy-mobile](https://github.com/xuyongtao/react-typescript-webpack-demo)项目的SEO问题
 
 该架构的想法来源于以下两个项目
 * [react-stack-playground](https://github.com/smashercosmo/react-stack-playground)
