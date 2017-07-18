@@ -127,13 +127,13 @@
         padding-top: 30/@REM;
         font-size: 24/@REM;
         text-align: center;
-        ul {
-            display: flex;
-        }
         li {
-            flex: 1;
+            display: inline-block;
+            width: 50%;
             position: relative;
             padding-top: 160/@REM;
+            margin: 25/@REM 0;
+            vertical-align: top;
             &:before {
                 position: absolute;
                 top: 20/@REM;
@@ -148,14 +148,53 @@
                 background-size: 50%;
                 border-radius: 50%;
             }
-            &:first-child {
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(4) {
+                &:after {
+                    position: absolute;
+                    width: 30/@REM;
+                    height: 30/@REM;
+                    content: "";
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-image: url('./icon-arrow.png');
+                    background-size: contain;
+                }
+            }
+
+            &:nth-child(1) {
+                &:before {
+                    background-image: url('./icon-child.png');
+                }
+                &:after {
+                    top: 35%;
+                    right: -5%;
+                }
+            }
+            &:nth-child(2) {
                 &:before {
                     background-image: url('./icon-download.png');
                 }
+                &:after {
+                    bottom: -25%;
+                    left: 45%;
+                    transform: rotate(90deg);
+                }
             }
-            &:last-child {
+            &:nth-child(3) {
                 &:before {
                     background-image: url('./icon-phone.png');
+                }
+            }
+            &:nth-child(4) {
+                &:before {
+                    background-image: url('./icon-calendar.png');
+                }
+                &:after {
+                    top: 30%;
+                    left: -5%;
+                    transform: rotate(180deg);
                 }
             }
         }

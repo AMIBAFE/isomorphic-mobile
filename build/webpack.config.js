@@ -4,11 +4,6 @@ const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const Webpack_isomorphic_tools_plugin = require("webpack-isomorphic-tools/plugin");
-
-const webpack_isomorphic_tools_plugin = new Webpack_isomorphic_tools_plugin(
-    require("./webpack-isomorphic-tools-configuration")
-).development();
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: path.join(__dirname, "../client/index.html"),
@@ -16,7 +11,10 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     inject: true,
     chunks: ["manifest", "vendor", "app"]
 });
-
+const Webpack_isomorphic_tools_plugin = require("webpack-isomorphic-tools/plugin");
+const webpack_isomorphic_tools_plugin = new Webpack_isomorphic_tools_plugin(
+    require("./webpack-isomorphic-tools-configuration")
+).development();
 const NODE_MODULES_PATH = path.resolve(__dirname, "../node_modules");
 const BUILD_PATH = path.resolve(__dirname, "../build");
 
@@ -33,9 +31,7 @@ module.exports = {
         app: ["./client/index.tsx"]
     },
     output: {
-        path: path.join(__dirname, "../assets/dist"),
-        filename: "[name].[chunkhash:8].js",
-        chunkFilename: "[name].[chunkhash:8].chunk.js"
+        path: path.join(__dirname, "../assets/dist")
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js"],
@@ -92,12 +88,6 @@ module.exports = {
     plugins: [
         HtmlWebpackPluginConfig,
         webpack_isomorphic_tools_plugin,
-        new ExtractTextPlugin("[name].[chunkhash:8].css"),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ["vendor", "manifest"],
-            filename: "[name].[chunkhash:8].js",
-            minChunks: Infinity
-        }),
         new ForkTsCheckerWebpackPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.BannerPlugin("This file is created by Yota")

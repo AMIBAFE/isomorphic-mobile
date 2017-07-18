@@ -6,6 +6,7 @@ import * as path from "path";
 import * as webpack from "webpack";
 import * as merge from "webpack-merge";
 import * as webpackConfig from "./webpack.config";
+import * as ExtractTextPlugin from "extract-text-webpack-plugin";
 import env from "../server/env";
 
 const port = env.server.port;
@@ -15,7 +16,9 @@ spinner.start();
 
 const prodWebpackConfig = merge(webpackConfig, {
     output: {
-        publicPath: "/dist/"
+        publicPath: "/dist/",
+        filename: "[name].[chunkhash:8].js",
+        chunkFilename: "[name].[chunkhash:8].chunk.js"
     },
     resolve: {
         alias: {
@@ -40,7 +43,13 @@ const prodWebpackConfig = merge(webpackConfig, {
                 drop_console: true
             }
         }),
-        new webpack.HashedModuleIdsPlugin()
+        new webpack.HashedModuleIdsPlugin(),
+        new ExtractTextPlugin("[name].[chunkhash:8].css"),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ["vendor", "manifest"],
+            filename: "[name].[chunkhash:8].js",
+            minChunks: Infinity
+        })
     ]
 });
 

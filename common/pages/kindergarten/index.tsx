@@ -141,14 +141,18 @@ class Kindergarten extends React.Component<
                     </h2>
                     <ul className="ways">
                         <li>
+                            <p>18个月以上适读</p>
+                        </li>
+                        <li>
                             <p>下载并填写表格</p>
-                            <p>带表格到校报名</p>
                         </li>
                         <li>
                             <p>
-                                咨询人：{address.contact}
-                                <br />tel：{address.tels && address.tels[0]}
+                                找{address.contact}老师咨询（{address.tels && address.tels[0]}）
                             </p>
+                        </li>
+                        <li>
+                            <p>于9月1日前带户口本、 家长身份证到学校报名</p>
                         </li>
                     </ul>
                     <div className="document">

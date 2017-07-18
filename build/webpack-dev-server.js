@@ -4,6 +4,7 @@ import * as webpack from "webpack";
 import * as merge from "webpack-merge";
 import * as WebpackDevServer from "webpack-dev-server";
 import * as FriendlyErrorsPlugin from "friendly-errors-webpack-plugin";
+import * as ExtractTextPlugin from "extract-text-webpack-plugin";
 import * as bodyParser from "body-parser";
 import * as webpackConfig from "./webpack.config";
 import env from "../server/env";
@@ -17,13 +18,21 @@ const devWebpackConfig = merge(webpackConfig, {
         app: [`webpack-dev-server/client?${uri}`]
     },
     output: {
-        publicPath: uri
+        publicPath: uri,
+        filename: "[name].[hash:8].js",
+        chunkFilename: "[name].[hash:8].chunk.js"
     },
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
                 NODE_ENV: JSON.stringify("development")
             }
+        }),
+        new ExtractTextPlugin("[name].[hash:8].css"),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ["vendor", "manifest"],
+            filename: "[name].[hash:8].js",
+            minChunks: Infinity
         }),
         new webpack.NamedModulesPlugin(),
         new FriendlyErrorsPlugin()
