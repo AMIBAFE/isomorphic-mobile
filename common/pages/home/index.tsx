@@ -373,9 +373,7 @@ const fetchData = ({
 }: {
     dispatch: Dispatch<any>;
     getState: () => any;
-}) => {
-    dispatch(fetchHomePageData());
-};
+}) => dispatch(fetchHomePageData());
 
 function mapStateToProps(state: any) {
     const recommendRoles = state.recommendRoles;
