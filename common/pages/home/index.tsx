@@ -5,13 +5,15 @@ import { render } from "react-dom";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { string, array, func } from "prop-types";
+import { string, array, func, number } from "prop-types";
 import * as classNames from "classnames";
 
 import { RecommendRoleBasic, HotRoleBasic } from "../../interfaces/common";
 import { CourseBasic } from "../../interfaces/course";
 
 import {
+    switchHomeRoleTab,
+    switchHomeCourseTab,
     fetchRecommendRoles,
     fetchRecommendCourses,
     fetchHotRoles,
@@ -200,25 +202,14 @@ class HotCourses extends React.Component<{ courses: CourseBasic[] }, any> {
 };
 
 interface RolesPropsBasic {
+    onSwitch(tabIndex: number): any;
+    tabIndex: number;
     recommends: RecommendRoleBasic[];
     hots: HotRoleBasic[];
 }
-interface RolesStateBasic {
-    tabIndex: number;
-}
-class RolesSection extends React.Component<RolesPropsBasic, RolesStateBasic> {
-    constructor() {
-        super();
-
-        this.state = {
-            tabIndex: 0
-        };
-    }
-
+class RolesSection extends React.Component<RolesPropsBasic, any> {
     handleSwitchTab(tabIndex: number) {
-        this.setState({
-            tabIndex
-        });
+        this.props.onSwitch(tabIndex);
     }
 
     render() {
@@ -227,7 +218,7 @@ class RolesSection extends React.Component<RolesPropsBasic, RolesStateBasic> {
                 <ul className="tabs">
                     <li
                         className={classNames({
-                            active: this.state.tabIndex === 0
+                            active: this.props.tabIndex === 0
                         })}
                         onClick={this.handleSwitchTab.bind(this, 0)}
                     >
@@ -235,14 +226,14 @@ class RolesSection extends React.Component<RolesPropsBasic, RolesStateBasic> {
                     </li>
                     <li
                         className={classNames({
-                            active: this.state.tabIndex === 1
+                            active: this.props.tabIndex === 1
                         })}
                         onClick={this.handleSwitchTab.bind(this, 1)}
                     >
                         热门老师
                     </li>
                 </ul>
-                {this.state.tabIndex == 0
+                {this.props.tabIndex == 0
                     ? <RecommendRoles recommends={this.props.recommends} />
                     : <HotRoles hots={this.props.hots} />}
             </div>
@@ -251,38 +242,28 @@ class RolesSection extends React.Component<RolesPropsBasic, RolesStateBasic> {
 }
 (RolesSection as any).propTypes = {
     recommendRoles: array,
-    hotRoles: array
+    hotRoles: array,
+    tabIndex: number.isRequired,
+    onSwitch: func.isRequired
 };
 
 interface CoursesPropsBasic {
+    onSwitch(tabIndex: number): any;
+    tabIndex: number;
     recommends: CourseBasic[];
     hots: CourseBasic[];
 }
-class CoursesSection extends React.Component<
-    CoursesPropsBasic,
-    { tabIndex: number }
-> {
-    constructor() {
-        super();
-
-        this.state = {
-            tabIndex: 0
-        };
-    }
-
+class CoursesSection extends React.Component<CoursesPropsBasic, any> {
     handleSwitchTab(tabIndex: number) {
-        this.setState({
-            tabIndex
-        });
+        this.props.onSwitch(tabIndex);
     }
-
     render() {
         return (
             <div id="adv-courses">
                 <ul className="tabs">
                     <li
                         className={classNames({
-                            active: this.state.tabIndex === 0
+                            active: this.props.tabIndex === 0
                         })}
                         onClick={this.handleSwitchTab.bind(this, 0)}
                     >
@@ -290,14 +271,14 @@ class CoursesSection extends React.Component<
                     </li>
                     <li
                         className={classNames({
-                            active: this.state.tabIndex === 1
+                            active: this.props.tabIndex === 1
                         })}
                         onClick={this.handleSwitchTab.bind(this, 1)}
                     >
                         热门课程
                     </li>
                 </ul>
-                {this.state.tabIndex == 0
+                {this.props.tabIndex == 0
                     ? <RecommendCourses courses={this.props.recommends} />
                     : <HotCourses courses={this.props.hots} />}
             </div>
@@ -306,7 +287,9 @@ class CoursesSection extends React.Component<
 }
 (CoursesSection as any).propTypes = {
     recommends: array,
-    hots: array
+    hots: array,
+    tabIndex: number.isRequired,
+    onSwitch: func.isRequired
 };
 
 interface PropsBasic {
@@ -315,6 +298,8 @@ interface PropsBasic {
     recommendCourses: CourseBasic[];
     hotRoles: HotRoleBasic[];
     hotCourses: CourseBasic[];
+    roleTabIndex: number;
+    courseTabIndex: number;
 }
 class Home extends React.Component<PropsBasic, any> {
     constructor(props: any, context: any) {
@@ -331,13 +316,19 @@ class Home extends React.Component<PropsBasic, any> {
             (!this.props.hotCourses.length &&
                 this.props.dispatch(fetchHotCourses()));
     }
-    onInput(keyword: string) {
+    handleInput(keyword: string) {
         this.setState({ keyword });
+    }
+    handleSwitchRoleTab(tabIndex: number) {
+        this.props.dispatch(switchHomeRoleTab(tabIndex));
+    }
+    handleSwitchCourseTab(tabIndex: number) {
+        this.props.dispatch(switchHomeCourseTab(tabIndex));
     }
     render() {
         let searchBarProps = {
             keyword: this.state.keyword,
-            onInput: this.onInput.bind(this)
+            onInput: this.handleInput.bind(this)
         };
 
         return (
@@ -349,10 +340,14 @@ class Home extends React.Component<PropsBasic, any> {
                 <Banner />
                 <CatEntrances catEntrances={catEntrances} />
                 <RolesSection
+                    tabIndex={this.props.roleTabIndex}
+                    onSwitch={this.handleSwitchRoleTab.bind(this)}
                     recommends={this.props.recommendRoles}
                     hots={this.props.hotRoles}
                 />
                 <CoursesSection
+                    tabIndex={this.props.courseTabIndex}
+                    onSwitch={this.handleSwitchCourseTab.bind(this)}
                     recommends={this.props.recommendCourses}
                     hots={this.props.hotCourses}
                 />
@@ -367,7 +362,9 @@ class Home extends React.Component<PropsBasic, any> {
     recommendRoles: array,
     recommendCourses: array,
     hotRoles: array,
-    hotCourses: array
+    hotCourses: array,
+    roleTabIndex: number.isRequired,
+    courseTabIndex: number.isRequired
 };
 
 const fetchData = ({
@@ -385,12 +382,16 @@ function mapStateToProps(state: any) {
     const hotRoles = state.hotRoles;
     const recommendCourses = state.recommendCourses;
     const hotCourses = state.hotCourses;
+    const roleTabIndex = state.page.homeRoleTabIndex;
+    const courseTabIndex = state.page.homeCourseTabIndex;
 
     return {
         recommendRoles,
         hotRoles,
         recommendCourses,
-        hotCourses
+        hotCourses,
+        roleTabIndex,
+        courseTabIndex
     };
 }
 

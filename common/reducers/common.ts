@@ -8,6 +8,8 @@ import {
 import { CourseBasic } from "../interfaces/course";
 import {
     UPDATE_SEO,
+    SWITCH_HOME_ROLE_TAB,
+    SWITCH_HOME_COURSE_TAB,
     UPDATE_RECOMMEND_ROLES,
     UPDATE_RECOMMEND_COURSES,
     UPDATE_HOT_ROLES,
@@ -22,6 +24,20 @@ const seoInitState = {
     description: "全民教育",
     title: "全民教育网移动端官网"
 };
+
+export function pageReducer(
+    state = { homeRoleTabIndex: 0, homeCourseTabIndex: 0 },
+    action: any
+) {
+    switch (action.type) {
+        case SWITCH_HOME_ROLE_TAB:
+            return { ...state, homeRoleTabIndex: action.tabIndex };
+        case SWITCH_HOME_COURSE_TAB:
+            return { ...state, homeCourseTabIndex: action.tabIndex };
+        default:
+            return state;
+    }
+}
 
 export function seoReducer(state = seoInitState, action: any) {
     switch (action.type) {

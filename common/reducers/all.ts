@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
 import {
+    pageReducer,
     seoReducer,
     userReducer,
     recommendRolesReducer,
@@ -24,6 +25,7 @@ import { findListsReducer } from "./find";
 import { getSuggestionReducer } from "./search";
 
 const rootReducer = combineReducers({
+    page: pageReducer,
     seo: seoReducer,
     user: userReducer,
 

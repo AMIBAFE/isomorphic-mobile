@@ -12,6 +12,8 @@ export const UPDATE_RECOMMEND_ROLES = "UPDATE_RECOMMEND_ROLES";
 export const UPDATE_RECOMMEND_COURSES = "UPDATE_RECOMMEND_COURSES";
 export const UPDATE_HOT_ROLES = "UPDATE_HOT_ROLES";
 export const UPDATE_HOT_COURSES = "UPDATE_HOT_COURSES";
+export const SWITCH_HOME_ROLE_TAB = "SWITCH_HOME_ROLE_TAB";
+export const SWITCH_HOME_COURSE_TAB = "SWITCH_HOME_COURSE_TAB";
 
 import {
     RecommendRoleBasic,
@@ -182,4 +184,22 @@ export function postLooking({
         location,
         age
     });
+}
+
+export function switchHomeRoleTab(tabIndex: number) {
+    return (dispatch: Dispatch<any>) => {
+        dispatch({
+            type: SWITCH_HOME_ROLE_TAB,
+            tabIndex
+        });
+    };
+}
+
+export function switchHomeCourseTab(tabIndex: number) {
+    return (dispatch: Dispatch<any>) => {
+        dispatch({
+            type: SWITCH_HOME_COURSE_TAB,
+            tabIndex
+        });
+    };
 }
