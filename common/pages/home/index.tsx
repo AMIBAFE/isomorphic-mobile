@@ -242,7 +242,7 @@ class RolesSection extends React.Component<RolesPropsBasic, RolesStateBasic> {
                         热门老师
                     </li>
                 </ul>
-                {this.state.tabIndex === 0
+                {this.state.tabIndex == 0
                     ? <RecommendRoles recommends={this.props.recommends} />
                     : <HotRoles hots={this.props.hots} />}
             </div>
@@ -297,7 +297,7 @@ class CoursesSection extends React.Component<
                         热门课程
                     </li>
                 </ul>
-                {this.state.tabIndex === 0
+                {this.state.tabIndex == 0
                     ? <RecommendCourses courses={this.props.recommends} />
                     : <HotCourses courses={this.props.hots} />}
             </div>
